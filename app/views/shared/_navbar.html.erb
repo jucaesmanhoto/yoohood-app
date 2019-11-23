@@ -1,0 +1,58 @@
+<div class="navbar navbar-expand-sm navbar-dark bg-dark navbar-lewagon">
+  <a class="navbar-brand mx-4" href="/">
+    <%= image_tag "logo_yoohood_alta.png", alt: 'yoohood logotype' %>
+</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">my events</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">all events</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">favorites</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">new event</a>
+      </li>
+      <li class="nav-item dropdown">
+        <img class="avatar dropdown-toggle mx-4" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to root_path, class: 'dropdown-item' do %>
+            <div class="d-flex justify-content-between align-items-center">
+              invitations
+              <i class="fas fa-ticket-alt"></i>
+            </div>
+          <% end %>
+          <div class="dropdown-divider"></div>
+          <%= link_to root_path, class: 'dropdown-item' do %>
+            <div class="d-flex justify-content-between align-items-center">
+              settings
+              <i class="fas fa-cog"></i>
+            </div>
+          <% end %>
+          <div class="dropdown-divider"></div>
+          <%= link_to root_path, class: 'dropdown-item' do %>
+            <div class="d-flex justify-content-between align-items-center">
+              rewards
+              <i class="fas fa-trophy"></i>
+            </div>
+          <% end %>
+          <div class="dropdown-divider"></div>
+          <%= link_to root_path, class: 'dropdown-item' do %>
+            <div class="d-flex justify-content-between align-items-center">
+              log out
+              <i class="fas fa-sign-out-alt"></i>
+            </div>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
