@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-center devise-forms my-5">
-  <div class="card col-12 col-md-6 col-lg-4">
+  <div class="card col-12 col-md-6 col-lg-5">
     <div class="card-title text-center pt-5">
       <h2 style="color: black;">Edit <%= resource_name.to_s.humanize %></h2>
     </div>
@@ -14,13 +14,14 @@
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
 
-          <%= f.input :password,
+          <%#= f.input :password,
                       hint: "leave it blank if you don't want to change it",
                       required: false,
                       input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
+          <%#= f.input :password_confirmation,
                       required: false,
                       input_html: { autocomplete: "new-password" } %>
+          <%= f.input :photo %>
           <%= f.input :current_password,
                       hint: "we need your current password to confirm your changes",
                       required: true,

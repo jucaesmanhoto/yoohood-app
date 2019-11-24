@@ -11,5 +11,6 @@ class PagesController < ApplicationController
 
   def profile
     @page_name = "#{current_user.name.split(' ').first}'s profile"
+
   end
 end
