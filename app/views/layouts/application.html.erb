@@ -14,6 +14,9 @@
     <%= yield %>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
+    <%= render 'shared/flashes' %>
+    <!-- <p class="notice"><%#= notice %></p> -->
+    <!-- <p class="alert"><%#= alert %></p> -->
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>

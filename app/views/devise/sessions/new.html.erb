@@ -1,0 +1,28 @@
+<div class="container devise-forms d-flex justify-content-center my-5">
+  <div class="card col-12 col-md-6 col-lg-4 mb-5">
+    <div class="card-title text-center mt-4">
+      <h2>Log in</h2>
+    </div>
+    <div class="card-body mt-n4">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email,
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" } %>
+          <%= f.input :password,
+                      required: false,
+                      input_html: { autocomplete: "current-password" } %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+        <div class="mt-4">
+        <%= render "devise/shared/links" %>
+          <div class="form-actions mt-2">
+            <%= f.button :submit, "Log in", class: 'btn btn-primary w-100' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

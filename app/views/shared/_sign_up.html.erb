@@ -1,0 +1,30 @@
+<div class="container devise-forms">
+  <div class="card">
+    <div class="card-title text-center mt-4">
+      <h2>Sign up</h2>
+    </div>
+    <div class="card-body mt-n4">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
+          <%= f.input :password,
+                      required: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      required: true,
+                      input_html: { autocomplete: "new-password" } %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up", class: 'btn btn-primary w-100' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
