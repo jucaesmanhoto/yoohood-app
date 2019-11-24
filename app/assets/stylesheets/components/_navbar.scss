@@ -16,12 +16,17 @@ a {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand
-{
+.navbar-lewagon .navbar-brand {
   border-bottom: none;
   img {
     height: 35px;
     width: auto;
     margin: 8px 0;
+  }
+}
+
+.dropdown-item {
+  &:hover {
+    border-bottom: 0px solid transparent;
   }
 }
