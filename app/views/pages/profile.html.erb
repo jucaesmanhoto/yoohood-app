@@ -1,7 +1,10 @@
 <% content_for :meta_title, "#{DEFAULT_META["meta_product_name"]} - #{current_user.name.split(' ').first}'s profile" %>
-<div class="container">
-  <div class="row">
-    <h1>Profile</h1>
-    <%= link_to "Edit", edit_user_registration_path %>
+<div class="container p-5 my-5" id="profile-container">
+  <div class="d-flex">
+    <%= image_tag(current_user.photo.url, width: 150, height: 150) %>
+    <div class="flex-grow-1 d-flex flex-column align-items-center">
+      <h1><%= current_user.name%></h1>
+      <%= link_to "Edit Profile", edit_user_registration_path %>
+    </div>
   </div>
 </div>
