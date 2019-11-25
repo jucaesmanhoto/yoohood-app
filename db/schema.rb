@@ -40,6 +40,24 @@ ActiveRecord::Schema.define(version: 2019_11_25_231444) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "guests", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.bigint "guest_id"
+    t.bigint "event_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_invitations_on_event_id"
+    t.index ["guest_id"], name: "index_invitations_on_guest_id"
+    t.index ["user_id"], name: "index_invitations_on_user_id"
+  end
+
   create_table "invites", force: :cascade do |t|
     t.string "status"
     t.string "guest_name"
@@ -94,6 +112,9 @@ ActiveRecord::Schema.define(version: 2019_11_25_231444) do
   add_foreign_key "events", "benefits"
   add_foreign_key "events", "places"
   add_foreign_key "events", "users"
+  add_foreign_key "invitations", "events"
+  add_foreign_key "invitations", "guests"
+  add_foreign_key "invitations", "users"
   add_foreign_key "invites", "events"
   add_foreign_key "invites", "users"
   add_foreign_key "trades", "benefits"
