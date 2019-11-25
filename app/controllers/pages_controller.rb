@@ -10,6 +10,6 @@ class PagesController < ApplicationController
   end
 
   def profile
-    # @page_name = "#{current_user.name.split(' ').first}'s profile"
+    # @meta_title = "#{DEFAULT_META["meta_product_name"]} - #{current_user.name.split(' ').first}'s profile"
   end
 end
