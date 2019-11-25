@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :place
-  belongs_to :benefit
+  has_many :benefit
   belongs_to :user
+  has_many :invites
 end
