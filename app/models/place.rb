@@ -1,4 +1,5 @@
 class Place < ApplicationRecord
+  has_many :events
   mount_uploader :front_picture, PhotoUploader
   geocoded_by :address
 
