@@ -1,6 +1,13 @@
 class PlacesController < ApplicationController
   def index
-    @places = Place.all
+    @places = Place.geocoded
+
+    @markers = @places.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude
+      }
+    end
   end
 
   def new
@@ -10,7 +17,7 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     if @place.save
-      redirect_toplace_path(@place)
+      redirect_to place_path(@place)
     else
       render :new
     end
