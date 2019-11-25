@@ -1,0 +1,24 @@
+<div class="container">
+  <%= simple_form_for @place do |f| %>
+    <div class="form-columns d-flex flex-row">
+      <div class="left-column col-12 col-md-6">
+        <div class="frame"><%= image_tag 'logo_yoohood_alta' %></div>
+        <%= f.input :front_picture %>
+        <%= f.hidden_field :front_picture_cache %>
+      </div>
+      <div class="right-column col-12 col-md-6">
+        <%= f.input :name %>
+        <%= f.input :capacity %>
+        <%= f.input :zipcode %>
+        <%= f.input :city %>
+        <%= f.input :address %>
+        <%= f.input :state %>
+        <%#= f.input :country %>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <%= f.button :submit, class: "btn btn-primary text-center" %>
+    </div>
+  <% end %>
+</div>
+

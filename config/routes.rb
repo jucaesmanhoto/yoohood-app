@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/members', to: 'pages#members'
   get '/profile', to: 'pages#profile'
+
+  resources :places
 end

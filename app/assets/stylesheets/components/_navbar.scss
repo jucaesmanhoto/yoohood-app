@@ -3,6 +3,22 @@
   position: sticky;
   top: 0;
   width: 100vw;
+
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand {
+  img {
+    height: 35px;
+    width: auto;
+    margin: 8px 0;
+  }
+}
+
+.nav-item {
   a {
     border-bottom: 3px solid transparent;
     &:hover {
@@ -11,21 +27,8 @@
   }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand {
-  border-bottom: none;
-  img {
-    height: 35px;
-    width: auto;
-    margin: 8px 0;
-  }
-}
-
 #navbarDropdown {
-  // box-shadow: -1px 1px 4px rgba(200, 200, 200, 0.5)
+  // box-shadow: -1px 1px 4px rgba(200, 200, 200, 0.5);
   border: solid 2px rgba(200, 200, 200, .5);
   &:hover {
     border: solid 2px rgba(200, 200, 200, 1);
@@ -35,7 +38,7 @@
 
 .dropdown-item {
   &:hover {
-    border-bottom: 0px solid transparent;
+    border-bottom: 3px solid transparent !important;
   }
 }
 
