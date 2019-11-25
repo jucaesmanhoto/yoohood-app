@@ -1,20 +1,26 @@
 #photo-preview {
-  border: 3px solid white;
-  width: 350px;
-  // height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(250, 250, 250, 0.5);
-
   img {
-    width: 150px;
-    height: auto;
-    opacity: 0.5;
+    width: 350px;
+    height: 150px;
     object-fit: cover;
   }
 }
 
+.frame {
+  border: 3px solid white;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(250, 250, 250, 0.5);
+  overflow: hidden;
+  object-fit: cover;
+  img {
+    // width: 150px;
+    height: auto;
+    opacity: 0.5;
+  }
+}
 
 .upload-photo {
   border: 1px solid #d3d3d3;
@@ -25,3 +31,4 @@
   background: white;
   border-radius: 2px;
 }
+

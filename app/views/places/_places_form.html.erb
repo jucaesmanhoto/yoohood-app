@@ -2,8 +2,9 @@
   <%= simple_form_for @place do |f| %>
     <div class="form-columns d-flex flex-row">
       <div class="left-column col-12 col-md-6">
-        <!-- <div class="frame"><%#= image_tag 'logo_yoohood_alta' %></div> -->
-        <%= image_tag "logo_yoohood_alta", id: "photo-preview" %>
+        <div class="frame">
+          <%= image_tag "logo_yoohood_alta", id: "photo-preview" %>
+        </div>
         <%#= f.input :front_picture, input_html: { style: 'display: none;'} %>
         <%= f.input :front_picture, input_html: { class: 'd-none photo-input' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
         <%= f.hidden_field :front_picture_cache %>
