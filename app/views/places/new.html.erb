@@ -1,0 +1,9 @@
+<% content_for :meta_title, "#{DEFAULT_META["meta_product_name"]} - Add a new place" %>
+<div class="container py-4 my-5 border" id="places-container">
+  <h1 class="text-center mb-5">New Place</h1>
+
+      <%# front_img = @place.front_picture.url ? @place.front_picture.url : 'cover.jpg'%>
+      <%#= image_tag(front_img, width: 400, height: 300) %>
+      <%= render 'places_form' %>
+
+</div>

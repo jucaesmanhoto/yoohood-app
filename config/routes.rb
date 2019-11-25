@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get '/members', to: 'pages#members'
   get '/profile', to: 'pages#profile'
 
-  resources:
+  resources :places
 end

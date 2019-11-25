@@ -1,0 +1,14 @@
+.frame {
+  border: 3px solid white;
+  width: 350px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(250, 250, 250, 0.5);
+  img {
+    width: 200px;
+    height: auto;
+    opacity: 0.5;
+  }
+}
