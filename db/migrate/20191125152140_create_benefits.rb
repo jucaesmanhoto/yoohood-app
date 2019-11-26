@@ -4,6 +4,7 @@ class CreateBenefits < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :quantity
       t.integer :value_in_points
+      t.references :event, foreign_key: true
 
       t.timestamps
     end
