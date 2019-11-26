@@ -7,8 +7,6 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :cover_url
       t.string :title
       t.string :description
-      t.references :place, foreign_key: true
-      t.references :benefit, foreign_key: true
       t.references :user, foreign_key: true
 
       t.timestamps
