@@ -16,9 +16,12 @@
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
         <div class="mt-4">
-        <%= render "devise/shared/links" %>
-          <div class="form-actions mt-2">
+          <div class="form-actions">
             <%= f.button :submit, "Log in", class: 'btn btn-primary w-100' %>
+          </div>
+          <div class="links d-flex flex-row justify-content-between mt-2">
+            <%= render "devise/shared/links" %>
+            <%= link_to "Sing up", new_user_registration_path %>
           </div>
         </div>
       <% end %>
