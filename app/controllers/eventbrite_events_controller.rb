@@ -1,0 +1,2 @@
+class EventbriteEventsController < ApplicationController
+end
