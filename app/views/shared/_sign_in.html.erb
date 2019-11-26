@@ -16,10 +16,10 @@
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
         <div class="mt-4">
+        <div class="form-actions mb-2">
+          <%= f.button :submit, "Log in", class: 'btn btn-primary w-100' %>
+        </div>
         <%= render "devise/shared/links" %>
-          <div class="form-actions mt-2">
-            <%= f.button :submit, "Log in", class: 'btn btn-primary w-100' %>
-          </div>
         </div>
       <% end %>
     </div>
