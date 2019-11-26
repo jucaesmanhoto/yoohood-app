@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get '/members', to: 'pages#members'
   get '/profile', to: 'pages#profile'
 
-  get 'eb/events', to: 'eventbrite_events#index'
+  get 'fb/events', to: 'facebook_events#index'
+  post 'fb/events', to: 'facebook_events#create'
+
   resources :places
   resources :events
 end

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EventbriteEventsControllerTest < ActionDispatch::IntegrationTest
+class FacebookEventsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
