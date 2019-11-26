@@ -3,7 +3,9 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 import flash from "../components/flashes"
 import { previewImageOnFileSelect } from '../components/picture_preview';
 import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete'
 
 
 initMapbox();
 previewImageOnFileSelect();
+initAutocomplete();
