@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'json'
+
 class EventsController < ApplicationController
   def index
 
@@ -20,6 +23,6 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    
+
   end
 end
