@@ -25,8 +25,10 @@ puts 'Creating fake Events...'
 100.times do
   Event.create!(title: Faker::Name.name,
                 description: "Solomun is back! Don't miss his next set in Sao Paulo.",
-                start_time: Faker::Time.forward(days: 23, period: :evening),
-                user: User.all.sample,
+                # start_time: Faker::Time.forward(days: 23, period: :evening),
+                start_time: Faker::Time.backward(days: 23, period: :evening),
+                end_time: Faker::Time.forward(days: 23, period: :evening),
+                user: User.all.sample
                 )
 end
 
@@ -37,4 +39,3 @@ puts 'Creating fake places...'
                 event: Event.find(Event.first.id..Event.last.id)
                 )
 end
-

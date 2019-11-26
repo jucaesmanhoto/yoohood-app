@@ -1,6 +1,14 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    events_by_city = params[:city].present? ? Place.near(params[:city], 10).map(&:event) : []
+    # raise
+    # @events = @events.search_by_city_and_zip_code(params[:city]) if params[:city].present?
+    events_by_title = params[:title_description].present? ? Event.search_by_event_and_artist(params[:title_description]) : []
+
+    date = Date.parse(params[:date])
+    events_by_date = Event.where('start_time < ? AND end_time > ?', date.beginning_of_day, date.end_of_day)
+    @events = (events_by_city + events_by_title).uniq
+
   end
 
   def show

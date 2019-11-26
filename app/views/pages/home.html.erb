@@ -7,7 +7,7 @@
       <div class="banner-content">
         <h1 class="text-center pb-1 mb-2 text-white header_one">Find the <strong class="text-primary">perfect</strong> event for <strong class="text-primary">you</strong></h1>
 
-        <form class="form-row align-items-center justify-content-center">
+        <form class="form-row align-items-center justify-content-center" action="/events">
           <div class="col-sm-3 my-1">
             <label class="sr-only" for="inlineFormInputGroupEvent">Event</label>
             <input type="text" class="form-control" type="text" name="title_description" placeholder="event or artist">
@@ -15,7 +15,7 @@
 
           <div class="col-sm-3 my-1 p-1">
             <label class="sr-only" for="inlineFormInputDate">date</label>
-            <input type="date" class="form-control" name="date" id="search_date">
+            <input type="date" class="datepicker form-control" name="date" id="search_date" placeholder='date'>
           </div>
 
           <div class="col-sm-3 my-1 p-1">
@@ -27,6 +27,13 @@
             <input type="submit" class="btn btn-primary btn-block" value="Search">
           </div>
         </form>
+
+        <% @events.each do |event| %>
+          <%= event.title %>
+          <%= event.description %>
+
+
+        <% end %>
 
       </div>
     </div>
