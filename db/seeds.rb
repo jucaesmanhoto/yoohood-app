@@ -30,5 +30,6 @@ puts 'Creating fake Events...'
                 description: "Solomun is back! Don't miss his next set in Sao Paulo.",
                 start_time: Faker::Time.forward(days: 23, period: :evening),
                 user: User.all.sample,
-                place: Place.all.sample)
+
+                )
 end
