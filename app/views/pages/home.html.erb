@@ -7,26 +7,26 @@
       <div class="banner-content">
         <h1 class="text-center pb-1 mb-2 text-white header_one">Find the <strong class="text-primary">perfect</strong> event for <strong class="text-primary">you</strong></h1>
 
-        <div class="form-row align-items-center justify-content-center">
+        <form class="form-row align-items-center justify-content-center" action="/events">
           <div class="col-sm-3 my-1">
             <label class="sr-only" for="inlineFormInputGroupEvent">Event</label>
-            <input type="text" class="form-control" type="text" name="search[title]" placeholder="event or artist">
+            <input type="text" class="form-control" type="text" name="title_description" placeholder="event or artist">
           </div>
 
           <div class="col-sm-3 my-1 p-1">
             <label class="sr-only" for="inlineFormInputDate">date</label>
-            <input type="date" class="form-control" name="search[date]" id="search_date">
+            <input type="date" class="datepicker form-control" name="date" id="search_date" placeholder='date'>
           </div>
 
           <div class="col-sm-3 my-1 p-1">
             <label class="sr-only" for="inlineFormInputGroupCity">City</label>
-            <input type="text" class="form-control" type="text" name="search[location]" placeholder="city, zipcode or venue">
+            <input id="city_input" type="text" class="form-control" type="text" name="city" placeholder="city, zipcode or venue">
           </div>
 
           <div class="col-sm-9 my-1 p-1">
-            <button type="submit" class="btn btn-primary btn-block">Search</button>
+            <input type="submit" class="btn btn-primary btn-block" value="Search">
           </div>
-        </div>
+        </form>
 
       </div>
     </div>
