@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_211823) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.boolean "featured"
+    t.boolean "featured", default: false
     t.string "title"
     t.string "description"
     t.bigint "user_id"
