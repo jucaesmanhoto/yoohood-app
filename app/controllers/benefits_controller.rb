@@ -11,7 +11,12 @@ class BenefitsController < ApplicationController
 
   def create
     @benefit = Benefit.new(benefit_params)
-    raise
+    @benefit.event = @event
+    if @benefit.save
+      redirect_to event_path(@event)
+    else
+      render :new
+    end
   end
 
   def edit
