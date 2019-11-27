@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @page_name = 'Find a perfect event'
+    @events = Event.all
   end
 
   def members

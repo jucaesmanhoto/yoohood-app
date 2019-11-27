@@ -11,6 +11,7 @@ class CreatePlaces < ActiveRecord::Migration[5.2]
       t.float :logitude
       t.integer :capacity
 
+      t.references :event, foreign_key: true
       t.timestamps
     end
   end
