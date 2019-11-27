@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_231444) do
+ActiveRecord::Schema.define(version: 2019_11_26_211823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,24 +19,23 @@ ActiveRecord::Schema.define(version: 2019_11_25_231444) do
     t.string "name"
     t.integer "quantity"
     t.integer "value_in_points"
+    t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_benefits_on_event_id"
   end
 
   create_table "events", force: :cascade do |t|
     t.boolean "featured"
     t.string "title"
     t.string "description"
-    t.bigint "place_id"
-    t.bigint "benefit_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "end_time"
     t.datetime "start_time"
     t.string "cover"
-    t.index ["benefit_id"], name: "index_events_on_benefit_id"
-    t.index ["place_id"], name: "index_events_on_place_id"
+    t.string "fb_event_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -61,10 +60,12 @@ ActiveRecord::Schema.define(version: 2019_11_25_231444) do
     t.string "zipcode"
     t.float "latitude"
     t.integer "capacity"
+    t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "front_picture"
     t.float "longitude"
+    t.index ["event_id"], name: "index_places_on_event_id"
   end
 
   create_table "trades", force: :cascade do |t|
@@ -91,11 +92,11 @@ ActiveRecord::Schema.define(version: 2019_11_25_231444) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "events", "benefits"
-  add_foreign_key "events", "places"
+  add_foreign_key "benefits", "events"
   add_foreign_key "events", "users"
   add_foreign_key "invites", "events"
   add_foreign_key "invites", "users"
+  add_foreign_key "places", "events"
   add_foreign_key "trades", "benefits"
   add_foreign_key "trades", "users"
 end
