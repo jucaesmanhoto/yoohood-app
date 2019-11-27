@@ -13,11 +13,4 @@ class ApplicationController < ActionController::Base
   def default_url_options
     { host: ENV["DOMAIN"] || "localhost:3000" }
   end
-
-  # def pull_fb_events(access_token)
-  #   url = "https://graph.facebook.com/v4.0/me?fields=events.limit(100){cover,description,end_time,event_times,name,place,start_time,ticket_uri,type,admins}&access_token=#{access_token}"
-  #   serialized = open(url).read
-  #   @events = JSON.parse(serialized)['events']['data']
-  # end
-
 end

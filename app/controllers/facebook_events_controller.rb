@@ -14,13 +14,14 @@ class FacebookEventsController < ApplicationController
   end
 
   def create
+    # raise
     @event = Event.new(
       title: params[:event][:name],
       description: params[:event][:description],
       user: current_user,
       end_time: params[:event][:end_time],
       start_time: params[:event][:start_time],
-      cover: params[:event][:cover][:src],
+      cover: params[:event][:cover][:source],
       fb_event_id: params[:event][:id]
     )
 
@@ -34,6 +35,7 @@ class FacebookEventsController < ApplicationController
       longitude: params[:event][:place][:location][:longitude],
       event: @event
     )
+    @place.save
+    @event.save
   end
-
 end
