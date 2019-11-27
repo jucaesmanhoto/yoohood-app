@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   get 'fb/events', to: 'facebook_events#index'
   post 'fb/events', to: 'facebook_events#create'
 
+  get 'dashboard', to: 'dashboards#new'
+  post 'dashboard', to: 'dashboards#create'
+
+  resources :dashboards
   resources :places
   resources :events
 end
