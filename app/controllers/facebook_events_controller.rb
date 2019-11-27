@@ -35,7 +35,17 @@ class FacebookEventsController < ApplicationController
       longitude: params[:event][:place][:location][:longitude],
       event: @event
     )
-    @place.save
-    @event.save
+
+    if @event.save && @place.save
+      respond_to do |format|
+        format.html { redirect_to fb_events_path }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { render 'fb_events/index' }
+        format.js
+      end
+    end
   end
 end
