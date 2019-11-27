@@ -19,10 +19,12 @@ class BenefitsController < ApplicationController
 
   def update
     @benefit.update(benefit_params)
-    redirect_to benefit_path(@benefit)
+    redirect_to benefits_path
   end
 
   def destroy
+    @benefit.destroy
+    redirect_to benefits_path
   end
 
   private
