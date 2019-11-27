@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :dashboards
   resources :places
-  resources :events
-  resources :invites, only: [:create]
+  resources :events do
+    resources :invites, only: [:create]
+  end
 end
