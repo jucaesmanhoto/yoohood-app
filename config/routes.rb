@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 
   resources :places
   resources :events
+  resources :invites, only: [:create]
 end

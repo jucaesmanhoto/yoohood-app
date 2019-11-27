@@ -1,0 +1,26 @@
+.card-event {
+  justify-content: center;
+}
+
+.card-info {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+
+.card-info > img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.map {
+  height: 200px;
+  margin-top: 50px;
+}
+
+.invite-box {
+  border-radius: 20px;
+}
