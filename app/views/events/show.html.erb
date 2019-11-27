@@ -4,14 +4,14 @@
     <div class="card-event col-md-10">
 
       <div class="card-info">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"/>
-          <%# placeholder_url = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80" %>
-          <%#= image_tag @event.photo.url.presence ? @event.photo.url : placeholder_url, class: "pic", alt: "event cover" %>
+        <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"/> -->
+          <% placeholder_url = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80" %>
+          <%= image_tag @event.cover.presence ? @event.cover : placeholder_url, class: "pic", alt: "event cover" %>
         <div class="card-body">
             <h2 class="p-2">
               <%= @event.title %>
             </h2>
-            <p>local: <%= @event.place.address %></p>
+            <p>local: <%= @event.places.first.address %></p>
             <p><%= @event.description %></p>
         </div>
           <button type="button" class="btn btn-block btn-primary p-3" data-toggle="modal" data-target="#inviteModal">Invite a friend</button>
