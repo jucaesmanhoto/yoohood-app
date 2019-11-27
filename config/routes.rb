@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 
   get 'fb/events', to: 'facebook_events#index'
   post 'fb/events', to: 'facebook_events#create'
+  post 'fb/pull', to: 'facebook_events#pull_fb_events'
+  get 'fb/token', to: 'facebook_events#new'
 
+  resources :dashboards
   resources :places
   resources :events
   resources :invites, only: [:create]
