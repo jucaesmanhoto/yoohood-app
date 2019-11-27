@@ -1,5 +1,5 @@
 meta_product_name: "Yoohood"
 meta_title: "Yoohood Intelligent Curators - Find a prefect event for you."
 meta_description: "Earn points inviting your friends to cool events, then change your pointg for incredible benefits."
-meta_image: "cover.jpg" # should exist in `app/assets/images/`
+meta_image: "cover.png" # should exist in `app/assets/images/`
 twitter_account: "@yoohoodco"   # required for Twitter Cards
