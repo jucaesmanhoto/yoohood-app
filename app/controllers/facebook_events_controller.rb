@@ -2,11 +2,15 @@ require 'json'
 require 'open-uri'
 
 class FacebookEventsController < ApplicationController
-  def index
-    access_token = "EAAGcDbKigf8BABp1rtMyGw3ZB8T5w55kk6f75GWGrmlBZBI21HIFR6maUvHFJvkSuJX5ZC9ZCRdpmsrkWGVjLZBfZCGg1bzcj4NfBY6Cjy5gJeYGLS8VYJwZB659ANARnCFU797rNCVdhZBQIGZCkEQe4eJrktOUSinC55SFUY0loUeiCivTXf8bXRkKkMmrRBRxO5qe2RyeMjgZDZD"
+  def pull_fb_events
+    access_token = params[:token]
     url = "https://graph.facebook.com/v4.0/me?fields=events.limit(100){cover,description,end_time,event_times,name,place,start_time,ticket_uri,type,admins}&access_token=#{access_token}"
     serialized = open(url).read
     @events = JSON.parse(serialized)['events']['data']
+    render :index
+  end
+
+  def new
   end
 
   def create
@@ -30,12 +34,6 @@ class FacebookEventsController < ApplicationController
       longitude: params[:event][:place][:location][:longitude],
       event: @event
     )
-    raise
   end
 
-  private
-
-  def fb_event_params
-    # params.require(:event).permit(:name, :place, :description)
-  end
 end
