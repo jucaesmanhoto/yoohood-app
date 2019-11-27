@@ -1,5 +1,4 @@
 class InvitesController < ApplicationController
-
   def create
     @invite = Invite.new(invite_params)
     @invite.user = current_user
@@ -17,6 +16,3 @@ class InvitesController < ApplicationController
     params.require(:invite).permit(:guest_name, :guest_email)
   end
 end
-
-
-

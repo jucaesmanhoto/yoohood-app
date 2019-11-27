@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   resources :dashboards
   resources :places
+  resources :benefits, only: %i[index edit update destroy]
   resources :events do
     resources :invites, only: [:create]
+    resources :benefits, only: %i[show new create]
   end
 end
