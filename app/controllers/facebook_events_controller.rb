@@ -14,7 +14,6 @@ class FacebookEventsController < ApplicationController
   end
 
   def create
-    # raise
     @event = Event.new(
       title: params[:event][:name],
       description: params[:event][:description],
@@ -24,6 +23,7 @@ class FacebookEventsController < ApplicationController
       cover: params[:event][:cover][:source],
       fb_event_id: params[:event][:id]
     )
+
 
     @place = Place.new(
       name: params[:event][:place][:name],
@@ -36,6 +36,7 @@ class FacebookEventsController < ApplicationController
       event: @event
     )
 
+    # debugger
     if @event.save && @place.save
       respond_to do |format|
         format.html { redirect_to fb_events_path }
