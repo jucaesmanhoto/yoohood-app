@@ -17,7 +17,7 @@
           <button type="button" class="btn btn-block btn-primary p-3" data-toggle="modal" data-target="#inviteModal">Invite a friend</button>
       </div>
 
-        <div class="map" id="map" data-markers="<%= @marker.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        <div class="map" id="map" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
   </div>
 <%= link_to "Back", events_path, class: "my-2 btn btn-outline-light float-left" %>
