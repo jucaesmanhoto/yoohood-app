@@ -25,7 +25,7 @@
 
 <div class="modal" tabindex="-1" role="dialog" id="inviteModal">
   <div class="modal-dialog" role="document">
-    <%= simple_form_for @invite do |f| %>
+    <%= simple_form_for [@event, @invite] do |f| %>
     <div class="modal-content invite-box">
       <div class="modal-header">
         <h5 class="modal-title text-align-center">Send invitation</h5>
