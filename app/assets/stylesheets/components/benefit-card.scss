@@ -1,0 +1,27 @@
+.benefit-card {
+  color: #000;
+  font-weight: bold;
+  padding: 16px;
+  align-items: center;
+  text-align: center;
+  background-color: #EEE;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  &:hover {
+    background-color: #1EDD88;
+    color: black;
+  }
+}
+
+.benefit-quantity {
+  padding: 4px;
+}
+
+.benefit-name {
+  padding: 4px;
+  font-size: 20px;
+}
+
+.benefit-value {
+  padding: 4px;
+}
+

@@ -1,14 +1,12 @@
-<div class="container">
-  <%= simple_form_for [@event, @benefit] do |f| %>
-    <div class="form-columns d-flex flex-row justify-content-center">
-      <div class="right-column col-12 col-md-6">
-          <%= f.input :name %>
-          <%= f.input :quantity %>
-          <%= f.input :value_in_points %>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <%= f.button :submit, class: "btn btn-primary text-center" %>
-    </div>
-  <% end %>
+<div class="d-flex justify-content-center">
+  <div class="card col-12 col-md-6 p-5">
+    <h6>Add a Benefit to</h6>
+    <h2 class="mb-5"><%= @event.title %></h2>
+    <%= simple_form_for [@event, @benefit] do |f| %>
+      <%= f.input :name, label: 'Benefit' %>
+      <%= f.input :quantity %>
+      <%= f.input :value_in_points, label: 'Value in points (multiple of 500)' %>
+      <%= f.button :submit, class: "btn btn-dark float-right" %>
+    <% end %>
+  </div>
 </div>

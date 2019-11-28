@@ -3,11 +3,11 @@
   padding: 8px 72px;
   // box-shadow: 0px -1px 1px rgba(255, 255, 255, 0.07);
   border-top: 1px solid rgba(200, 200, 200, 0.1);
+  ul {
+    list-style: none;
+  };
 };
 
-ul {
-  list-style: none;
-};
 
 #footer-social-links {
   padding-top: 16px;
