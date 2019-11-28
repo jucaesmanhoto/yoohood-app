@@ -1,13 +1,16 @@
-.footer {
-  width: 100vw;
-  padding: 8px 72px;
+// .footer {
+  // width: 100vw;
+  // padding: 8px 72px;
   // box-shadow: 0px -1px 1px rgba(255, 255, 255, 0.07);
-  border-top: 1px solid rgba(200, 200, 200, 0.1);
-};
+  // border-top: 1px solid rgba(200, 200, 200, 0.1);
+//   ul {
+//     list-style: none;
+//   }
+// }
 
-ul {
+.footer ul {
   list-style: none;
-};
+}
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 320px) {
@@ -15,12 +18,9 @@ ul {
     padding: 16px 0;
     a {
       padding: 0 16px;
-    };
+    }
     p {
       margin: 0;
-    }
-    i {
-      padding: 0px !important;
     }
   }
 
@@ -57,6 +57,10 @@ ul {
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
+.col-12 a {
+    font-size: 40px;
+  }
+
   #footer-pages {
     justify-content: space-around;
   }
