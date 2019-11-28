@@ -15,7 +15,9 @@ class EventsController < ApplicationController
   end
 
   def show
+    # raise
     @event = Event.find(params[:id])
+
     @invite = Invite.new
   end
 
@@ -31,6 +33,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    raise
   end
 
   def destroy

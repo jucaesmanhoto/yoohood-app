@@ -2,12 +2,8 @@ require 'json'
 require 'open-uri'
 
 class FacebookEventsController < ApplicationController
-  def pull_fb_events
-    access_token = params[:token]
-    url = "https://graph.facebook.com/v4.0/me?fields=events.limit(100){cover,description,end_time,event_times,name,place,start_time,ticket_uri,type,admins}&access_token=#{access_token}"
-    serialized = open(url).read
-    @events = JSON.parse(serialized)['events']['data'].reject { |event| Event.all.include? Event.find_by_fb_event_id(event['id']) }
-    render :index
+  def index
+    @events = FacebookServices.new(params[:token]).pull_fb_events
   end
 
   def new
@@ -20,11 +16,9 @@ class FacebookEventsController < ApplicationController
       user: current_user,
       end_time: params[:event][:end_time],
       start_time: params[:event][:start_time],
-      cover: params[:event][:cover][:source],
-      fb_event_id: params[:event][:id]
+      cover: params[:event][:cover],
+      fb_event_id: params[:fb_event_id]
     )
-
-
     @place = Place.new(
       name: params[:event][:place][:name],
       address: params[:event][:place][:location][:street],
@@ -36,7 +30,6 @@ class FacebookEventsController < ApplicationController
       event: @event
     )
 
-    # debugger
     if @event.save && @place.save
       respond_to do |format|
         format.html { redirect_to fb_events_path }

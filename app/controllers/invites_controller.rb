@@ -6,11 +6,23 @@ class InvitesController < ApplicationController
     if @invite.save
       redirect_to event_path(@invite.event)
     else
-      render :new
+      render :show
     end
   end
 
+  def show
+
+  end
+
   private
+
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
+
+  def set_invite
+    @invite = Invite.find(params[:id])
+  end
 
   def invite_params
     params.require(:invite).permit(:guest_name, :guest_email)

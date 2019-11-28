@@ -1,55 +1,53 @@
 <div class="row my-3">
   <% events.each do |event| %>
-    <div class="col-sm-12 col-md-6 col-xl-4 mb-3" data-fb-event-id="<%= event['id'] %>">
-      <form action="/fb/events" remote="true">
+    <div class="col-sm-12 col-md-6 col-xl-4 mb-3" data-fb-event-id="<%= event.id %>">
+
+      <%= simple_form_for event, url: fb_events_path do |f|%>
+        <%= f.input :title, as: :hidden %>
+        <%= f.input :start_time, as: :hidden %>
+        <%= f.input :end_time, as: :hidden %>
+        <%= f.input :description, as: :hidden %>
+        <%= f.input :cover, as: :hidden %>
+        <%= f.input :fb_event_id, as: :hidden %>
+        <%#= f.simple_fields_for event.places do |nf| %>
+          <%#= nf.input :address %>
+        <%# end %>
+
         <%= link_to event do %>
           <div class="card-trip">
             <div class="flex-row d-flex m-4 justify-content-center">
               <%= link_to "remove", root_path, class: 'mr-5 btn btn-danger' %>
-              <input type="submit" value="save", class="btn btn-primary">
+              <%= f.submit class: 'btn btn-primary', remote: true %>
             </div>
             <% placeholder_url = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80" %>
-            <%= image_tag event['cover']['source'].presence ? event['cover']['source'] : placeholder_url %>
+            <%= image_tag event.cover.presence ? event.cover : placeholder_url %>
             <div class="card-trip-infos">
               <div class="d-flex justify-content-between">
                 <div class="flex-column">
-                  <h2><%= event['name'] %></h2>
-                  <input type="hidden" value="<%= event['name'] %>" name="event['name']">
-                  <h6 class='mt-1'><%= event['place']['name'] %></h6>
+                  <h2><%= event.title %></h2>
+                  <h6 class='mt-1'><%#= event.places.first.name %></h6>
                 </div>
                 <div class="flex-column">
-                  <h5 class='start-time-day'><%= DateTime.parse(event['start_time']).day %></h5>
-                  <p class='start-time-red-month'><%= DateTime.parse(event['start_time']).strftime('%b').upcase %></p>
+                  <h5 class='start-time-day'><%= event.start_time.day %></h5>
+                  <p class='start-time-red-month'><%= event.start_time.strftime('%b').upcase %></p>
                 </div>
               </div>
-
-              <div class="form-check" >
-                <% Category.all.each do |category| %>
-                  <div style="background-color: <%= category.color_hex %>;">
-                    <input class="form-check-input" type="checkbox" name="event[category_ids][]" value="<%= category.id %>" id="tag-<%= category.name %>" >
-                    <label class="form-check-label" for="tag-<%= category.name %>">
-                      <%= category.name %>
-                    </label>
-                  </div>
-                <% end %>
-              </div>
-
               <div class="d-flex flex-column justify-content-end align-items-center mt-2">
-                <% if event['place']['location'].present? %>
+                <% if event.places.first.present? %>
                   <div class="event-info d-flex flex-row">
-                    <p><%=  event['place']['location']['city'] %> |
-                    <%=  event['place']['location']['state'] %></p>
+                    <p><%#=  event.places.first.city %> |
+                    <%#=  event.places.first.state %></p>
                   </div>
                   <div class="event-info d-flex flex-row">
-                    <p><%=  event['place']['location']['latitude'] %> | <%=  event['place']['location']['longitude'] %></p>
+                    <p><%#=  event.places.first.latitude %> | <%#=  event.places.first.longitude %></p>
                   </div>
                 <% end %>
-                <p style="width: 75%;"><%= truncate(event['description'], length: 80) %></p>
+                <p style="width: 75%;"><%= truncate(event.description, length: 80) %></p>
               </div>
             </div>
           </div>
         <% end %>
-      </form>
+      <% end %>
     </div>
   <% end %>
 </div>

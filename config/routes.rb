@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :places
   resources :benefits, only: %i[index edit update destroy]
   resources :events do
-    resources :invites, only: [:create]
+    resources :invites, only: %i[create show]
     resources :benefits, only: %i[show new create]
   end
 end
