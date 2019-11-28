@@ -17,5 +17,6 @@ class Event < ApplicationRecord
   #                 using: {
   #                   tsearch: { prefix: true } # <-- now `superman batm` will return something!
   #                 }
-  # accepts_nested_attributes_for :event_categories
+  accepts_nested_attributes_for :event_categories
+  accepts_nested_attributes_for :places
 end

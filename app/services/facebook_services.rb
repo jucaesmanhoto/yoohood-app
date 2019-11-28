@@ -16,35 +16,34 @@ class FacebookServices
         end_time: json_event['end_time'],
         start_time: json_event['start_time'],
         cover: json_event['cover']['source'],
-        fb_event_id: json_event['id']
+        fb_event_id: json_event['id'],
+        places_attributes: [{
+          name: json_event['place']['name'],
+          address: json_event['place']['location'].present? ? json_event['place']['location']['street'] : '',
+          city: json_event['place']['location'].present? ? json_event['place']['location']['city'] : '',
+          state: json_event['place']['location'].present? ? json_event['place']['location']['state'] : '',
+          country: json_event['place']['location'].present? ? json_event['place']['location']['country'] : '',
+          latitude: json_event['place']['location'].present? ? json_event['place']['location']['latitude'] : '',
+          longitude: json_event['place']['location'].present? ? json_event['place']['location']['longitude'] : ''
+        }]
       )
-      @places << Place.new(
-        name: json_event['place']['name'],
-        address: json_event['place']['location'].present? ? json_event['place']['location']['street'] : '',
-        city: json_event['place']['location'].present? ? json_event['place']['location']['city'] : '',
-        state: json_event['place']['location'].present? ? json_event['place']['location']['state'] : '',
-        country: json_event['place']['location'].present? ? json_event['place']['location']['country'] : '',
-        latitude: json_event['place']['location'].present? ? json_event['place']['location']['latitude'] : '',
-        longitude: json_event['place']['location'].present? ? json_event['place']['location']['longitude'] : '',
-        event: @event
-      )
+
     end
-    raise
     @events
   end
 
-  def pull_fb_events_place
-    @events = []
-    @json_events.each do |json_event|
-      @events << Event.new(
-        title: json_event['name'],
-        description: json_event['description'],
-        end_time: json_event['end_time'],
-        start_time: json_event['start_time'],
-        cover: json_event['cover']['source'],
-        fb_event_id: json_event['id']
-      )
-    end
-    @events
-  end
+  # def pull_fb_events_place
+  #   @events = []
+  #   @json_events.each do |json_event|
+  #     @events << Event.new(
+  #       title: json_event['name'],
+  #       description: json_event['description'],
+  #       end_time: json_event['end_time'],
+  #       start_time: json_event['start_time'],
+  #       cover: json_event['cover']['source'],
+  #       fb_event_id: json_event['id']
+  #     )
+  #   end
+  #   @events
+  # end
 end

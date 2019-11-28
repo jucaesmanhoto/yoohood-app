@@ -2,16 +2,22 @@
   <% events.each do |event| %>
     <div class="col-sm-12 col-md-6 col-xl-4 mb-3" data-fb-event-id="<%= event.id %>">
 
-      <%= simple_form_for event, url: fb_events_path do |f|%>
+      <%= simple_form_for event, url: fb_events_path, remote: true do |f|%>
         <%= f.input :title, as: :hidden %>
         <%= f.input :start_time, as: :hidden %>
         <%= f.input :end_time, as: :hidden %>
         <%= f.input :description, as: :hidden %>
         <%= f.input :cover, as: :hidden %>
         <%= f.input :fb_event_id, as: :hidden %>
-        <%#= f.simple_fields_for event.places do |nf| %>
-          <%#= nf.input :address %>
-        <%# end %>
+        <%= f.simple_fields_for :places do |nf| %>
+          <%= nf.input :name, as: :hidden %>
+          <%= nf.input :address, as: :hidden %>
+          <%= nf.input :city, as: :hidden %>
+          <%= nf.input :state, as: :hidden %>
+          <%= nf.input :country, as: :hidden %>
+          <%= nf.input :latitude, as: :hidden %>
+          <%= nf.input :longitude, as: :hidden %>
+        <% end %>
 
         <%= link_to event do %>
           <div class="card-trip">
@@ -25,7 +31,7 @@
               <div class="d-flex justify-content-between">
                 <div class="flex-column">
                   <h2><%= event.title %></h2>
-                  <h6 class='mt-1'><%#= event.places.first.name %></h6>
+                  <h6 class='mt-1'><%= event.places.first.name %></h6>
                 </div>
                 <div class="flex-column">
                   <h5 class='start-time-day'><%= event.start_time.day %></h5>
@@ -35,11 +41,11 @@
               <div class="d-flex flex-column justify-content-end align-items-center mt-2">
                 <% if event.places.first.present? %>
                   <div class="event-info d-flex flex-row">
-                    <p><%#=  event.places.first.city %> |
-                    <%#=  event.places.first.state %></p>
+                    <p><%=  event.places.first.city %> |
+                    <%=  event.places.first.state %></p>
                   </div>
                   <div class="event-info d-flex flex-row">
-                    <p><%#=  event.places.first.latitude %> | <%#=  event.places.first.longitude %></p>
+                    <p><%=  event.places.first.latitude %> | <%=  event.places.first.longitude %></p>
                   </div>
                 <% end %>
                 <p style="width: 75%;"><%= truncate(event.description, length: 80) %></p>
