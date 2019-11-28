@@ -7,9 +7,11 @@
           <% placeholder_url = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80" %>
           <%= image_tag @event.cover.presence ? @event.cover : placeholder_url, class: "pic", alt: "event cover" %>
         <div class="card-body">
+
           <%= simple_form_for @event do |f| %>
             <%= f.association :categories, as: :check_boxes  %>
           <% end %>
+
           <div class="card-title" style="display:flex; justify-content:space-between">
             <h2 class="p-2 font-weight-bold">
               <%=@event.title %>
