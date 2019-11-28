@@ -1,18 +1,19 @@
-// .footer {
-  // width: 100vw;
-  // padding: 8px 72px;
-  // box-shadow: 0px -1px 1px rgba(255, 255, 255, 0.07);
-  // border-top: 1px solid rgba(200, 200, 200, 0.1);
-//   ul {
-//     list-style: none;
-//   }
-// }
+.footer {
+  padding-top: 20px;
+  box-shadow: 0px -1px 1px rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(200, 200, 200, 0.1);
+
+  p {
+    color: #fff;
+    opacity: 0.5;
+  }
+}
 
 .footer ul {
   list-style: none;
 }
 
-// Small devices (landscape phones, 576px and up)
+// Small devices (landscape phones, 320px and up)
 @media (min-width: 320px) {
   #footer-social-links {
     padding: 16px 0;
@@ -38,6 +39,7 @@
     justify-content: space-between;
     text-align: center;
     font-size: 20px;
+    margin: 0 3em;
     ul {
       padding: 0;
     }
@@ -57,7 +59,7 @@
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-.col-12 a {
+  .col-12 a {
     font-size: 40px;
   }
 
@@ -66,16 +68,24 @@
   }
 
   #columns {
-    // flex-direction: column;
+    flex-direction: row !important;
+  }
+
+  #footer-social-links {
+    padding-top: 22px;
+    width: 50vw; 
+  }
+
+  #footer-pages {
+    width: 50vw;
+    margin: 0;
   }
 }
 
 // Large devices (desktops, 992px and up)
 // @media (min-width: 992px) {
-
 // }
 
 // Extra large devices (large desktops, 1200px and up)
 // @media (min-width: 1200px) {
-
 // }
