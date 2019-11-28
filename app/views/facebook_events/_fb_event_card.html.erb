@@ -23,17 +23,6 @@
                 </div>
               </div>
 
-              <div class="form-check" >
-                <% Category.all.each do |category| %>
-                  <div style="background-color: <%= category.color_hex %>;">
-                    <input class="form-check-input" type="checkbox" name="event[category_ids][]" value="<%= category.id %>" id="tag-<%= category.name %>" >
-                    <label class="form-check-label" for="tag-<%= category.name %>">
-                      <%= category.name %>
-                    </label>
-                  </div>
-                <% end %>
-              </div>
-
               <div class="d-flex flex-column justify-content-end align-items-center mt-2">
                 <% if event['place']['location'].present? %>
                   <div class="event-info d-flex flex-row">
