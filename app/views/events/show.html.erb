@@ -8,23 +8,22 @@
           <%= image_tag @event.cover.presence ? @event.cover : placeholder_url, class: "pic", alt: "event cover" %>
         <div class="card-body">
 
-          <%= simple_form_for @event do |f| %>
-            <%= f.association :categories, as: :check_boxes  %>
-          <% end %>
-
-          <div class="card-title" style="display:flex; justify-content:space-between">
-            <h2 class="p-2 font-weight-bold">
-              <%=@event.title %>
-            </h2>
-
-            <button type="button" class="btn btn-success" style="height: 45px" data-toggle="modal" data-target="#inviteModal"><strong>Invite a friend</strong></button>
+            <div class="card-title d-flex flex-column" style="display:flex; justify-content:space-between">
+              <h2 class="p-2 font-weight-bold">
+                <%= @event.title %>
+              </h2>
+              <div class="benefits">
+                <%= render 'benefit_card' %>
+              </div>
+              <%= link_to "+ Add a benefit", new_event_benefit_path(@event), class: 'btn btn-dark' %>
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#inviteModal"><strong>Invite a friend</strong></button>
           </div>
           <p class="badge badge-dark text-wrap">Localização: <%= @event.places.first.address %></p>
           <p><%= @event.description %></p>
         </div>
       </div>
 
-        <div class="map" id="map" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      <div class="map" id="map" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
   </div>
 <%= link_to "Back", events_path, class: "my-2 btn btn-outline-light float-left" %>
