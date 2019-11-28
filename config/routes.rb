@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :benefits, only: %i[index edit update destroy]
   resources :events do
     resources :invites, only: [:create]
+    post 'guest', to: 'invites#guest'
     resources :benefits, only: %i[show new create]
   end
 end
