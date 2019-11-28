@@ -24,7 +24,8 @@ class EventsController < ApplicationController
       {
         lat: @event.places.first.latitude,
         lng: @event.places.first.longitude
-      }]
+      }
+    ]
   end
 
   def new
@@ -33,6 +34,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    raise
   end
 
   def edit
