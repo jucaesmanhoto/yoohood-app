@@ -7,13 +7,14 @@ class FacebookEventsController < ApplicationController
     url = "https://graph.facebook.com/v4.0/me?fields=events.limit(100){cover,description,end_time,event_times,name,place,start_time,ticket_uri,type,admins}&access_token=#{access_token}"
     serialized = open(url).read
     @events = JSON.parse(serialized)['events']['data'].reject { |event| Event.all.include? Event.find_by_fb_event_id(event['id']) }
-    render :index
+    # render :index
   end
 
   def new
   end
 
   def create
+    raise
     @event = Event.new(
       title: params[:event][:name],
       description: params[:event][:description],
@@ -23,7 +24,6 @@ class FacebookEventsController < ApplicationController
       cover: params[:event][:cover][:source],
       fb_event_id: params[:event][:id]
     )
-
 
     @place = Place.new(
       name: params[:event][:place][:name],
