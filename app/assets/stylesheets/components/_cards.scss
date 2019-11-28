@@ -78,3 +78,13 @@
   font-size: 16px !important;
   font-weight: bold;
 }
+
+.categories {
+  font-size: 20px;
+  text-align: center;
+  li {
+    display: inline-flex;
+    padding: 4px;
+    margin: 4px;
+  }
+}

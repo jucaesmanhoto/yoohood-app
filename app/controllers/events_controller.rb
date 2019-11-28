@@ -15,7 +15,9 @@ class EventsController < ApplicationController
   end
 
   def show
+    # raise
     @event = Event.find(params[:id])
+
     @invite = Invite.new
 
     @markers = [
@@ -39,6 +41,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    raise
   end
 
   def destroy
