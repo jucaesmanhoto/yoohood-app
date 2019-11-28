@@ -11,10 +11,10 @@ Rails.application.routes.draw do
 
   resources :dashboards
   resources :places
-  resources :benefits, only: %i[index edit update destroy]
+  resources :benefits, only: %i[index edit destroy]
   resources :events do
     resources :invites, only: [:create]
     post 'guest', to: 'invites#guest'
-    resources :benefits, only: %i[show new create]
+    resources :benefits, only: %i[show new create update]
   end
 end

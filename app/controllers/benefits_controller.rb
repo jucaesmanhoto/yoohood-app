@@ -20,11 +20,16 @@ class BenefitsController < ApplicationController
   end
 
   def edit
+    @event = @benefit.event
+    if @benefit.event.user != current_user
+      alert "You're not allowed"
+      :back
+    end
   end
 
   def update
     @benefit.update(benefit_params)
-    redirect_to benefits_path
+    redirect_to event_path(@benefit.event)
   end
 
   def destroy
