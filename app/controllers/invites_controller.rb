@@ -1,13 +1,26 @@
 class InvitesController < ApplicationController
-  def create
+
+
+  # def create
+  #   @invite = Invite.new(invite_params)
+  #   @invite.user = current_user
+  #   @invite.event = Event.find(params[:event_id])
+  #   if @invite.save
+  #     redirect_to event_path(@invite.event)
+  #   else
+  #     render :new
+  #   end
+  # end
+
+  def guest
+    raise
     @invite = Invite.new(invite_params)
-    @invite.user = current_user
     @invite.event = Event.find(params[:event_id])
-    if @invite.save
-      redirect_to event_path(@invite.event)
-    else
-      render :show
-    end
+    @invite.send_invite_mail(@invite.guest_email)
+    redirect_to event_path(@invite.event)
+  end
+
+  def new
   end
 
   def show

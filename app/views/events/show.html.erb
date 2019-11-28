@@ -7,17 +7,19 @@
           <% placeholder_url = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80" %>
           <%= image_tag @event.cover.presence ? @event.cover : placeholder_url, class: "pic", alt: "event cover" %>
         <div class="card-body">
-            <h2 class="p-2">
-              <%= @event.title %>
+          <div class="card-title" style="display:flex; justify-content:space-between">
+            <h2 class="p-2 font-weight-bold">
+              <%=@event.title %>
             </h2>
-            <% @event.places.each do |place| %>
-              <p>local: <%= place.address %></p>
-            <% end %>
-            <p><%= @event.description %></p>
+
+            <button type="button" class="btn btn-success" style="height: 45px" data-toggle="modal" data-target="#inviteModal"><strong>Invite a friend</strong></button>
+          </div>
+          <p class="badge badge-dark text-wrap">Localização: <%= @event.places.first.address %></p>
+          <p><%= @event.description %></p>
         </div>
-          <button type="button" class="btn btn-block btn-primary p-3" data-toggle="modal" data-target="#inviteModal">Invite a friend</button>
       </div>
-        <div class="map" id="map" data-markers="<%= @marker.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+        <div class="map" id="map" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
   </div>
 <%= link_to "Back", events_path, class: "my-2 btn btn-outline-light float-left" %>
@@ -25,7 +27,7 @@
 
 <div class="modal" tabindex="-1" role="dialog" id="inviteModal">
   <div class="modal-dialog" role="document">
-    <%= simple_form_for [@event, @invite] do |f| %>
+    <%= simple_form_for @invite, url: event_guest_path(@event), method: :post do |f| %>
     <div class="modal-content invite-box">
       <div class="modal-header">
         <h5 class="modal-title text-align-center">Send invitation</h5>
