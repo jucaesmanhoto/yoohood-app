@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
     events_by_city = params[:city].present? ? Place.near(params[:city], 10).map(&:event) : []
     # @events = @events.search_by_city_and_zip_code(params[:city]) if params[:city].present?

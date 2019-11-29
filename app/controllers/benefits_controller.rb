@@ -50,4 +50,9 @@ class BenefitsController < ApplicationController
   def set_benefit
     @benefit = Benefit.find(params[:id])
   end
+
+  def list_benefit
+    @benefit = Benefit.find(params[:event.id])
+    raise
+  end
 end

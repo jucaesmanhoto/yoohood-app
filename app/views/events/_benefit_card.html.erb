@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row justify-content-center">
     <% @event.benefits.each do |benefit| %>
-      <%= link_to current_user == @event.user ? edit_benefit_path(benefit) : root_path , class: "benefit-card card col-lg-4 mx-2 flex-row card-title justify-content-between" do %>
-        <div class="benefit-quantity"><%= benefit.quantity %> ud.</div>
-        <div class="benefit-name"><%= benefit.name %></div>
-        <div class="benefit-value"><span><%= benefit.value_in_points %></span>pts</div>
-      <% end %>
+    
+      
+    <%= link_to current_user == @event.user ? edit_benefit_path(benefit) : new_benefit_trade_path(benefit), class: "benefit-card card col-lg-4 mx-2 flex-row card-title justify-content-between", "data-toggle" => "modal", "data-target" => "#inviteModal" do %>
+      <div class="benefit-quantity"><%= benefit.quantity %> ud.</div>
+            <div class="benefit-name"><%= benefit.name %></div>
+            <div class="benefit-value"><span><%= benefit.value_in_points %></span>pts</div>
     <% end %>
-  </div>
-  <div>
+  <% end %>    
   </div>
 </div>

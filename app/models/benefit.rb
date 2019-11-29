@@ -1,5 +1,6 @@
 class Benefit < ApplicationRecord
   belongs_to :event
+  has_many :trades
   has_many :users, through: :trades
 
   validates :name, :quantity, :value_in_points, presence: true
