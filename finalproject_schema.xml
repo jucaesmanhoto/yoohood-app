@@ -41,7 +41,7 @@
     <type label="Inet CIDR Addr" length="0" sql="CIDR" quote="'"/>
     <type label="Geometry" length="0" sql="GEOMETRY" quote="'"/>
   </group>
-</datatypes><table x="292" y="250" name="users">
+</datatypes><table x="257" y="220" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -60,11 +60,14 @@
 <row name="points" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="fb_user_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="762" y="329" name="events">
+<table x="727" y="299" name="events">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -97,7 +100,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="544" y="126" name="invites">
+<table x="509" y="96" name="invites">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -122,7 +125,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="448" y="437" name="checkins">
+<table x="413" y="407" name="checkins">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -144,7 +147,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="545" y="592" name="benefits">
+<table x="510" y="562" name="benefits">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -165,7 +168,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1036" y="66" name="places">
+<table x="1001" y="36" name="places">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -198,7 +201,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="108" y="482" name="trades">
+<table x="73" y="452" name="trades">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -214,7 +217,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="954" y="438" name="event_categories">
+<table x="914" y="332" name="event_categories">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -230,7 +233,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1228" y="378" name="categories">
+<table x="1193" y="348" name="categories">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -240,6 +243,36 @@
 <row name="color_hex" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1174" y="581" name="fb_event_admins">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="fb_user_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="876" y="500" name="event_fb_event_admins">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="event_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="events" row="id" />
+</row>
+<row name="fb_event_admin_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="fb_event_admins" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
