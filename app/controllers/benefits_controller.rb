@@ -1,6 +1,6 @@
 class BenefitsController < ApplicationController
   before_action :set_event, only: %i[new create]
-  before_action :set_benefit, only: %i[edit update]
+  before_action :set_benefit, only: %i[edit update destroy]
   def index
     @benefits = Benefit.all
   end
@@ -34,7 +34,7 @@ class BenefitsController < ApplicationController
 
   def destroy
     @benefit.destroy
-    redirect_to benefits_path
+    redirect_to event_path(@benefit.event)
   end
 
   private
