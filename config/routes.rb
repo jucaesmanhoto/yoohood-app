@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   get 'fb/token', to: 'facebook_events#new'
 
   resources :places
-  resources :benefits, only: %i[index edit destroy]
+  resources :trades, only: %i[index show]
+  resources :benefits, only: %i[index edit destroy] do
+    resources :trades, only: %i[new create]
+  end
   resources :events do
-
     resources :invites, only: [:create]
     post 'guest', to: 'invites#guest'
     resources :benefits, only: %i[show new create update]
