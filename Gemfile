@@ -21,6 +21,7 @@ gem 'geocoder'
 gem 'faker'
 gem 'pg_search', '~> 2.3.0'
 gem 'postmark-rails'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
