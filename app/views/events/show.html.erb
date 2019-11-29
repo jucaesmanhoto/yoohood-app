@@ -15,7 +15,9 @@
               <div class="benefits">
                 <%= render 'benefit_card' %>
               </div>
-              <%= link_to "+ Add a benefit", new_event_benefit_path(@event), class: 'btn btn-dark' %>
+              <% if @event.user == current_user %>
+                <%= link_to "+ Add a benefit", new_event_benefit_path(@event), class: 'btn btn-dark' %>
+              <% end %>
               <button type="button" class="btn btn-success" data-toggle="modal" data-target="#inviteModal"><strong>Invite a friend</strong></button>
           </div>
           <p class="badge badge-dark text-wrap">Localização: <%= @event.places.first.address %></p>

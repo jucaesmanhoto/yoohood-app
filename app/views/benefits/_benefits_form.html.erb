@@ -7,6 +7,9 @@
       <%= f.input :quantity %>
       <%= f.input :value_in_points, label: 'Value in points (multiple of 500)' %>
       <%= f.button :submit, class: "btn btn-dark float-right" %>
+      <% if @benefit.id.present? %>
+        <%= link_to "Delete", benefit_path(@benefit), class: 'btn btn-danger', method: :delete %>
+      <% end %>
     <% end %>
   </div>
 </div>
