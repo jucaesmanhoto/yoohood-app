@@ -5,6 +5,8 @@ class Event < ApplicationRecord
   has_many :invites, dependent: :destroy
   has_many :event_categories, dependent: :destroy
   has_many :categories, through: :event_categories, dependent: :destroy
+  has_many :event_fb_event_admins
+  has_many :fb_event_admins, through: :event_fb_event_admins
 
   include PgSearch::Model
   pg_search_scope :search_by_event_and_artist,

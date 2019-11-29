@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_174207) do
+ActiveRecord::Schema.define(version: 2019_11_29_143840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 2019_11_27_174207) do
     t.index ["event_id"], name: "index_event_categories_on_event_id"
   end
 
+  create_table "event_fb_event_admins", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "fb_event_admin_id"
+    t.index ["event_id"], name: "index_event_fb_event_admins_on_event_id"
+    t.index ["fb_event_admin_id"], name: "index_event_fb_event_admins_on_fb_event_admin_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.boolean "featured", default: false
     t.string "title"
@@ -51,6 +58,13 @@ ActiveRecord::Schema.define(version: 2019_11_27_174207) do
     t.string "cover"
     t.string "fb_event_id"
     t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "fb_event_admins", force: :cascade do |t|
+    t.string "name"
+    t.string "fb_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "invites", force: :cascade do |t|
@@ -102,6 +116,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_174207) do
     t.string "photo"
     t.string "name"
     t.integer "points"
+    t.string "fb_user_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -109,6 +124,8 @@ ActiveRecord::Schema.define(version: 2019_11_27_174207) do
   add_foreign_key "benefits", "events"
   add_foreign_key "event_categories", "categories"
   add_foreign_key "event_categories", "events"
+  add_foreign_key "event_fb_event_admins", "events"
+  add_foreign_key "event_fb_event_admins", "fb_event_admins"
   add_foreign_key "events", "users"
   add_foreign_key "invites", "events"
   add_foreign_key "invites", "users"
