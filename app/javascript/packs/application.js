@@ -5,7 +5,7 @@ import "../plugins/flatpickr"
 import { previewImageOnFileSelect } from '../components/picture_preview';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete'
-import "near_events"
+// import "near_events"
 
 initMapbox();
 previewImageOnFileSelect();
