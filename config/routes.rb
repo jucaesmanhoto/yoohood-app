@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    # sessions: 'user/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    # registrations: 'user/registrations'
+  }
+
   root to: 'pages#home'
   get '/members', to: 'pages#members'
   get '/profile', to: 'pages#profile'
 
   get 'fb/events', to: 'facebook_events#index'
   post 'fb/events', to: 'facebook_events#create'
-  # post 'fb/pull', to: 'facebook_events#pull_fb_events'
   get 'fb/token', to: 'facebook_events#new'
 
   resources :places
