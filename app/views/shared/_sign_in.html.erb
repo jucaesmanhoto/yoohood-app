@@ -1,6 +1,6 @@
 <div class="container devise-forms">
   <div class="card">
-    <div class="card-title mt-4">
+    <div class="card-title text-center mt-4">
       <h2>Log in</h2>
     </div>
     <div class="card-body mt-n4">
@@ -16,10 +16,10 @@
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
         <div class="mt-4">
-        <div class="form-actions mb-2">
-          <%= f.button :submit, "Log in", class: 'btn btn-primary w-100' %>
-        </div>
-        <%= render "devise/shared/links" %>
+          <div class="form-actions">
+            <%= f.button :submit, "Log in", class: 'btn btn-primary w-100' %>
+            <%= render "devise/shared/links" %>
+          </div>
         </div>
       <% end %>
     </div>
