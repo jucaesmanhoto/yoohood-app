@@ -1,6 +1,6 @@
 <div class="row my-3">
   <% events.each do |event| %>
-    <div class="col-sm-12 col-md-6 col-xl-4 mb-3" data-fb-event-id="<%= event.id %>">
+    <div class="col-sm-12 col-md-6 col-xl-4 mb-3" data-fb-event-id="<%= event.fb_event_id %>">
 
       <%= simple_form_for event, url: fb_events_path, remote: true do |f|%>
         <%= f.input :title, as: :hidden %>

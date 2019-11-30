@@ -27,7 +27,6 @@ class FacebookServices
           longitude: json_event['place']['location'].present? ? json_event['place']['location']['longitude'] : ''
         }]
       )
-
     end
     @events
   end
