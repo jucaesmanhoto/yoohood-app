@@ -32,7 +32,7 @@
              </div>
               <%#= f.input :event_id, as: :hidden %>
               <%#= f.input :benefit_id,  as: :hidden %>
-              <%= f.input :quantity %>
+              <%= f.input :quantity, as: :select, collection: (1..benefit.quantity).to_a %>
             </div>
             <div class="modal-footer">
               <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->

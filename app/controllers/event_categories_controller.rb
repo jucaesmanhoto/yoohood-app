@@ -12,7 +12,7 @@ class EventCategoriesController < ApplicationController
       @event.categories << Category.find(category)
     end
     respond_to do |format|
-      format.html { redirect_to events_path(@event) }
+      format.html { redirect_to event_path(@event) }
       format.js
     end
   end

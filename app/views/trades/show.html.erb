@@ -1,5 +1,10 @@
-<div class="container bg-white">
-
-<%= @trade.benefit.name %> for <%= @trade.benefit.event.title %>to <%= @trade.user.name %>
-your balance now is: <%= @trade.user.points %>
+<div class="container bg-white text-right col-12 col-sm-6 p-3">
+<p><%= @trade.benefit.name %> for:</p>
+<h2><%= @trade.benefit.event.title %></h2>
+<h3>to: <%= @trade.user.name %></h3>
+<p>your balance is now: <%= @trade.user.points %></p>
+<p>Fique atento para o contato por email de:</p>
+<p><%= @trade.benefit.event.user.name %></p>
+<p><%= @trade.benefit.event.user.email %></p>
+<%= link_to "OK", root_path, class: "btn btn-dark" %>
 </div>
