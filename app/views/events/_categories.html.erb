@@ -11,7 +11,7 @@
         <!-- </label> -->
       <%# end %>
      <!-- </div> -->
-     <%= f.association :categories %>
+     <%= f.input :categories, as: :select, collection: Category.all%>
   </div>
 
 

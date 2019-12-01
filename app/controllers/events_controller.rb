@@ -29,6 +29,10 @@ class EventsController < ApplicationController
     ]
   end
 
+  def my_events
+    @events = Event.all.select { |event| event.user == current_user }
+  end
+
   def new
     @page_name = 'Register an event'
     @event = Event.new
@@ -42,17 +46,17 @@ class EventsController < ApplicationController
   end
 
   def categories_update
-    raise
     @event.categories = []
     params[:event][:category_ids].each do |id|
       next if id.empty?
 
       @event.categories << Category.find(id)
     end
+    redirect_to my_events_path(current_user)
   end
 
   def update
-
+    categories_update
   end
 
   def destroy

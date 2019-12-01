@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   post 'fb/events', to: 'facebook_events#create'
   post 'fb/pull', to: 'facebook_events#pull_fb_events'
 
+  get 'my_events', to: 'events#my_events'
   resources :places
+
   resources :trades, only: %i[index show]
   resources :benefits, only: %i[index edit destroy] do
     resources :trades, only: %i[new create]
