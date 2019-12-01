@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+
+        <%= simple_form_for [@benefit, @trade] do |f| %>
+          <div class="title">
+            <%= @event.title %>
+          </div>
+          <%= f.submit "Send", class: "btn btn-dark align-items-center"%>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

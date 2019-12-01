@@ -4,6 +4,7 @@ require 'open-uri'
 class FacebookEventsController < ApplicationController
   def index
     @events = FacebookServices.new(params[:token]).pull_fb_events
+
   end
 
   def new
@@ -11,7 +12,7 @@ class FacebookEventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.fb_event_id = params[:fb_event_id]
+    @event.fb_event_id = params[:event][:fb_event_id]
     @event.user = current_user
     # @place = Place.new(
     #   name: params[:event][:place][:name],
@@ -23,7 +24,6 @@ class FacebookEventsController < ApplicationController
     #   longitude: params[:event][:place][:location][:longitude],
     #   event: @event
     # )
-
     if @event.save
       respond_to do |format|
         format.html { redirect_to fb_events_path }

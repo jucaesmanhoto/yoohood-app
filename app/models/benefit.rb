@@ -5,7 +5,7 @@ class Benefit < ApplicationRecord
 
   validates :name, :quantity, :value_in_points, presence: true
   validates :quantity, numericality: {
-    only_integer: true, greater_than: 0
+    only_integer: true, greater_than_or_equal_to: 0
   }
   validates :value_in_points, numericality: {
     only_integer: true, greater_than: 0

@@ -54,7 +54,7 @@ category_attr = [{
   name: 'gastronomics',
   color_hex: '#99cc00'
 },{
-  name: 'shows',
+  name: 'music',
   color_hex: '#44cc00'
 },{
   name: 'fairs',

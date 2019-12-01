@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_event, only: %i[show edit update]
 
   def index
     events_by_city = params[:city].present? ? Place.near(params[:city], 10).map(&:event) : []
@@ -18,10 +19,8 @@ class EventsController < ApplicationController
 
   def show
     # raise
-    @event = Event.find(params[:id])
-
     @invite = Invite.new
-
+    @trade = Trade.new
     @markers = [
       {
         lat: @event.places.first.latitude,
@@ -42,10 +41,26 @@ class EventsController < ApplicationController
   def edit
   end
 
-  def update
+  def categories_update
     raise
+    @event.categories = []
+    params[:event][:category_ids].each do |id|
+      next if id.empty?
+
+      @event.categories << Category.find(id)
+    end
+  end
+
+  def update
+
   end
 
   def destroy
+  end
+
+  private
+
+  def set_event
+    @event = Event.find(params[:id])
   end
 end

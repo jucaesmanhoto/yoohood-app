@@ -1,13 +1,49 @@
 <div class="container">
   <div class="row justify-content-center">
     <% @event.benefits.each do |benefit| %>
-    
-      
-    <%= link_to current_user == @event.user ? edit_benefit_path(benefit) : new_benefit_trade_path(benefit), class: "benefit-card card col-lg-4 mx-2 flex-row card-title justify-content-between", "data-toggle" => "modal", "data-target" => "#inviteModal" do %>
-      <div class="benefit-quantity"><%= benefit.quantity %> ud.</div>
-            <div class="benefit-name"><%= benefit.name %></div>
-            <div class="benefit-value"><span><%= benefit.value_in_points %></span>pts</div>
+      <%= link_to current_user == @event.user ? edit_benefit_path(benefit) : new_benefit_trade_path(benefit), class: "benefit-card card col-lg-4 mx-2 flex-row card-title justify-content-between", "data-toggle" => "modal", "data-target" => "#benefit-#{benefit.id}-modal" do %>
+        <div class="benefit-quantity"><%= benefit.quantity %> ud.</div>
+        <div class="benefit-name"><%= benefit.name %></div>
+        <div class="benefit-value"><span><%= benefit.value_in_points %></span>pts</div>
+      <% end %>
+
+      <div class="modal" tabindex="-1" role="dialog" id="benefit-<%= benefit.id %>-modal">
+        <div class="modal-dialog" role="document">
+          <%= simple_form_for [benefit, @trade] do |f| %>
+          <div class="modal-content trade-box">
+            <div class="modal-header d-flex flex-column benefit-modal-header">
+              <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="d-flex flex-column text-center my-n4 w-100">
+                <h2><%= @event.title %></h2>
+              </div>
+                <div class="row user-points d-flex flex-column">
+                  <p>your balance:</p>
+                  <h4 class="text-center"><%= current_user.points %></h4>
+                </div>
+            </div>
+            <div class="modal-body">
+             <!--  Need to put presence true -->
+             <div class="d-flex justify-content-between">
+              <p><%= benefit.quantity %></p>
+              <p><%= benefit.name %></p>
+              <p><%= benefit.value_in_points %> pts./each</p>
+             </div>
+              <%#= f.input :event_id, as: :hidden %>
+              <%#= f.input :benefit_id,  as: :hidden %>
+              <%= f.input :quantity %>
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+              <!-- Make button smaller -->
+              <%= f.submit "Change", class: "btn btn-dark align-items-center"%>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
     <% end %>
-  <% end %>    
   </div>
 </div>
