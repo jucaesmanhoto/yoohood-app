@@ -1,0 +1,34 @@
+.categories {
+  margin-top: 8px;
+  text-align: end;
+  span {
+    color: white;
+    cursor: default !important;
+    opacity: 1;
+  }
+}
+
+.category-choices {
+  margin-top: 16px;
+}
+
+.category-choice {
+  // background: #b7b7b7;
+  color: white;
+  border-radius: 5px;
+//   opacity: .4;
+  padding: 4px 12px;
+  // border: 1px solid $primary;
+  margin: 8px 4px;
+//   flex: 0 0 30%;
+//   &:hover {
+//     opacity: 1;
+//     cursor: pointer;
+//   }
+  &.active {
+    background: $primary;
+    color: white;
+//     opacity: 1;
+  }
+}
+

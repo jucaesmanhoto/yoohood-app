@@ -25,3 +25,23 @@
   padding: 4px;
 }
 
+.benefit-modal-header {
+  padding-bottom: 36px;
+}
+
+.user-points {
+  position: absolute;
+  left: 32px;
+  top: 8px;
+  p {
+    font-size: 12px;
+    font-weight: lighter;
+    margin-bottom: 2px;
+  }
+  h4 {
+    background-color: $primary;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+  }
+}

@@ -6,6 +6,17 @@
       <div class="card-info">
           <% placeholder_url = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80" %>
           <%= image_tag @event.cover.presence ? @event.cover : placeholder_url, class: "pic", alt: "event cover" %>
+              <div class="categories px-3">
+                <% if @event.user == current_user %>
+                  <%= render 'categories' %>
+                <% else %>
+                  <% @event.categories.each do |category| %>
+                    <span class="category-choice" style="background-color: <%= category.color_hex  %>" >
+                      <%= category.name %>
+                    </span>
+                  <% end %>
+                <% end %>
+              </div>
         <div class="card-body">
 
             <div class="card-title d-flex flex-column" style="display:flex; justify-content:space-between">
@@ -31,52 +42,5 @@
 <%= link_to "Back", events_path, class: "my-2 btn btn-outline-light float-left" %>
 </div>
 
-<div class="modal" tabindex="-1" role="dialog" id="inviteModal">
-  <div class="modal-dialog" role="document">
-    <%= simple_form_for @invite, url: event_guest_path(@event), method: :post do |f| %>
-    <div class="modal-content invite-box">
-      <div class="modal-header">
-        <h5 class="modal-title text-align-center">Send invitation</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       <!--  Need to put presence true -->
-        <%= f.input :guest_name, label: "NAME", placeholder: "John Doe" %>
-        <%= f.input :guest_email, label: "E-MAIL", placeholder: "johndoe@gmail.com" %>
-      </div>
-      <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-        <!-- Make button smaller -->
-        <%= f.submit "Send", class: "btn btn-dark align-items-center"%>
-      </div>
-      <% end %>
-    </div>
-  </div>
-</div>
 
-<div class="modal" tabindex="-1" role="dialog" id="inviteModal">
-  <div class="modal-dialog" role="document">
-    <%= simple_form_for @invite, url: event_guest_path(@event), method: :post do |f| %>
-    <div class="modal-content invite-box">
-      <div class="modal-header">
-        <h5 class="modal-title text-align-center">Send invitation</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       <!--  Need to put presence true -->
-        <%= f.input :guest_name, label: "NAME", placeholder: "John Doe" %>
-        <%= f.input :guest_email, label: "E-MAIL", placeholder: "johndoe@gmail.com" %>
-      </div>
-      <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-        <!-- Make button smaller -->
-        <%= f.submit "Send", class: "btn btn-dark align-items-center"%>
-      </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+

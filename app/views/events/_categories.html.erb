@@ -1,3 +1,20 @@
-<%= Category.all.each do |category| %>
-  <%= category.name %>
+<%= simple_form_for @event, url: event_event_category_url(@event), remote: true do |f| %>
+  <%#= f.association :categories, label: '', as: :check_boxes, class: 'category-check-box' %>
+  <div class="form-group">
+    <!-- <label class="control-label check_boxes optional">Categories</label> -->
+    <!-- <input type="hidden" name="event[category_ids][]" value=""> -->
+    <!-- <div class="category-choices justify-content-end"> -->
+      <%# Category.all.each do |category| %>
+        <!-- <input type="checkbox" class="hidden" value="<%#= category.id %>" name="event[category_ids][]" id="event_category_ids_<%#= category.id %>"> -->
+        <!-- <label class="category-choice" for="event_category_ids_<%#= category.id %>"> -->
+          <%#= category.name %>
+        <!-- </label> -->
+      <%# end %>
+     <!-- </div> -->
+     <%= f.association :categories %>
+  </div>
+
+
+  <%= f.button :submit, class: 'btn btn-primary mb-2' %>
 <% end %>
+

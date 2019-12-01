@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get '/profile', to: 'pages#profile'
 
   get 'fb/events', to: 'facebook_events#index'
-  post 'fb/events', to: 'facebook_events#create'
-  # post 'fb/pull', to: 'facebook_events#pull_fb_events'
   get 'fb/token', to: 'facebook_events#new'
+  post 'fb/events', to: 'facebook_events#create'
+  post 'fb/pull', to: 'facebook_events#pull_fb_events'
 
   resources :places
   resources :trades, only: %i[index show]
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :trades, only: %i[new create]
   end
   resources :events do
+    resources :event_categories, only: %i[create update]
     resources :invites, only: [:create]
     post 'guest', to: 'invites#guest'
     resources :benefits, only: %i[show new create update]
