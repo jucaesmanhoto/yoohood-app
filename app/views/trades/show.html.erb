@@ -1,10 +1,16 @@
-<div class="container bg-white text-right col-12 col-sm-6 p-3">
-<p><%= @trade.benefit.name %> for:</p>
-<h2><%= @trade.benefit.event.title %></h2>
-<h3>to: <%= @trade.user.name %></h3>
-<p>your balance is now: <%= @trade.user.points %></p>
-<p>Fique atento para o contato por email de:</p>
-<p><%= @trade.benefit.event.user.name %></p>
-<p><%= @trade.benefit.event.user.email %></p>
-<%= link_to "OK", root_path, class: "btn btn-dark" %>
+<div class="container card trade-card text-right my-5 col-12 col-sm-6 p-3">
+  <div class="card-title px-3">
+    <p><%= @trade.benefit.name %> to:</p>
+    <h1><%= @trade.benefit.event.title %></h1>
+  </div>
+  <div class="card-body">
+    <h3><%= @trade.user.name %></h3>
+    <p>your balance is now: <%= @trade.user.points %>pts.</p>
+    <div class="benefit-owner-info mt-3">
+      <p>Be awere for an email contact from:</p>
+      <h4><%= @trade.benefit.event.user.name %></h4>
+      <h5><%= @trade.benefit.event.user.email %></h5>
+    </div>
+    <%= link_to "OK", root_path, class: "btn btn-dark mt-4" %>
+  </div>
 </div>

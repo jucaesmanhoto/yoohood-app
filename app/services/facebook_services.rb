@@ -8,6 +8,7 @@ class FacebookServices
 
   def pull_fb_events
     @events = []
+    @adms = {}
     @places = []
     @json_events.each do |json_event|
       @events << Event.new(
@@ -27,8 +28,10 @@ class FacebookServices
           longitude: json_event['place']['location'].present? ? json_event['place']['location']['longitude'] : ''
         }]
       )
+      @events.last.adm_token = json_event["id"]
+      @adms[json_event["id"]] = json_event["admins"]["data"] if json_event["admins"]
     end
-    @events
+    [@events, @adms]
   end
 
   # def pull_fb_events_place
