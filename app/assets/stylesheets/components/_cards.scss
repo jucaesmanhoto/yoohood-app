@@ -4,30 +4,26 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px;
   transition: all 0.5s ease-in-out;
+  img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+  p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
 }
 
 .increase-card:hover {
   transform: scale(1.05,1.05)
 }
-
-.card-trip > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-trip h2 {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
 
 .card-trip .card-trip-infos {
   padding: 16px;
@@ -44,7 +40,6 @@
   top: -20px;
   width: 40px;
 }
-
 
 //Card of show page below
 .pic {
@@ -86,5 +81,41 @@
     display: inline-flex;
     padding: 4px;
     margin: 4px;
+  }
+}
+
+.card-event {
+  justify-content: center;
+}
+
+.card-info {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.map {
+  height: 200px;
+  margin-top: 50px;
+}
+
+.invite-box {
+  border-radius: 20px;
+}
+
+.trade-card {
+  color: black;
+  p {
+    margin: 0;
+  }
+  .benefit-owner-info {
+    border: 2px solid black;
+    padding: 8px;
   }
 }
