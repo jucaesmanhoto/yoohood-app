@@ -9,6 +9,7 @@
         <%= f.input :description, as: :hidden %>
         <%= f.input :cover, as: :hidden %>
         <%= f.input :fb_event_id, as: :hidden %>
+        <%= hidden_field_tag 'admins', adms[event.adm_token].to_json %>
         <%= f.simple_fields_for :places do |nf| %>
           <%= nf.input :name, as: :hidden %>
           <%= nf.input :address, as: :hidden %>

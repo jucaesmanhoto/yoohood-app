@@ -9,7 +9,6 @@
 
       <div class="modal" tabindex="-1" role="dialog" id="benefit-<%= benefit.id %>-modal">
         <div class="modal-dialog" role="document">
-          <%= simple_form_for [benefit, @trade] do |f| %>
           <div class="modal-content trade-box">
             <div class="modal-header d-flex flex-column benefit-modal-header">
               <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
@@ -23,22 +22,33 @@
                   <h4 class="text-center"><%= current_user.points %></h4>
                 </div>
             </div>
-            <div class="modal-body">
-             <!--  Need to put presence true -->
-             <div class="d-flex justify-content-between">
-              <p><%= benefit.quantity %></p>
-              <p><%= benefit.name %></p>
-              <p><%= benefit.value_in_points %> pts./each</p>
-             </div>
-              <%#= f.input :event_id, as: :hidden %>
-              <%#= f.input :benefit_id,  as: :hidden %>
-              <%= f.input :quantity, as: :select, collection: (1..benefit.quantity).to_a %>
-            </div>
-            <div class="modal-footer">
-              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-              <!-- Make button smaller -->
-              <%= f.submit "Change", class: "btn btn-dark align-items-center"%>
-            </div>
+
+            <% if current_user.points >= benefit.value_in_points %>
+
+              <%= simple_form_for [benefit, @trade] do |f| %>
+                <div class="modal-body">
+                 <!--  Need to put presence true -->
+                 <div class="d-flex justify-content-between">
+                  <p><%= benefit.quantity %></p>
+                  <p><%= benefit.name %></p>
+                  <p><%= benefit.value_in_points %> pts./each</p>
+                 </div>
+                  <%#= f.input :event_id, as: :hidden %>
+                  <%#= f.input :benefit_id,  as: :hidden %>
+                  <% max_reclaim = benefit.quantity >= (current_user.points / benefit.value_in_points) ? (current_user.points / benefit.value_in_points) : benefit.quantity %>
+                  <%= f.input :quantity, as: :select, collection: (1..max_reclaim).to_a, include_blank: false %>
+                </div>
+                <div class="modal-footer">
+                  <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                  <!-- Make button smaller -->
+                  <%= f.submit "Change", class: "btn btn-dark align-items-center"%>
+                </div>
+              <% end %>
+            <% else %>
+              <div class="modal-body p-4">
+                <h4 class="mb-4">Sorry, you don't have enough points. </h4>
+                <p>Invite your friends to this event and increase your balance before you can redeem this benefit.</p>
+              </div>
             <% end %>
           </div>
         </div>
