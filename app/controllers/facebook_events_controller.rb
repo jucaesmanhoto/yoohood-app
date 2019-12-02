@@ -3,8 +3,9 @@ require 'open-uri'
 
 class FacebookEventsController < ApplicationController
   def index
-    @events = FacebookServices.new(params[:token]).pull_fb_events
-
+    pulled_events = FacebookServices.new(params[:token]).pull_fb_events
+    @events = pulled_events[0]
+    @adms = pulled_events[1]
   end
 
   def new
@@ -24,7 +25,18 @@ class FacebookEventsController < ApplicationController
     #   longitude: params[:event][:place][:location][:longitude],
     #   event: @event
     # )
+
+
     if @event.save
+      JSON(params[:admins]).each do |admin|
+        if FbEventAdmin.find_by_fb_user_id(admin['id']).nil?
+          fb_event_admin = FbEventAdmin.create(fb_user_id: admin['id'], name: admin['name'])
+        else
+          fb_event_admin = FbEventAdmin.find_by_fb_user_id(admin['id'])
+        end
+        EventFbEventAdmin.create(fb_event_admin: fb_event_admin, event: @event)
+      end
+
       respond_to do |format|
         format.html { redirect_to fb_events_path }
         format.js
