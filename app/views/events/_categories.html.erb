@@ -1,16 +1,22 @@
 <div class="form-group">
-  <%= simple_form_for @event, url: event_event_category_url(@event), remote: true do |f| %>
+  <%= simple_form_for @event, url: event_event_category_url(@event) do |f| %>
   <%#= f.association :categories, label: '', as: :check_boxes, class: 'category-check-box' %>
     <!-- <label class="control-label check_boxes optional">Categories</label> -->
     <!-- <input type="hidden" name="event[category_ids][]" value=""> -->
     <!-- <div class="category-choices justify-content-end"> -->
-      <% Category.all.each do |category| %>
-        <input type="checkbox" class="hidden" value="<%= category.id %>" name="event[category_ids][]" id="event_category_ids_<%= category.id %>">
-        <label class="category-choice" for="event_category_ids_<%= category.id %>">
-          <%= category.name %>
-        </label>
-      <% end %>
+      <!--<% Category.all.each do |category| %>-->
+        <!--<input type="checkbox" class="hidden" value="<%= category.id %>" name="event[category_ids][]" id="event_category_ids_<%= category.id %>">-->
+        <!--<label class="category-choice" for="event_category_ids_<%= category.id %>">-->
+          <!--<%= category.name %>-->
+        <!--</label>-->
+      <!--<% end %>-->
     <!-- </div> -->
+    <% @event.categories.each do |category| %>
+      <span class="category-choice" style="background-color: <%= category.color_hex  %>" >
+        <%= category.name %>
+        <%= link_to 'x', event_category_path(id: EventCategory.find_by(event: @event, category: category).id, event_id: @event.id), method: :delete %>
+      </span>
+    <% end %>
     <%= f.input :categories, as: :select, collection: Category.all%>
     <%= f.button :submit, class: 'btn btn-primary mb-2' %>
   <% end %>
