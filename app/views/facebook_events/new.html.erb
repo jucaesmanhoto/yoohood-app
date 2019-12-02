@@ -1,13 +1,18 @@
 <div class="container my-5">
-  <div class="row d-flex justify-content-center">
-    <div class="col-12 col-md-6">
-
-      <%= form_tag(fb_events_path, method: "get") do %>
-        <%= label_tag(:token, "Access Token") %>
-        <%= text_field_tag(:token) %>
-        <%= submit_tag("Submit") %>
-      <% end %>
-
+  <div class="d-flex justify-content-center">
+    <div class="col-12 col-md-6 mb-5">
+      <div class="card p-3">
+        <%= form_tag(fb_events_path, method: "get") do %>
+          <div class="card-title text-center">
+            <h2><%= label_tag(:token, "Enter a valid access token")%></h2>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <%= text_field_tag(:token) %>
+            <%= submit_tag("Submit", class: 'btn btn-dark mt-3') %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
+  <div class="row void" style="height: 150px;"></div>
 </div>
