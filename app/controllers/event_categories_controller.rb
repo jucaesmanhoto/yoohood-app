@@ -1,7 +1,6 @@
 class EventCategoriesController < ApplicationController
   before_action :set_event, only: %i[update]
   def create
-    raise
   end
 
   def update

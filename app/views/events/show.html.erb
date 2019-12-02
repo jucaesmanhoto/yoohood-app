@@ -26,7 +26,8 @@
               <div class="benefits">
                 <%= render 'benefit_card' %>
               </div>
-              <% if @event.user == current_user %>
+              <% raise %>
+              <% if @event.user == current_user || @event.fb_event_admins.map { |x| x.fb_user_id }.include?(current_user.uid) %>
                 <%= link_to "+ Add a benefit", new_event_benefit_path(@event), class: 'btn btn-dark' %>
               <% end %>
               <button type="button" class="btn btn-success" data-toggle="modal" data-target="#inviteModal"><strong>Invite a friend</strong></button>
