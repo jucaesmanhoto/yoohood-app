@@ -15,7 +15,7 @@ class FacebookServices
         description: json_event['description'],
         end_time: json_event['end_time'],
         start_time: json_event['start_time'],
-        cover: json_event['cover']['source'],
+        cover: json_event['cover'] ? json_event['cover']['source'] : '',
         fb_event_id: json_event['id'],
         places_attributes: [{
           name: json_event['place']['name'],

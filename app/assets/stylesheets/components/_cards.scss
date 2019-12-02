@@ -17,7 +17,7 @@
 }
 
 .card-trip h2 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   margin: 0;
 }
@@ -88,3 +88,53 @@
     margin: 4px;
   }
 }
+
+.card-size {
+  height: 350px;
+}
+
+
+// FOR INDEX Below
+
+.card-trip-index {
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  transition: all 0.5s ease-in-out;
+  img {
+    height: 120px;
+    width: 100%;
+    object-fit: cover;
+  }
+  h2 {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+  }
+  p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+}
+
+.card-trip-index .card-trip-infos-index {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  position: relative;
+  color: black;
+  .card-trip-user {
+    position: absolute;
+    right: 16px;
+    top: -20px;
+    width: 40px;
+  }
+}
+
+.card-size-index {
+  height: 220px;
+}
+

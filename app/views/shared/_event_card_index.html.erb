@@ -2,10 +2,10 @@
   <% events.each do |event| %>
     <div class="col-sm-12 col-md-6 col-xl-4 mb-3">
       <%= link_to event do %>
-        <div class="card-size card-trip">
+        <div class="card-size-index card-trip-index">
           <% placeholder_url = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80" %>
           <%= image_tag event.cover.presence ? event.cover : placeholder_url %>
-          <div class="card-trip-infos">
+          <div class="card-trip-infos-index">
             <div class="d-flex justify-content-between">
               <div class="flex-column">
                 <h2><%= event.title %></h2>
@@ -17,7 +17,7 @@
               </div>
             </div>
             <div class="d-flex justify-content-between align-items-end mt-2">
-              <p style="width: 75%;"><%= truncate(event.description, length: 80) %></p>
+              <!-- <p style="width: 75%;"><%= truncate(event.description, length: 80) %></p> -->
               <div class="flex-column">
               </div>
             </div>
