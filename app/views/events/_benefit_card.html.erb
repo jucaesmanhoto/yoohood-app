@@ -7,6 +7,7 @@
         <div class="benefit-value"><span><%= benefit.value_in_points %></span>pts</div>
       <% end %>
 
+
       <div class="modal" tabindex="-1" role="dialog" id="benefit-<%= benefit.id %>-modal">
         <div class="modal-dialog" role="document">
           <div class="modal-content trade-box">
@@ -18,12 +19,14 @@
                 <h2><%= @event.title %></h2>
               </div>
                 <div class="row user-points d-flex flex-column">
-                  <p>your balance:</p>
-                  <h4 class="text-center"><%= current_user.points %></h4>
+                  <% unless current_user.nil? %>
+                    <p>your balance:</p>
+                    <h4 class="text-center"><%= current_user.points %></h4>
+                  <% end %>
                 </div>
             </div>
 
-            <% if current_user.points >= benefit.value_in_points %>
+            <% if !current_user.nil? && current_user.points >= benefit.value_in_points %>
 
               <%= simple_form_for [benefit, @trade] do |f| %>
                 <div class="modal-body">
@@ -45,10 +48,17 @@
                 </div>
               <% end %>
             <% else %>
-              <div class="modal-body p-4">
-                <h4 class="mb-4">Sorry, you don't have enough points. </h4>
-                <p>Invite your friends to this event and increase your balance before you can redeem this benefit.</p>
-              </div>
+              <% if current_user.nil? %>
+                <div class="modal-body p-4">
+                  <h4 class="mb-4">Sorry, you're not logged in. </h4>
+                  <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary' %>
+                </div>
+              <% else %>
+                <div class="modal-body p-4">
+                  <h4 class="mb-4">Sorry, you don't have enough points. </h4>
+                  <p>Invite your friends to this event and increase your balance before you can redeem this benefit.</p>
+                </div>
+              <% end %>
             <% end %>
           </div>
         </div>
