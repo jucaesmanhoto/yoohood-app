@@ -5,7 +5,7 @@
       <%= link_to 'x', event_category_path(id: EventCategory.find_by(event: @event, category: category).id, event_id: @event.id), method: :delete, remote: true %>
     </span>
   <% end %>
-  <%= simple_form_for @event, url: event_event_category_url(@event), remote:true do |f| %>
+  <%= simple_form_for @event, url: event_event_category_path(@event), remote:true do |f| %>
     <%= f.input :categories, as: :select, collection: Category.all%>
     <%= f.button :submit, class: 'btn btn-primary mb-2' %>
   <% end %>
