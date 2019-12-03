@@ -1,8 +1,2 @@
- // '<%= Category.all %>'
-// var form = document.querySelector('.category-choices');
-var categories = document.querySelectorAll('.category-choice');
-categories.forEach(category => {
-  if (!category.classList.contains('active')) {
-    category.classList.toggle('d-none');
-  }
-});
+var form = document.querySelector('.categories');
+form.innerHTML = "<%= j (render partial: 'events/categories') %>";

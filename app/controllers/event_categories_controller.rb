@@ -27,8 +27,12 @@ class EventCategoriesController < ApplicationController
   end
 
   def destroy
-    EventCategory.find(params[:id]).destroy
-    redirect_to event_path(@event)
+    event_category = EventCategory.find(params[:id]).destroy
+    @category = event_category.category
+    respond_to do |format|
+        format.html { redirect_to event_path(@event), alert: 'Event category has been deleted' }
+        format.js
+      end
   end
 
   private
