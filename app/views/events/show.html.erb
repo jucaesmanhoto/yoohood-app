@@ -11,6 +11,7 @@
               <div class="categories px-3">
                 <% if @event.user == current_user %>
                   <%= render 'categories' %>
+                  <%= link_to 'Checkin', new_event_checkin_path(@event) %>
                 <% else %>
                   <% @event.categories.each do |category| %>
                     <span class="category-choice" style="background-color: <%= category.color_hex  %>" >

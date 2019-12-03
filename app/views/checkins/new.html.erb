@@ -1,1 +1,14 @@
-<%= render 'checkins/checkins_form' %>
+<div class="d-flex justify-content-center">
+  <div class="card benefit-form-card col-12 col-md-6 p-5">
+    <h2 class="mb-5"><%= @event.title %></h2>
+    <%= image_tag @event.cover %>
+    <%= simple_form_for [@event, @checkin] do |f| %>
+      <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+      <%= f.input :review %>
+      <%= f.button :submit, class: "btn btn-dark float-right" %>
+      <%# if @benefit.id.present? %>
+        <%#= link_to "Delete", benefit_path(@benefit), class: 'btn btn-danger', method: :delete %>
+      <%# end %>
+    <% end %>
+  </div>
+</div>

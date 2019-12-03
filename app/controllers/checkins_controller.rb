@@ -1,15 +1,22 @@
 class CheckinsController < ApplicationController
   before_action :set_event, only: %i[new create]
   before_action :set_checkin, only: %i[edit update]
+
   def new
-    @checkin = Checkin.new
+    if Checkin.where(user: current_user).empty? || Checkin.where(event: @event).empty?
+      @checkin = Checkin.new
+      return
+    end
+    redirect_to event_path(@event)
+    flash[:alert] = "You have already done that."
   end
 
   def create
     @checkin = Checkin.new(checkin_params)
     @checkin.event = @event
     @checkin.user = current_user
-    flash[:alert] = "You have already done this." unless @checkin.save
+
+    flash[:alert] = "Try again later." unless @checkin.save
     redirect_to event_path(@event)
   end
 
