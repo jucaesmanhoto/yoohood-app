@@ -1,6 +1,6 @@
 <p>Hi <%= @invite.guest_name %>,</p>
 
 <p>You have received a new invitation to <%= @invite.event.title %>!</p>
-<p>Click here to accept!</p>
+<%= link_to 'click aqui',  invite_url(@invite, token: @invite.token) %>
 <p>See you there!</p>
 <p>Juca - CEO @Yoohood</p>
