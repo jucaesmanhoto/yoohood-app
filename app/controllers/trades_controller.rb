@@ -24,7 +24,6 @@ class TradesController < ApplicationController
     if new_balance.negative? || @trade.quantity > @benefit.quantity
       redirect_to event_path(@event), alert: 'Invalid request.'
       return
-
     end
     current_user.update(points: new_balance)
     @benefit.update(quantity: @benefit.quantity - @trade.quantity)
