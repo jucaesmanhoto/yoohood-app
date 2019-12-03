@@ -1,4 +1,6 @@
-<div class="container">
-    <%= render 'shared/event_card', events: @events %>
+<div class="container" style="display: flex;">
+<!-- <div class="container"> -->
+    <%= render 'shared/event_card_index', events: @events %>
+<!-- </div> -->
+  <div class="map" id="map" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" style="flex: 0 0 370px; height: 100vh; width: 80vh; position: sticky !important; margin-left: 50px;"></div>
 </div>
-
