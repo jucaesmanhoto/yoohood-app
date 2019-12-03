@@ -31,8 +31,13 @@
       </div>
     </div>
   </div>
+  <p><%= @city %></p>
 </div>
-<p><%= @city %></p>
+
+<div class="anchor-text d-flex flex-column align-items-center pt-5 mb-2" id="scrollAnchor">
+<a href="" class="pt-2 scroll">Browse events</a>
+<i class="fa fa-angle-down scroll-icon"></i>
+</div>
 
 <div class="container">
   <h4 class="my-1 mb-2 text-white" id="near_events"><%= @city.present? ? "In #{@city}" : 'Near you' %></h4>
@@ -40,21 +45,21 @@
 </div>
 
 <div class="container">
-  <h4 class="my-1 mb-2 text-white">New events</h4>
+  <h4 class="subheading my-1 mb-2 text-white">New events</h4>
   <%= render 'shared/event_card', events: @events_recent %>
 </div>
 
 <div class="container">
-  <h4 class="my-1 mb-2 text-white">Happening today</h4>
+  <h4 class="subheading my-1 mb-2 text-white">Events today</h4>
   <%= render 'shared/event_card', events: @events_today %>
 </div>
 
 <div class="container">
-  <h4 class="mt-5 mb-2 text-white">More Events</h4>
+  <h4 class="subheading mt-5 mb-2 text-white">More Events</h4>
   <%= render 'shared/event_card', events: @events_diff %>
   <%= link_to events_path do %>
   <div class="d-flex justify-content-center">
-    <button class="btn btn-lg btn-outline-light deco-none mb-5">See more</button>
+    <button class="btn btn-lg btn-outline-light deco-none mb-5">See More</button>
   </div>
   <% end %>
 </div>

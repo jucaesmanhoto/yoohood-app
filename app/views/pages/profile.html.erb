@@ -1,10 +1,52 @@
-<div class="container p-5 my-5" id="profile-container">
+<div class="container px-5 mt-5" id="profile-container">
   <div class="d-flex">
-    <% placeholder_url = 'https://www.wittenberg.edu/sites/default/files/2018-10/nouser_0.jpg' %>
-    <%= image_tag(current_user.photo.present? ? current_user.photo.url : placeholder_url, width: 150, height: 150) %>
+    <% placeholder_url = current_user.facebook_picture_url ? current_user.facebook_picture_url : "https://www.wittenberg.edu/sites/default/files/2018-10/nouser_0.jpg" %>
+    <%= image_tag(current_user.photo.present? ? current_user.photo.url : placeholder_url, width: 100, height: 100) %>
     <div class="flex-grow-1 d-flex flex-column align-items-center">
-      <h1><%= current_user.name%></h1>
-      <%= link_to "Edit Profile", edit_user_registration_path %>
+      <div class="flex-row w-100 d-flex justify-content-between">
+        <div class="name-and-edit-link text-center flex-grow-1">
+          <h1><%= current_user.name%></h1>
+          <%= link_to "Edit Profile", edit_user_registration_path %>
+        </div>
+        <div class="row d-flex flex-column profile-user-points">
+          <p>your balance:</p>
+          <h4 class="text-center"><%= current_user.points %></h4>
+        </div>
+      </div>
+      <div class="flex-row row w-100 p-4">
+        <div class="col-12 col-sm-6 invites">
+          <% if current_user.invites.empty? %>
+            <div class="card invites-card p-2 pl-4 my-1">
+              <p>Você ainda não tem convites aceitos.</p>
+            </div>
+          <% else %>
+          <%# raise %>
+            <% current_user.invites.each do |invite| %>
+              <div class="card invites-card p-2 pl-4 my-1">
+                <p><%= invite.guest_name %></p>
+                <p>accepted an invite to:</p>
+                <h4><%= invite.event.title %></h4>
+                <p><%= invite.created_at.strftime('%H:%M - %a, %d %b %Y') %></p>
+                <p>50pts added to your balance! <%= %w[🎉🎉 😄🤩 😍🎉 😍😍😍].sample %></p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="col-12 col-sm-6 trades">
+          <% current_user.trades.each do |trade| %>
+            <%= link_to trade_path(trade) do %>
+              <div class="card trade-card p-2 pl-4 my-1">
+                <p><%= trade.quantity %>x <%= trade.benefit.name %> to:</p>
+                <h4><%= trade.benefit.event.title %></h4>
+                <p><%= trade.benefit.event.start_time.strftime('%H:%M - %a, %d %b %Y') %></p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+
+
+      </div>
     </div>
   </div>
 </div>
