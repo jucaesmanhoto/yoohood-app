@@ -11,6 +11,9 @@ class FacebookServices
     @adms = {}
     @places = []
     @json_events.each do |json_event|
+      next unless json_event['place']['location'].present?
+      next unless json_event['end_time'].present? && json_event['start_time'].present?
+
       @events << Event.new(
         title: json_event['name'],
         description: json_event['description'],
@@ -33,19 +36,4 @@ class FacebookServices
     end
     [@events, @adms]
   end
-
-  # def pull_fb_events_place
-  #   @events = []
-  #   @json_events.each do |json_event|
-  #     @events << Event.new(
-  #       title: json_event['name'],
-  #       description: json_event['description'],
-  #       end_time: json_event['end_time'],
-  #       start_time: json_event['start_time'],
-  #       cover: json_event['cover']['source'],
-  #       fb_event_id: json_event['id']
-  #     )
-  #   end
-  #   @events
-  # end
 end
