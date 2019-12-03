@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :places
 
   resources :trades, only: %i[index show]
-  resources :checkins, only: %i[edit update]
   resources :benefits, only: %i[index edit destroy] do
     resources :trades, only: %i[new create]
   end

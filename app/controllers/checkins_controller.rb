@@ -1,6 +1,6 @@
 class CheckinsController < ApplicationController
   before_action :set_event, only: %i[new create]
-  # before_action :set_checkin, only: %i[new create]
+  before_action :set_checkin, only: %i[edit update]
   def new
     @checkin = Checkin.new
   end
@@ -9,21 +9,19 @@ class CheckinsController < ApplicationController
     @checkin = Checkin.new(checkin_params)
     @checkin.event = @event
     @checkin.user = current_user
-    if @checkin.save
-      redirect_to new_event_checkin_path(@event)
-    else
-      # flash[:alert] = "Something went wrong."
-      # render :new
-    end
+    flash[:alert] = "You have already done this." unless @checkin.save
+    redirect_to event_path(@event)
   end
 
-  def edit
+  # def edit
+  #   @event = @checkin.event
+  # end
 
-  end
-
-  def update
-
-  end
+  # def update
+  #   # raise
+  #   @checkin.update(checkin_params)
+  #   redirect_to event_path(@checkin.event)
+  # end
 
   private
 
@@ -35,7 +33,7 @@ class CheckinsController < ApplicationController
     @event = Event.find(params[:event_id])
   end
 
-  # def set_checkin
-  #   @checkin = Checkin.find(params[:id])
-  # end
+  def set_checkin
+    @checkin = Checkin.find(params[:id])
+  end
 end
