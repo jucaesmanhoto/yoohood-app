@@ -23,4 +23,6 @@ Rails.application.routes.draw do
     post 'guest', to: 'invites#guest'
     resources :benefits, only: %i[show new create update]
   end
+
+  resources :event_categories, only: :destroy
 end
