@@ -15,6 +15,8 @@ class EventsController < ApplicationController
     end
     @events = (events_by_city + events_by_title + events_by_date).uniq
     @events = Event.all if @events.count.zero?
+    @events = @events.reject { |event| event.end_time <= Time.now.getutc() }
+
   end
 
   def show

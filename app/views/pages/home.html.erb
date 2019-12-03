@@ -35,7 +35,7 @@
 <p><%= @city %></p>
 
 <div class="container">
-  <h4 class="my-1 mb-2 text-white" id="near_events">Near you</h4>
+  <h4 class="my-1 mb-2 text-white" id="near_events"><%= @city.present? ? "In #{@city}" : 'Near you' %></h4>
   <%= render 'shared/event_card', events: @events %>
 </div>
 
