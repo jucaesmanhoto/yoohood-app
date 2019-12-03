@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :invites
   has_many :trades
   has_many :benefits, through: :trades
+  has_many :checkins
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]

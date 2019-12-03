@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 2019_12_03_155320) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "checkins", force: :cascade do |t|
+    t.text "review"
+    t.integer "rating"
+    t.bigint "user_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_checkins_on_event_id"
+    t.index ["user_id"], name: "index_checkins_on_user_id"
+  end
+
   create_table "event_categories", force: :cascade do |t|
     t.bigint "event_id"
     t.bigint "category_id"
@@ -130,6 +141,8 @@ ActiveRecord::Schema.define(version: 2019_12_03_155320) do
   end
 
   add_foreign_key "benefits", "events"
+  add_foreign_key "checkins", "events"
+  add_foreign_key "checkins", "users"
   add_foreign_key "event_categories", "categories"
   add_foreign_key "event_categories", "events"
   add_foreign_key "event_fb_event_admins", "events"

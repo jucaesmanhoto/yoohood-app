@@ -5,6 +5,7 @@ class Event < ApplicationRecord
   has_many :invites, dependent: :destroy
   has_many :event_categories, dependent: :destroy
   has_many :categories, through: :event_categories, dependent: :destroy
+  has_many :checkins
   has_many :event_fb_event_admins
   has_many :fb_event_admins, through: :event_fb_event_admins
   attr_accessor :adm_token
