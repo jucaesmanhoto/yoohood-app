@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @page_name = 'Find a perfect event'
-    @events = Event.all.reject { |event| event.end_time <= Time.now.getutc() }
+    @events = Event.all.reject { |event| event.end_time.present? && event.end_time <= Time.now.getutc() }
     # @event_near = Event.all.select{ |event| event.places.city ==  }
     @events_recent = @events.sort_by { |event| event.created_at }.first(9)
     @events_today = @events.select { |event| Date.parse(event.start_time.to_s) == Date.today }
