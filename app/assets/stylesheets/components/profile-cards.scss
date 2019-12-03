@@ -1,0 +1,38 @@
+.trade-card {
+  color: black;
+  p {
+    margin: 0;
+  }
+}
+
+.invites-card {
+  color: black;
+  p {
+    margin: 0;
+  }
+}
+
+.profile-user-points {
+  p {
+    margin: 0;
+  }
+  h4 {
+    background-color: $primary;
+    border-radius: 5px;
+    padding: 4px 0;
+  }
+}
+
+.invites {
+  padding: 4px;
+  height: 50vh;
+  overflow: scroll;
+  border: 3px solid white;
+}
+
+.trades {
+  padding: 4px;
+  height: 50vh;
+  overflow: scroll;
+  border: 3px solid white;
+}
