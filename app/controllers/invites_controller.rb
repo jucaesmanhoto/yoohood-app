@@ -16,7 +16,7 @@ class InvitesController < ApplicationController
       @invite.send_invite_mail(@invite.guest_email)
       redirect_to event_path(@invite.event)
     else
-      render :new
+      redirect_to event_path(@invite.event), alert: "You've already invited this person."
     end
   end
 
@@ -32,15 +32,20 @@ class InvitesController < ApplicationController
   end
 
   def show
+    @event = @invite.event
     redirect_to root_path, alert: 'Invalid invite.' unless @invite.token == params[:token]
     redirect_to root_path, alert: 'You cannot accept your own invite.' if @invite.user == current_user
     redirect_to root_path, alert: 'Invite already accepted.' if @invite.status == 'accepted'
-
-    @event = @invite.event
   end
 
   def update
+    if @invite.status == 'accepted'
+      redirect_to event_path(@invite.event), alert: 'Invite already accepted.'
+      return
+    end
+
     @invite.update(status: 'accepted')
+    @invite.user.update(points: @invite.user.points + 50)
     redirect_to event_path(@invite.event)
   end
 
