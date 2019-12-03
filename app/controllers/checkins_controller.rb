@@ -8,10 +8,12 @@ class CheckinsController < ApplicationController
   def create
     @checkin = Checkin.new(checkin_params)
     @checkin.event = @event
+    @checkin.user = current_user
     if @checkin.save
-      redirect_to event_path(@event)
+      redirect_to new_event_checkin_path(@event)
     else
-      
+      # flash[:alert] = "Something went wrong."
+      # render :new
     end
   end
 

@@ -3,7 +3,7 @@
     <h2 class="mb-5"><%= @event.title %></h2>
     <%= image_tag @event.cover %>
     <%= simple_form_for [@event, @checkin] do |f| %>
-      <%= f.input :rating %>
+      <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
       <%= f.input :review %>
       <%= f.button :submit, class: "btn btn-dark float-right" %>
       <%# if @benefit.id.present? %>

@@ -5,12 +5,12 @@ import "../plugins/flatpickr"
 import { previewImageOnFileSelect } from '../components/picture_preview';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
-import "../components/category_checkboxes"
-import goToByScroll from "../components/scroll_to_anchor"
+import "../components/category_checkboxes";
+import { initScroll } from "../components/scroll_to_anchor";
+import { initStarRating } from '../plugins/init_star_rating';
 
-initMapbox();
 previewImageOnFileSelect();
+initMapbox();
 initAutocomplete();
-
-
-
+initScroll();
+initStarRating();
