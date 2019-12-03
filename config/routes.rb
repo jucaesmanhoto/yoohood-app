@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users,
-    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+             controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
   get '/members', to: 'pages#members'
   get '/profile', to: 'pages#profile'
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :places
 
   resources :trades, only: %i[index show]
+  resources :checkins, only: %i[edit update]
   resources :benefits, only: %i[index edit destroy] do
     resources :trades, only: %i[new create]
   end
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
     resources :invites, only: [:create]
     post 'guest', to: 'invites#guest'
     resources :benefits, only: %i[show new create update]
+    resources :checkins, only: %i[new create]
   end
 
   resources :event_categories, only: :destroy
