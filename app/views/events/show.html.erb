@@ -35,6 +35,7 @@
                 <%= link_to "+ Add a benefit", new_event_benefit_path(@event), class: 'btn btn-dark' %>
               <% end %>
               <button type="button" class="btn btn-success" data-toggle="modal" data-target="#inviteModal"><strong>Invite a friend</strong></button>
+              <a class="btn btn-success" href="https://qrcodescan.in/">Check-in</a>
           </div>
           <p class="badge badge-dark text-wrap">Localização: <%= @event.places.first.address %></p>
           <p><%= @event.description %></p>
@@ -61,7 +62,7 @@
         </button>
       </div>
       <div class="modal-body">
-       <!--  Need to put presence true -->
+        <!--  Need to put presence true -->
         <%= f.input :guest_name, label: "NAME", placeholder: "John Doe" %>
         <%= f.input :guest_email, label: "E-MAIL", placeholder: "johndoe@gmail.com" %>
       </div>
