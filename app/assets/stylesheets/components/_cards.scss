@@ -5,12 +5,11 @@
   border-radius: 10px;
   transition: all 0.5s ease-in-out;
   img {
-    height: 200px;
     width: 100%;
     object-fit: cover;
   }
   h2 {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     margin: 0;
   }
@@ -43,7 +42,7 @@
 
 //Card of show page below
 .pic {
-  width: 100%;
+  width: 70%;
   object-fit: cover;
   height: 300px;
 }
@@ -57,16 +56,19 @@
   align-items: end;
 }
 
-.start-time-red-month {
-  color: red;
-  margin: 0;
-  padding: 0;
-}
 
 .start-time-day {
   margin: 0;
   padding: 0;
   text-align: end;
+  font-size: unset;
+}
+
+.start-time-red-month {
+  color: red !important;
+  margin: 0;
+  padding: 0;
+  font-size: unset;
 }
 
 .price-tag {
@@ -85,7 +87,7 @@
 }
 
 .card-size {
-  height: 350px;
+  height: 290px;
 }
 
 
@@ -144,14 +146,12 @@
   border-radius: 4px;
   img {
     height: 100%;
-    width: 100%;
     object-fit: cover;
   }
 }
 
-.map {
-  height: 200px;
-  margin-top: 50px;
+.mapboxgl-canvas {
+  position: inherit !important;
 }
 
 .invite-box {
@@ -176,3 +176,36 @@
 .benefit-form-card {
   color: black;
 }
+
+.button-green {
+  background-color: #63c42b;
+  border-color: #63c42b;
+  padding: 5px;
+  border-radius: 2px;
+  font-size: 15px;
+}
+
+.button-green:hover {
+    background-color: #68ce2d;
+    border-color: #68ce2d;
+  }
+
+
+// SHOW PAGE
+
+.start-time-day-show {
+  margin: 0;
+  padding: 0;
+  margin-right: 10px;
+  text-align: end;
+  font-size: large;
+}
+
+.start-time-red-month-show {
+  color: red !important;
+  margin: 0;
+  padding: 0;
+  margin-right: 10px;
+  font-size: large;
+}
+
