@@ -46,12 +46,13 @@
               <button type="button" class="button-green text-white" data-toggle="modal" data-target="#inviteModal">Share Event</button>
           </div>
 
-          <p class="">Location: <%= @event.places.first.address %></p>
+          <p>Location: <%= @event.places.first.address %></p>
           <p><%= @event.description %></p>
         </div>
       </div>
 
       <%= link_to "Back", events_path, class: "my-4 btn btn-outline-light float-left" %>
+      <%= link_to "Event Admin?", event_require_path(@event), class: "my-4 btn btn-outline-light float-right" %>
     </div>
   </div>
 </div>
@@ -83,4 +84,5 @@
     </div>
   </div>
 </div>
+
 

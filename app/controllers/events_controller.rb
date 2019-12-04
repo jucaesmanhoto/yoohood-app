@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_event, only: %i[show edit update]
+  before_action :set_event, only: %i[show edit update ask_for_ownership make_it_mine]
 
   def index
     events_by_city = params[:city].present? ? Place.near(params[:city], 10).map(&:event) : []
@@ -28,6 +28,15 @@ class EventsController < ApplicationController
         lng: @event.places.first.longitude
       }
     ]
+  end
+
+  # REQUIRE EVENTS
+  def ask_for_ownership
+  end
+
+  def make_it_mine
+    @event.update(user: current_user)
+    redirect_to event_path(@event)
   end
 
   def my_events
@@ -68,6 +77,10 @@ class EventsController < ApplicationController
   private
 
   def set_event
-    @event = Event.find(params[:id])
+    if params[:event_id].present?
+      @event = Event.find(params[:event_id])
+    else
+      @event = Event.find(params[:id])
+    end
   end
 end
