@@ -14,9 +14,11 @@
         </div>
 
               <div class="categories px-3">
+                <%# if (@event.start_time < DateTime.now) && (@event.end_time > DateTime.now) %>
+                  <%= link_to 'Checkin', new_event_checkin_path(@event) %>
+                <%# end %>  
                 <% if @event.user == current_user %>
                   <%= render 'categories' %>
-                  <%= link_to 'Checkin', new_event_checkin_path(@event) %>
                 <% else %>
                   <% @event.categories.each do |category| %>
                     <span class="category-choice" style="background-color: <%= category.color_hex  %>" >
@@ -44,6 +46,7 @@
                 <%= link_to "+ Add a benefit", new_event_benefit_path(@event), class: 'btn btn-dark' %>
               <% end %>
               <button type="button" class="button-green text-white" data-toggle="modal" data-target="#inviteModal">Share Event</button>
+              <a class="btn btn-success" href="https://qrcodescan.in/">Check-in</a>
           </div>
 
           <p>Location: <%= @event.places.first.address %></p>
@@ -71,7 +74,7 @@
         </button>
       </div>
       <div class="modal-body">
-       <!--  Need to put presence true -->
+        <!--  Need to put presence true -->
         <%= f.input :guest_name, label: "NAME", placeholder: "John Doe" %>
         <%= f.input :guest_email, label: "E-MAIL", placeholder: "johndoe@gmail.com" %>
       </div>
