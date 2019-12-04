@@ -16,7 +16,6 @@ class EventsController < ApplicationController
     @events = (events_by_city + events_by_title + events_by_date).uniq
     @events = Event.all if @events.count.zero?
     @events = @events.reject { |event| event.end_time <= Time.now.getutc() }
-
   end
 
   def show
@@ -32,7 +31,9 @@ class EventsController < ApplicationController
   end
 
   def my_events
-    @events = Event.all.select { |event| event.user == current_user }
+    user_events = Event.all.select { |event| event.user == current_user }
+    @past_events = user_events.select { |event| event.end_time <= DateTime.now }.sort { |a, b| a.start_time <=> b.start_time }
+    @events = (user_events - @past_events).sort { |a, b| a.start_time <=> b.start_time }.reverse
   end
 
   def new
