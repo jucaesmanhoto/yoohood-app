@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_155320) do
     t.datetime "updated_at", null: false
     t.string "photo"
     t.string "name"
+    t.string "fb_user_id"
     t.integer "points", default: 0
     t.string "provider"
     t.string "uid"
