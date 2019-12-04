@@ -9,9 +9,9 @@
           <% placeholder_url = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80" %>
           <%= image_tag @event.cover.presence ? @event.cover : placeholder_url, class: "pic", alt: "event cover" %>
               <div class="categories px-3">
-                <% if (@event.start_time < DateTime.now) && (@event.end_time > DateTime.now) %>
+                <%# if (@event.start_time < DateTime.now) && (@event.end_time > DateTime.now) %>
                   <%= link_to 'Checkin', new_event_checkin_path(@event) %>
-                <% end %>
+                <%# end %>  
                 <% if @event.user == current_user %>
                   <%= render 'categories' %>
                 <% else %>
