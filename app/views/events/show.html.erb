@@ -6,8 +6,13 @@
     <div class="card-event col-md-10">
 
       <div class="card-info">
+
+        <div class="d-flex flex-row">
           <% placeholder_url = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80" %>
-          <%= image_tag @event.cover.presence ? @event.cover : placeholder_url, class: "pic", alt: "event cover" %>
+          <%= image_tag @event.cover.presence ? @event.cover : placeholder_url, class: "pic d-inline-flex", alt: "event cover" %>
+           <div class="map" id="map" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        </div>
+
               <div class="categories px-3">
                 <%# if (@event.start_time < DateTime.now) && (@event.end_time > DateTime.now) %>
                   <%= link_to 'Checkin', new_event_checkin_path(@event) %>
@@ -24,26 +29,33 @@
               </div>
         <div class="card-body">
 
-            <div class="card-title d-flex flex-column" style="display:flex; justify-content:space-between">
-              <h2 class="p-2 font-weight-bold">
-                <%= @event.title %>
-              </h2>
+            <div class="card-title d-flex flex-column">
+              <div class="d-flex justify-content-between">
+                <h2 class="pb-2 font-weight-bold">
+                  <%= @event.title %>
+                </h2>
+                <div class="mb-3 flex-column">
+                  <h5 class='start-time-day-show'><%= @event.start_time.strftime('%d') %></h5>
+                  <p class='start-time-red-month'><%= @event.start_time.strftime('%b').upcase %></p>
+                </div>
+              </div>
               <div class="benefits">
                 <%= render 'benefit_card' %>
               </div>
               <% if @event.user == current_user %>
                 <%= link_to "+ Add a benefit", new_event_benefit_path(@event), class: 'btn btn-dark' %>
               <% end %>
-              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#inviteModal"><strong>Invite a friend</strong></button>
+              <button type="button" class="button-green text-white" data-toggle="modal" data-target="#inviteModal">Share Event</button>
               <a class="btn btn-success" href="https://qrcodescan.in/">Check-in</a>
           </div>
-          <p class="badge badge-dark text-wrap">Localização: <%= @event.places.first.address %></p>
+
+          <p>Location: <%= @event.places.first.address %></p>
           <p><%= @event.description %></p>
         </div>
       </div>
 
-      <div class="map" id="map" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       <%= link_to "Back", events_path, class: "my-4 btn btn-outline-light float-left" %>
+      <%= link_to "Event Admin?", event_require_path(@event), class: "my-4 btn btn-outline-light float-right" %>
     </div>
   </div>
 </div>
@@ -75,3 +87,5 @@
     </div>
   </div>
 </div>
+
+

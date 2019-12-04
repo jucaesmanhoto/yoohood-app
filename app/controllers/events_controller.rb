@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_event, only: %i[show edit update]
+  before_action :set_event, only: %i[show edit update ask_for_ownership make_it_mine]
 
   def index
     events_by_city = params[:city].present? ? Place.near(params[:city], 10).map(&:event) : []
@@ -16,7 +16,6 @@ class EventsController < ApplicationController
     @events = (events_by_city + events_by_title + events_by_date).uniq
     @events = Event.all if @events.count.zero?
     @events = @events.reject { |event| event.end_time <= Time.now.getutc() }
-
   end
 
   def show
@@ -31,8 +30,19 @@ class EventsController < ApplicationController
     ]
   end
 
+  # REQUIRE EVENTS
+  def ask_for_ownership
+  end
+
+  def make_it_mine
+    @event.update(user: current_user)
+    redirect_to event_path(@event)
+  end
+
   def my_events
-    @events = Event.all.select { |event| event.user == current_user }
+    user_events = Event.all.select { |event| event.user == current_user }
+    @past_events = user_events.select { |event| event.end_time <= DateTime.now }.sort { |a, b| a.start_time <=> b.start_time }
+    @events = (user_events - @past_events).sort { |a, b| a.start_time <=> b.start_time }.reverse
   end
 
   def new
@@ -67,6 +77,10 @@ class EventsController < ApplicationController
   private
 
   def set_event
-    @event = Event.find(params[:id])
+    if params[:event_id].present?
+      @event = Event.find(params[:event_id])
+    else
+      @event = Event.find(params[:id])
+    end
   end
 end

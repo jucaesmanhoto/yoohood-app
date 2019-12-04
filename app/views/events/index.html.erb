@@ -1,6 +1,10 @@
-<div class="container" style="display: flex;">
-<!-- <div class="container"> -->
-    <%= render 'shared/event_card_index', events: @events %>
-<!-- </div> -->
-  <div class="map" id="map" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" style="flex: 0 0 370px; height: 100vh; width: 80vh; position: sticky !important; margin-left: 50px;"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <%= render 'shared/event_card_index', events: @events %>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="map" id="map" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" style="flex: 0 0 370px; height: 100vh; width: 100%; position: sticky !important; margin-left: 20px;"></div>
+    </div>
+  </div>
 </div>

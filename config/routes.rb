@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :trades, only: %i[new create]
   end
   resources :events do
+    get '/require', to: 'events#ask_for_ownership'
+    post '/require', to: 'events#make_it_mine'
     resources :event_categories, only: %i[create update]
     resources :invites, only: [:create]
     # post 'guest', to: 'invites#guest'
