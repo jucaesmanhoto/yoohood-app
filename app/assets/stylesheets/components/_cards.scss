@@ -40,11 +40,26 @@
   width: 40px;
 }
 
-//Card of show page below
-.pic {
-  width: 70%;
-  object-fit: cover;
-  height: 300px;
+
+.start-time-red-month {
+  color: red !important;
+  margin: 0;
+  padding: 0;
+  font-size: small;
+  text-align: center;
+}
+
+.start-time-day {
+  margin: 0;
+  padding: 0;
+  text-align: end;
+  font-size: medium;
+  text-align: center
+}
+
+// SHOW PAGE
+.show-div {
+  height: 50vh;
 }
 
 .ticket-option {
@@ -54,21 +69,6 @@
 .card-date {
   display: flex;
   align-items: end;
-}
-
-
-.start-time-day {
-  margin: 0;
-  padding: 0;
-  text-align: end;
-  font-size: unset;
-}
-
-.start-time-red-month {
-  color: red !important;
-  margin: 0;
-  padding: 0;
-  font-size: unset;
 }
 
 .price-tag {
@@ -90,8 +90,46 @@
   height: 290px;
 }
 
+.start-time-red-month-show {
+  color: red !important;
+  margin: 0;
+  padding: 0;
+  // margin-right: 10px;
+  font-size: medium;
+  text-align: center
+}
 
-// FOR INDEX Below
+.start-time-day-show {
+  margin: 0;
+  padding: 0;
+  text-align: end;
+  font-size: xx-large;
+  text-align: center
+}
+
+.card-info-show {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.pic {
+  width: 70%;
+  object-fit: cover;
+  height: 300px;
+}
+
+.card-address {
+  margin-bottom: 0;
+}
+
+
+// INDEX PAGE
 
 .card-trip-index {
   overflow: hidden;
@@ -139,17 +177,6 @@
   justify-content: center;
 }
 
-.card-info {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 4px;
-  img {
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
 .mapboxgl-canvas {
   position: inherit !important;
 }
@@ -177,21 +204,17 @@
   color: black;
 }
 
-// SHOW PAGE
 
-.start-time-day-show {
-  margin: 0;
-  padding: 0;
-  margin-right: 10px;
-  text-align: end;
-  font-size: large;
+.button-green {
+  background-color: #63c42b;
+  border-color: #63c42b;
+  padding: 5px;
+  border-radius: 2px;
+  font-size: 15px;
 }
 
-.start-time-red-month-show {
-  color: red !important;
-  margin: 0;
-  padding: 0;
-  margin-right: 10px;
-  font-size: large;
-}
+.button-green:hover {
+    background-color: #68ce2d;
+    border-color: #68ce2d;
+  }
 

@@ -25,7 +25,8 @@ class EventsController < ApplicationController
     @markers = [
       {
         lat: @event.places.first.latitude,
-        lng: @event.places.first.longitude
+        lng: @event.places.first.longitude,
+        image_url: helpers.asset_url('yo_pin-01.png')
       }
     ]
   end
