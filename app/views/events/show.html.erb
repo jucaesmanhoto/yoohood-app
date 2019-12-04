@@ -33,7 +33,7 @@
                   <%= @event.title %>
                 </h2>
                 <div class="mb-3 flex-column">
-                  <h5 class='start-time-day-show'><%= @event.start_time.day %></h5>
+                  <h5 class='start-time-day-show'><%= @event.start_time.strftime('%d') %></h5>
                   <p class='start-time-red-month'><%= @event.start_time.strftime('%b').upcase %></p>
                 </div>
               </div>
