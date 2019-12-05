@@ -1,6 +1,32 @@
-<p>Hi <%= @invite.guest_name %>,</p>
+<div style="background-color: #000;
+            padding: 24px 320px;
+            font-family: Helvetica, sans-serif">
+  <div class="white-card"
+       style="background-color: #FFF;
+              background-color: #FFF;
+              box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.5);
+              border-radius: 15px;
+              padding: 30px 20px;
+              color: #000;
+              display: flex;
+              flex-direction: column;
+              align-items: center;">
+    <h1 style="margin: 0;">Hi <%= @invite.guest_name %>!</h1>
+    <div class="inviter" style="display: flex;
+                                align-items: baseline;
+                                justify-content: center;
+                                width: 100%;
+                                padding: 16px 120px">
+      <h2 style="display: inline-flex"><%= @invite.user.name %></h2>
+      <span style="width: 24px;"></span>
+      <p>sent you an invitation to</p>
+    </div>
+    <%= link_to invite_url(@invite, token: @invite.token), style: 'display: flex; justify-content: center;' do %>
+      <%= image_tag @invite.event.cover,  style: 'width: 80%; object-fit: cover;' %>
+    <% end %>
+      <%= link_to 'more info', invite_url(@invite, token: @invite.token), class: 'btn btn-dark', style: 'background-color: #000; padding: 8px 24px; color: #FFF; text-decoration: none; margin: 24px 8px;' %>
+    <p>See you there!</p>
+    <p>@Yoohood Inteligent Curators</p>
+  </div>
+</div>
 
-<p>You have received a new invitation to <%= @invite.event.title %>!</p>
-<%= link_to 'click aqui',  invite_url(@invite, token: @invite.token) %>
-<p>See you there!</p>
-<p>Juca - CEO @Yoohood</p>
