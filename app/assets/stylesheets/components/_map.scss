@@ -1,3 +1,10 @@
-// #map {
-//   width: 100%;
-// }
+.map-frame {
+  width: 30%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.magnified-marker {
+  height: 80px !important;
+  width: 34px !important;
+}

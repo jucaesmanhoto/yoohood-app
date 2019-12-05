@@ -8,6 +8,25 @@ navigator.geolocation.getCurrentPosition((position) => {
 });
 console.log(userLatitude, userLongitude)
 
+const events = document.querySelectorAll('.index-event-card');
+events.forEach(event => {
+  event.addEventListener('mouseover', e => {
+    const marker = document.getElementById(`marker-${event.dataset.eventId}`);
+    console.log(marker);
+    marker.classList.add('magnified-marker');
+    // .style.width = '17px';
+    // document.getElementById(`marker-${event.dataset.eventId}`).element.style.height = '40px';
+  });
+  event.addEventListener('mouseout', e => {
+    const marker = document.getElementById(`marker-${event.dataset.eventId}`);
+    console.log(marker);
+    marker.classList.remove('magnified-marker');
+    // .style.width = '17px';
+    // document.getElementById(`marker-${event.dataset.eventId}`).element.style.height = '40px';
+  })
+})
+
+
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
   const fitMapToMarkers = (map, markers) => {
@@ -45,9 +64,9 @@ const initMapbox = () => {
 
       const element = document.createElement('div');
       element.className = 'marker';
-
-      element.style.width = '14px';
-      element.style.height = '33px';
+      element.id = `marker-${marker.event_id}`
+      element.style.width = '17px';
+      element.style.height = '40px';
       element.style.backgroundImage = `url('${marker.image_url}')`;
       element.style.backgroundSize = 'cover';
       // element.style.objectFit

@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     @events_today = @events.select { |event| Date.parse(event.start_time.to_s) == Date.today }
     @events_diff = @events - @events_recent - @events_today
     @city = request.location.city
+    @nearby_events = Place.near(@city, 10).map(&:event)
   end
 
   def members
