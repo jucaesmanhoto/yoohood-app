@@ -49,6 +49,11 @@
 </div>
 
 <div class="container">
+  <h4 class="subheading my-1 mb-2 text-white">Coming up</h4>
+  <%= render 'shared/event_card', events: @events_coming_up %>
+</div>
+
+<div class="container">
   <h4 class="subheading my-1 mb-2 text-white">New events</h4>
   <%= render 'shared/event_card', events: @events_recent %>
 </div>
