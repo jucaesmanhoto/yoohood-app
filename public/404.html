@@ -4,6 +4,48 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+    html {
+    background: url(images/error_bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  #logo_yoohood {
+    position: absolute;
+    left: 5vw;
+    /* bottom: 200px; */
+    bottom: 10vh;
+    z-index: -1;
+    width: 30%;
+    height: auto;
+  }
+
+  #wrong_page {
+    position: absolute;
+    /* right: 5vw;
+    top: 10vh; */
+    top: 35%;
+    left: 30%;
+    z-index: -1;
+    /* width: 30%; */
+    width: 60%;
+    height: auto;
+  }
+
+  #page_not_found {
+    position: absolute;
+    /* right: 5vw; */
+    top: 55%;
+    left: 30%;
+    bottom: 10vh;
+    z-index: -1;
+    /* width: 30%; */
+    width: 60%;
+    height: auto;
+  }
+
   .rails-default-error-page {
     background-color: #EFEFEF;
     color: #2E2F30;
@@ -51,11 +93,36 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  @media (min-width: 576px) {
+    #wrong_page {
+      top: 10vh;
+      left: auto;
+      right: 5vw;
+      width: 30%;
+    }
+
+    #page_not_found {
+      left: auto;
+      right: 5vw;
+      width: 30%;
+      /* position: absolute;
+      top: 55%;
+      left: 30%;
+      bottom: 10vh;
+      z-index: -1;
+      width: 50%;
+      height: auto; */
+    }
+  }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
-  <img src="images/404.png" alt="">
+  <!-- <img src="images/404.png" alt=""> -->
+  <img id="logo_yoohood" src="images/logo_yoohood_alta.png" alt="">
+  <img id="wrong_page" src="images/wrong_page.png" alt="">
+  <img id="page_not_found" src="images/page_not_found.png" alt="">
 </body>
 </html>
