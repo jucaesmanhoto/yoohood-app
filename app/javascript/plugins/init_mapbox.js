@@ -1,5 +1,13 @@
 import mapboxgl from 'mapbox-gl';
 
+let userLatitude;
+let userLongitude;
+navigator.geolocation.getCurrentPosition((position) => {
+  userLatitude = position.coords.latitude;
+  userLongitude = position.coords.longitude;
+});
+console.log(userLatitude, userLongitude)
+
 const initMapbox = () => {
   var x = window.matchMedia("(max-width: 420px)");
   var mapDiv = "map1";
@@ -12,10 +20,26 @@ const initMapbox = () => {
   }
   // const mapElement = document.getElementById('map');
   const fitMapToMarkers = (map, markers) => {
+    console.log('fitMapToMarkers')
+
     const bounds = new mapboxgl.LngLatBounds();
     markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
     map.fitBounds(bounds, { padding: 70, maxZoom: 12, duration: 0 });
+    map.flyTo({center: [markers[0].lng, markers[0].lat]})
   };
+
+  const centerMapToUserLocation = (map) => {
+    console.log('centerMapToUserLocation')
+
+    let userLatitude;
+    let userLongitude;
+    navigator.geolocation.getCurrentPosition((position) => {
+      userLatitude = position.coords.latitude;
+      userLongitude = position.coords.longitude;
+    });
+    const bounds = new mapboxgl.LngLatBounds();
+    map.flyTo({center: [userLongitude, userLatitude]})
+  }
 
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -42,7 +66,11 @@ const initMapbox = () => {
         .addTo(map);
     });
 
-    fitMapToMarkers(map, markers);
+    if (userLatitude != undefined && userLongitude != undefined) {
+      centerMapToUserLocation(map);
+    } else {
+      fitMapToMarkers(map, markers);
+    }
   }
 };
 

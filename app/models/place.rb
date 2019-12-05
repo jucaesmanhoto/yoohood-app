@@ -4,5 +4,5 @@ class Place < ApplicationRecord
   geocoded_by :address
 
   validates :name, :latitude, :longitude, presence: true
-  after_validation :geocode, if: :will_save_change_to_address?
+  # after_validation :geocode, if: :will_save_change_to_address?
 end

@@ -15,7 +15,14 @@ class EventsController < ApplicationController
     end
     @events = (events_by_city + events_by_title + events_by_date).uniq
     @events = Event.all if @events.count.zero?
-    @events = @events.reject { |event| event.end_time <= Time.now.getutc() }
+    @events = @events.reject { |event| event.end_time <= Time.now.getutc }
+    @markers = @events.map do |event|
+      {
+        lat: event.places.first.latitude,
+        lng: event.places.first.longitude,
+        image_url: helpers.asset_url('yo_pin-01.png')
+      }
+    end
   end
 
   def show

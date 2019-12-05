@@ -1,0 +1,54 @@
+.about-us {
+  margin-bottom: 80px;
+
+  .team-member {
+    img {
+      height: 180px;
+      width: 180px;
+      object-fit: cover;
+      margin: 12px 28px;
+    }
+  }
+
+  .yo-logo {
+    margin-bottom: 36px;
+    width: 80vw;
+  }
+}
+
+// Small devices (landscape phones, 320px and up)
+@media (min-width: 320px) {
+  .about-us {
+
+    .yo-logo {
+      width: 45vw;
+    }
+
+    .team-member {
+      img {
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+        margin: 16px 32px;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .about-us {
+
+    .yo-logo {
+      width: 30vw;
+    }
+
+    .team-member {
+      img {
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+        margin: 16px 32px;
+      }
+    }
+  }
+}
