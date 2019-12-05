@@ -10,7 +10,7 @@
         <div class="d-flex flex-row show-div">
           <% placeholder_url = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80" %>
           <%= image_tag @event.cover.presence ? @event.cover : placeholder_url, class: "pic d-inline-flex", alt: "event cover" %>
-           <div style="width: 50vw;">
+          <div style="width: 50vw;">
               <div class="map" id="map" style="height: 100%;" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
           </div>
         </div>
@@ -62,8 +62,9 @@
           <p class="card-address"><%= @event.places.first.address %></p>
           <p><%= @event.places.first.city %></p>
 
-              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#inviteModal">Share Event</button>
-              <a class="btn btn-success" href="https://qrcodescan.in/">Check-in</a>
+          <%= link_to 'Ticket', @event.ticket_uri, target: "_blank", class: 'btn btn-success' %>
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#inviteModal">Share Event</button>
+          <a class="btn btn-success" href="https://qrcodescan.in/">Check-in</a>
           </div>
 
           <p>Location: <%= @event.places.first.address %></p>
@@ -105,5 +106,3 @@
     </div>
   </div>
 </div>
-
-
