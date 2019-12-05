@@ -10,7 +10,7 @@
         <div class="d-flex flex-row show-div">
           <% placeholder_url = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80" %>
           <%= image_tag @event.cover.presence ? @event.cover : placeholder_url, class: "pic d-inline-flex", alt: "event cover" %>
-           <div style="width: 50vw;">
+          <div style="width: 50vw;">
               <div class="map" id="map" style="height: 100%;" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
           </div>
         </div>
@@ -27,6 +27,7 @@
                   <% end %>
                 <% end %>
               </div>
+
         <div class="card-body">
 
             <div class="card-title d-flex flex-column">
@@ -35,19 +36,18 @@
                   <p class='start-time-red-month-show'><%= @event.start_time.strftime('%b').upcase %></p>
                   <h5 class='start-time-day-show'><%= @event.start_time.day %></h5>
                 </div>
-                <h2 class="pb-2 font-weight-bold">
+                <h2 class="font-weight-bold title-size">
                   <%= @event.title %>
                 </h2>
-
-
               </div>
               <div class="benefits">
                 <%= render 'benefit_card' %>
               </div>
-              <% if @event.user == current_user %>
+              <% #if @event.user == current_user %>
                 <%= link_to "+ Add a benefit", new_event_benefit_path(@event), class: 'btn btn-dark' %>
-              <% end %>
-        </div>
+              <% #end %>
+              <button type="button" class="btn btn-block btn-success mt-1" data-toggle="modal" data-target="#inviteModal">Invite a friend</button>
+          </div>
 
         <div class="d-flex flex-row">
           <i class="far fa-clock" style="margin-right: 10px; padding-top: 3px"></i>
@@ -61,11 +61,12 @@
         <p class="address-bottom address-side"><%= @event.places.first.address %></p>
         <p class="address-side"><%= @event.places.first.city %></p>
 
-              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#inviteModal">Share Event</button>
+
+              <%= link_to 'Ticket', @event.ticket_uri, target: "_blank", class: 'btn btn-success' %>
               <% #if (@event.start_time < DateTime.now) && (@event.end_time > DateTime.now) %>
                   <%= link_to 'Checkin', new_event_checkin_path(@event), class: "btn btn-success" %>
               <% #end %>
-          </div>
+        </div>
 
           <p>Location: <%= @event.places.first.address %></p>
 
@@ -106,5 +107,3 @@
     </div>
   </div>
 </div>
-
-

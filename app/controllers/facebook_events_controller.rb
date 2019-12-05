@@ -26,7 +26,6 @@ class FacebookEventsController < ApplicationController
     #   event: @event
     # )
 
-
     if @event.save
       JSON(params[:admins]).each do |admin|
         if FbEventAdmin.find_by_fb_user_id(admin['id']).nil?
@@ -52,6 +51,6 @@ class FacebookEventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :end_time, :start_time, :cover, places_attributes: [:id, :name, :address, :city, :state, :country, :latitude, :longitude])
+    params.require(:event).permit(:title, :description, :end_time, :start_time, :cover, :ticket_uri, places_attributes: %i[id name address city state country latitude longitude])
   end
 end

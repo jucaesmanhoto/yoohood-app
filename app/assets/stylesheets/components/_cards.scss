@@ -44,10 +44,11 @@
 
 
 .start-time-red-month {
+  opacity: .7;
   color: red !important;
   margin: 0;
   padding: 0;
-  font-size: small;
+  font-size: 12px;
   text-align: center;
 }
 
@@ -93,6 +94,7 @@
 }
 
 .start-time-red-month-show {
+  opacity: .7;
   color: red !important;
   margin: 0;
   padding: 0;
@@ -134,6 +136,11 @@
   padding-left: 22.5px;
 }
 
+// @media (min-width: 320px) {
+//   .title-size {
+//   font-size: 15px;
+// }
+// }
 
 // INDEX PAGE
 
@@ -240,3 +247,19 @@
   }
 }
 
+.start-time-red-month-index {
+  opacity: .7;
+  color: red !important;
+  margin: 0;
+  padding: 0;
+  font-size: xx-small;
+  text-align: center;
+}
+
+.start-time-day-index {
+  margin: 0;
+  padding: 0;
+  text-align: end;
+  font-size: 20px;
+  text-align: center;
+}
