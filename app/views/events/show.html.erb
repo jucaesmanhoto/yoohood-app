@@ -16,9 +16,7 @@
         </div>
 
               <div class="categories px-3">
-                <%# if (@event.start_time < DateTime.now) && (@event.end_time > DateTime.now) %>
-                  <%= link_to 'Checkin', new_event_checkin_path(@event) %>
-                <%# end %>
+
                 <% if @event.user == current_user %>
                   <%= render 'categories' %>
                 <% else %>
@@ -41,10 +39,7 @@
                   <%= @event.title %>
                 </h2>
 
-                <div class="mb-3 flex-column">
-                  <h5 class='start-time-day-show'><%= @event.start_time.strftime('%d') %></h5>
-                  <p class='start-time-red-month'><%= @event.start_time.strftime('%b').upcase %></p>
-                </div>
+
               </div>
               <div class="benefits">
                 <%= render 'benefit_card' %>
@@ -54,16 +49,22 @@
               <% end %>
         </div>
 
-          <i class="far fa-clock"></i>
-          <p class='time-show'><%= @event.start_time.strftime('%H:%M') %>-<%= @event.end_time.strftime('%H:%M') %></p>
+        <div class="d-flex flex-row">
+          <i class="far fa-clock" style="margin-right: 10px; padding-top: 3px"></i>
+          <p class='time-show'><%= @event.start_time.strftime('%I:%M%p') %>-<%= @event.end_time.strftime('%I:%M%p') %></p>
+        </div>
 
-          <i class="fas fa-map-marker-alt"></i>
-          <p class="card-address"><%= @event.places.first.name %></p>
-          <p class="card-address"><%= @event.places.first.address %></p>
-          <p><%= @event.places.first.city %></p>
+        <div class="d-flex">
+          <i class="fas fa-map-marker-alt" style="margin-right: 10px; padding-top: 3px"></i>
+          <p class="address-bottom"><%= @event.places.first.name %></p>
+        </div>
+        <p class="address-bottom address-side"><%= @event.places.first.address %></p>
+        <p class="address-side"><%= @event.places.first.city %></p>
 
               <button type="button" class="btn btn-success" data-toggle="modal" data-target="#inviteModal">Share Event</button>
-              <a class="btn btn-success" href="https://qrcodescan.in/">Check-in</a>
+              <% #if (@event.start_time < DateTime.now) && (@event.end_time > DateTime.now) %>
+                  <%= link_to 'Checkin', new_event_checkin_path(@event), class: "btn btn-success" %>
+              <% #end %>
           </div>
 
           <p>Location: <%= @event.places.first.address %></p>
