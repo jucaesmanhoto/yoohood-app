@@ -9,7 +9,7 @@
       <% end %>
 
 
-      <div class="" >
+      <div class="modal" tabindex="-1" role="dialog" id="benefit-<%= benefit.id %>-modal" >
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -22,15 +22,20 @@
             </div>
 
             <div class="d-row border flex-column p-2">
-              <% if current_user.present? %>
+              <% if current_user.present? && current_user.points >= benefit.value_in_points%>
                 <span class="badge badge-primary p-2 float-right">
+                  balance:
+                  <h3 class="mb-0 mt-2"><%= current_user.points %></h3> pts.
+                </span>
+              <% else %>
+                <span class="badge badge-danger p-2 float-right">
                   balance:
                   <h3 class="mb-0 mt-2"><%= current_user.points %></h3> pts.
                 </span>
               <% end %>
             </div>
 
-            <% if !current_user.nil? && current_user.points >= benefit.value_in_points %>
+            <% if current_user.present? && current_user.points >= benefit.value_in_points %>
 
               <%= simple_form_for [benefit, @trade] do |f| %>
                 <div class="modal-body">
