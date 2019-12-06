@@ -1,20 +1,27 @@
-<div class="container px-5 mt-5" id="profile-container">
+<div class="container px-5 mt-2" id="profile-container">
   <div class="d-flex">
-    <% placeholder_url = current_user.facebook_picture_url ? current_user.facebook_picture_url : "https://www.wittenberg.edu/sites/default/files/2018-10/nouser_0.jpg" %>
-    <%= image_tag(current_user.photo.present? ? current_user.photo.url : placeholder_url, width: 100, height: 100) %>
     <div class="flex-grow-1 d-flex flex-column align-items-center">
-      <div class="flex-row w-100 d-flex justify-content-between">
+      <div class="flex-row w-100 d-flex justify-content-center px-5 pb-4">
         <div class="name-and-edit-link text-center flex-grow-1">
-          <h1><%= current_user.name%></h1>
-          <%= link_to "Edit Profile", edit_user_registration_path %>
+          <%= link_to edit_user_registration_path do %>
+          <div class="">
+          <h1 class="d-inline-flex mr-2"><%= current_user.name.capitalize%></h1>
+          <i class="fas fa-pencil-alt"></i>
+          </div>
+          <% end %>
+
+
         </div>
-        <div class="row d-flex flex-column profile-user-points">
-          <p>your balance:</p>
-          <h4 class="text-center"><%= current_user.points %></h4>
+        <div class="d-flex flex-column profile-user-points">
+          <p>Your balance</p>
+          <h4 class="text-center mt-2"><%= current_user.points %></h4>
         </div>
       </div>
+
       <div class="flex-row row w-100 p-4">
-        <div class="col-12 col-sm-6 invites">
+        <div class="col-12 col-sm-4">
+          <h4 class="text-center">Accepted invites</h4>
+          <div class="invites">
           <% if current_user.invites.empty? %>
             <div class="card invites-card p-2 pl-4 my-1">
               <p>Você ainda não tem convites aceitos.</p>
@@ -23,26 +30,46 @@
           <%# raise %>
             <% current_user.invites.each do |invite| %>
               <div class="card invites-card p-2 pl-4 my-1">
-                <p><%= invite.guest_name %></p>
-                <p>accepted an invite to:</p>
+                <p class="mb-2"><%= invite.guest_name %> accepted an invite to:</p>
                 <h4><%= invite.event.title %></h4>
-                <p><%= invite.created_at.strftime('%H:%M - %a, %d %b %Y') %></p>
-                <p>50pts added to your balance! <%= %w[🎉🎉 😄🤩 😍🎉 😍😍😍].sample %></p>
+                <!-- <p><%#= invite.created_at.strftime('%H:%M - %a, %d %b %Y') %></p> -->
+                <!-- <p><strong>50</strong> points added to your balance! <%#= %w[🎉🎉 😄🎉 😍🎉].sample %></p> -->
+                <span class="badge badge-primary float-right">50 points</span>
+
               </div>
             <% end %>
           <% end %>
         </div>
+        </div>
 
-        <div class="col-12 col-sm-6 trades">
+        <div class="col-12 col-sm-4">
+          <h4 class="text-center">Redeemed benefits</h4>
+          <div class="invites">
           <% current_user.trades.each do |trade| %>
             <%= link_to trade_path(trade) do %>
               <div class="card trade-card p-2 pl-4 my-1">
-                <p><%= trade.quantity %>x <%= trade.benefit.name %> to:</p>
+                <p class="mb-2"><%= trade.quantity %>x <%= trade.benefit.name %> to:</p>
                 <h4><%= trade.benefit.event.title %></h4>
-                <p><%= trade.benefit.event.start_time.strftime('%H:%M - %a, %d %b %Y') %></p>
+                <!-- p><%#= trade.benefit.event.start_time.strftime('%H:%M - %a, %d %b %Y') %></p> -->
               </div>
             <% end %>
           <% end %>
+        </div>
+        </div>
+
+
+        <div class="col-12 col-sm-4">
+          <h4 class="text-center">Check-ins</h4>
+          <div class="invites">
+          <% current_user.checkins.each do |checkin| %>
+              <div class="card checkin-card p-2 pl-4 my-1">
+                <h4 class="mb-2 mt-1"><%= checkin.event.title %></h4>
+                <p><%=checkin.review%></p>
+                <p> <%= "⭐" * checkin.rating%> </p>
+                <p class="pt-2"><%= checkin.created_at.strftime('%H:%M - %a, %d %b %Y') %></p>
+              </div>
+          <% end %>
+        </div>
         </div>
 
 
