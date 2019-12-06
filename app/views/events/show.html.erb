@@ -46,10 +46,10 @@
                 </div>
 
                 <div class="d-flex ml-2 qr-checkin flex-grow-0">
-                  <% if (@event.start_time < DateTime.now) && (@event.end_time > DateTime.now) %>
+                  <%# if (@event.start_time < DateTime.now) && (@event.end_time > DateTime.now) %>
                   <%= image_tag('QR-code.svg', style: 'width: 30px;') %>
                   <a class= "small text-dark", style= "white-space: nowrap; padding-left: 4px" href="https://qrcodescan.in">Check-in</a>
-                  <% end %>
+                  <%# end %>
                 </div>
 
               </div>
