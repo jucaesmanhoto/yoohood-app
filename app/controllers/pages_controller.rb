@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home members]
+  skip_before_action :authenticate_user!, only: %i[home members about contact]
 
   def home
     @page_name = 'Find a perfect event'
@@ -14,6 +14,10 @@ class PagesController < ApplicationController
 
   def members
     @page_name = 'members'
+  end
+
+  def contact
+
   end
 
   def about

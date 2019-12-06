@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/members', to: 'pages#members'
   get '/profile', to: 'pages#profile'
   get '/about', to: 'pages#about'
+  get '/contact', to: 'pages#contact'
 
   get 'fb/events', to: 'facebook_events#index'
   get 'fb/token', to: 'facebook_events#new'
