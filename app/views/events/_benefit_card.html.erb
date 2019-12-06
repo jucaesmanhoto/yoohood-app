@@ -2,32 +2,40 @@
   <div class="row justify-content-center">
     <% @event.benefits.each do |benefit| %>
       <%# raise %>
-      <%= link_to current_user == @event.user ? edit_benefit_path(benefit) : new_benefit_trade_path(benefit), class: "benefit-card card col-lg-4 mx-2 flex-row card-title justify-content-between", "data-toggle" => "modal", "data-target" => "#benefit-#{benefit.id}-modal" do %>
+      <%= link_to current_user == @event.user ? edit_benefit_path(benefit) : new_benefit_trade_path(benefit), class: "benefit-card card col-lg-4 mx-2 flex-row card-title justify-content-between", current_user == @event.user ? '' : "data-toggle" => "modal", "data-target" => "#benefit-#{benefit.id}-modal" do %>
         <div class="benefit-quantity"><%= benefit.quantity %> ud.</div>
         <div class="benefit-name"><%= benefit.name %></div>
         <div class="benefit-value"><span><%= benefit.value_in_points %></span>pts</div>
       <% end %>
 
 
-      <div class="modal" tabindex="-1" role="dialog" id="benefit-<%= benefit.id %>-modal">
+      <div class="modal" tabindex="-1" role="dialog" id="benefit-<%= benefit.id %>-modal" >
         <div class="modal-dialog" role="document">
-          <div class="modal-content trade-box">
-            <div class="modal-header d-flex flex-column benefit-modal-header">
-              <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">
+                <h3><%= @event.title %></h3>
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <div class="d-flex flex-column text-center my-n4 w-100">
-                <h2><%= @event.title %></h2>
-              </div>
-                <div class="row user-points d-flex flex-column">
-                  <% unless current_user.nil? %>
-                    <p>your balance:</p>
-                    <h4 class="text-center"><%= current_user.points %></h4>
-                  <% end %>
-                </div>
             </div>
 
-            <% if !current_user.nil? && current_user.points >= benefit.value_in_points %>
+            <div class="d-row border flex-column p-2">
+              <% if current_user.present? && current_user.points >= benefit.value_in_points%>
+                <span class="badge badge-primary p-2 float-right">
+                  balance:
+                  <h3 class="mb-0 mt-2"><%= current_user.points %></h3> pts.
+                </span>
+              <% else %>
+                <span class="badge badge-danger p-2 float-right">
+                  balance:
+                  <h3 class="mb-0 mt-2"><%= current_user.points %></h3> pts.
+                </span>
+              <% end %>
+            </div>
+
+            <% if current_user.present? && current_user.points >= benefit.value_in_points %>
 
               <%= simple_form_for [benefit, @trade] do |f| %>
                 <div class="modal-body">
