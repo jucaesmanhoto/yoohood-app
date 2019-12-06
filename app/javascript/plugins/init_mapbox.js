@@ -6,7 +6,7 @@ navigator.geolocation.getCurrentPosition((position) => {
   userLatitude = position.coords.latitude;
   userLongitude = position.coords.longitude;
 });
-console.log(userLatitude, userLongitude)
+// console.log(userLatitude, userLongitude)
 
 const initMapbox = () => {
   var x = window.matchMedia("(max-width: 420px)");

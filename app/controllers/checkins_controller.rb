@@ -16,8 +16,17 @@ class CheckinsController < ApplicationController
     @checkin.event = @event
     @checkin.user = current_user
 
-    flash[:alert] = "Try again later." unless @checkin.save
-    redirect_to event_path(@event)
+    if @checkin.save
+      points_earned = 50
+      points_earned += 40 if @checkin.review.size >= 10
+      points_earned += 30 if @checkin.rating.present?
+
+      current_user.update(points: current_user.points + points_earned)
+      redirect_to event_path(@event)
+    else
+      flash[:alert] = "Something went wrong. Please, try again."
+      render :new
+    end
   end
 
   # def edit
