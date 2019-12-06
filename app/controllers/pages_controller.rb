@@ -5,9 +5,10 @@ class PagesController < ApplicationController
     @page_name = 'Find a perfect event'
     @events = Event.all.reject { |event| event.end_time.present? && event.end_time <= Time.now.getutc() }
     # @event_near = Event.all.select{ |event| event.places.city ==  }
-    @events_recent = @events.sort_by { |event| event.created_at }.first(9)
-    @events_today = @events.select { |event| Date.parse(event.start_time.to_s) == Date.today }
-    @events_diff = @events - @events_recent - @events_today
+    @events_recent = @events.sort_by { |event| event.created_at }.first(8)
+    @events_today = @events.select { |event| Date.parse(event.start_time.to_s) == Date.today }.first(8)
+    @events_coming_up = @events.select { |event| event.start_time > DateTime.now }.sort_by { |event| event.start_time }.first(8)
+    @events_diff = @events - @events_recent - @events_coming_up - @events_today
     @city = request.location.city
   end
 

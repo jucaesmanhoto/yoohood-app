@@ -13,7 +13,7 @@
   top: 240px;
   left: 50%;
   width: 100%;
-  max-height: 100vh;
+  max-height: 80vh;
   height: 100%;
   object-fit: cover;
   z-index: 0;
@@ -27,19 +27,3 @@
   position: relative;
 }
 
-.scroll {
-  font-size: 13px;
-  color: #9DA3A4;
-  &:hover {
-    text-decoration: none !important;
-    color: #9DA3A4;
-}
-}
-
-.scroll-icon {
-  color: #9DA3A4;
-}
-
-.subheading {
-  text-decoration: overline;
-}
