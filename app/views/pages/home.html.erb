@@ -31,7 +31,6 @@
       </div>
     </div>
   </div>
-  <p><%= @city %></p>
 </div>
 
 <div class="anchor-text d-flex flex-column align-items-center pt-5 mb-2" id="scrollAnchor">
@@ -39,19 +38,24 @@
 <i class="fa fa-angle-down scroll-icon"></i>
 </div>
 
+<!--<div class="container">-->
+  <!--<h4 class="subheading pt-4 my-1 mb-2 text-white" id="near_events"><%#= @city.present? ? "In #{@city}" : 'Near you' %></h4>-->
+  <%#= render 'shared/event_card', events: @events %>
+<!--</div>-->
+
 <div class="container">
-  <h4 class="subheading pt-4 my-1 mb-2 text-white" id="near_events"><%= @city.present? ? "In #{@city}" : 'Near you' %></h4>
-  <%= render 'shared/event_card', events: @events %>
+  <h4 class="subheading my-1 mb-2 text-white">Events today</h4>
+  <%= render 'shared/event_card', events: @events_today %>
+</div>
+
+<div class="container">
+  <h4 class="subheading my-1 mb-2 text-white">Coming up</h4>
+  <%= render 'shared/event_card', events: @events_coming_up %>
 </div>
 
 <div class="container">
   <h4 class="subheading my-1 mb-2 text-white">New events</h4>
   <%= render 'shared/event_card', events: @events_recent %>
-</div>
-
-<div class="container">
-  <h4 class="subheading my-1 mb-2 text-white">Events today</h4>
-  <%= render 'shared/event_card', events: @events_today %>
 </div>
 
 <div class="container">

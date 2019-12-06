@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'yoohood.web@gmail.com'
+  default from: 'ti@yoohood.fun'
   layout 'mailer'
 end

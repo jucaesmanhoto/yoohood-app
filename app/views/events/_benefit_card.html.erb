@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <% @event.benefits.each do |benefit| %>
+      <%# raise %>
       <%= link_to current_user == @event.user ? edit_benefit_path(benefit) : new_benefit_trade_path(benefit), class: "benefit-card card col-lg-4 mx-2 flex-row card-title justify-content-between", "data-toggle" => "modal", "data-target" => "#benefit-#{benefit.id}-modal" do %>
         <div class="benefit-quantity"><%= benefit.quantity %> ud.</div>
         <div class="benefit-name"><%= benefit.name %></div>
