@@ -20,7 +20,8 @@ class EventsController < ApplicationController
       {
         lat: event.places.first.latitude,
         lng: event.places.first.longitude,
-        image_url: helpers.asset_url('yo_pin-01.png')
+        image_url: helpers.asset_url('yo_pin-01.png'),
+        event_id: event.id
       }
     end
   end
@@ -33,7 +34,8 @@ class EventsController < ApplicationController
       {
         lat: @event.places.first.latitude,
         lng: @event.places.first.longitude,
-        image_url: helpers.asset_url('yo_pin-01.png')
+        image_url: helpers.asset_url('yo_pin-01.png'),
+        event_id: @event.id
       }
     ]
   end

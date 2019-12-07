@@ -10,6 +10,7 @@ class PagesController < ApplicationController
     @events_coming_up = (@events.select { |event| event.start_time > DateTime.now }.sort_by { |event| event.start_time } - @events_today).first(8)
     @events_diff = @events - @events_recent - @events_coming_up
     @city = request.location.city
+    @nearby_events = Place.near(@city, 10).map(&:event)
   end
 
   def members
