@@ -6,7 +6,7 @@ navigator.geolocation.getCurrentPosition((position) => {
   userLatitude = position.coords.latitude;
   userLongitude = position.coords.longitude;
 });
-console.log(userLatitude, userLongitude)
+// console.log(userLatitude, userLongitude)
 
 const events = document.querySelectorAll('.index-event-card');
 events.forEach(event => {
@@ -28,7 +28,16 @@ events.forEach(event => {
 
 
 const initMapbox = () => {
-  const mapElement = document.getElementById('map');
+  var x = window.matchMedia("(max-width: 420px)");
+  var mapDiv = "map1";
+
+  var mapElement = document.getElementById('map1');
+  if (x.matches) { // If media query matches
+    // console.log(x)
+    mapElement = document.getElementById('map2');
+    mapDiv = "map2";
+  }
+  // const mapElement = document.getElementById('map');
   const fitMapToMarkers = (map, markers) => {
     console.log('fitMapToMarkers')
 
@@ -54,8 +63,8 @@ const initMapbox = () => {
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/alexk02/ck3ot2rfb6udw1cmz6awv1prg',
+      container: mapDiv,
+      style: 'mapbox://styles/alexk02/ck3ot2rfb6udw1cmz6awv1prg'
     });
 
 

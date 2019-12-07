@@ -27,12 +27,43 @@
   padding: 4px;
   height: 50vh;
   overflow: scroll;
-  border: 3px solid white;
+  // border: 3px solid white;
+  p {
+    font-size: 12px;
+    margin: 0;
+  }
+  h4 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  span {
+    width: 70px;
+    padding: 5px;
+    margin-top: 5px;
+  }
 }
 
-.trades {
-  padding: 4px;
-  height: 50vh;
-  overflow: scroll;
-  border: 3px solid white;
-}
+// .trades {
+//   padding: 4px;
+//   height: 50vh;
+//   overflow: scroll;
+//   // border: 3px solid white;
+//   p {
+//     font-size: 12px;
+//   }
+//   h4 {
+//     font-size: 18px;
+//   }
+// }
+
+// .check-ins {
+//   padding: 4px;
+//   height: 50vh;
+//   overflow: scroll;
+//   p {
+//     font-size: 12px;
+//   }
+//   h4 {
+//     font-size: 18px;
+//   }
+// }

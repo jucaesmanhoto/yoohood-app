@@ -12,8 +12,8 @@
                 <p class='mt-1'><%= event.places.first.name %></p>
               </div>
               <div class="flex-column">
-                <h5 class='start-time-day'><%= event.start_time.strftime('%b') %></h5>
-                <p class='start-time-red-month'><%= event.start_time.strftime('%b').upcase %></p>
+               <p class='start-time-red-month-index'><%= event.start_time.strftime('%b').upcase %></p>
+               <h5 class='start-time-day-index'><%= event.start_time.strftime('%d') %></h5>
               </div>
 
             </div>

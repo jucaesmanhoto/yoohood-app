@@ -44,10 +44,11 @@
 
 
 .start-time-red-month {
+  opacity: .7;
   color: red !important;
   margin: 0;
   padding: 0;
-  font-size: small;
+  font-size: 12px;
   text-align: center;
 }
 
@@ -60,9 +61,6 @@
 }
 
 // SHOW PAGE
-.show-div {
-  height: 50vh;
-}
 
 .ticket-option {
   background-color: white;
@@ -93,6 +91,7 @@
 }
 
 .start-time-red-month-show {
+  opacity: .7;
   color: red !important;
   margin: 0;
   padding: 0;
@@ -115,21 +114,32 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 4px;
   img {
+    width: 70%;
     height: 100%;
     object-fit: cover;
   }
 }
 
-.pic {
-  width: 70%;
-  object-fit: cover;
-  height: 300px;
-}
-
-.card-address {
+.address-bottom {
   margin-bottom: 0;
 }
 
+.address-side {
+  padding-left: 22.5px;
+}
+
+.show-div {
+  height: 300px;
+  width: 100%;
+}
+
+#checkin-button {
+  a {
+  color: black !important;
+  text-decoration: none !important;
+  font-size: 12px !important;
+}
+}
 
 // INDEX PAGE
 
@@ -235,4 +245,63 @@
     font-size: 12px;
   }
 }
+
+.start-time-red-month-index {
+  opacity: .7;
+  color: red !important;
+  margin: 0;
+  padding: 0;
+  font-size: xx-small;
+  text-align: center;
+}
+
+.start-time-day-index {
+  margin: 0;
+  padding: 0;
+  text-align: end;
+  font-size: 20px;
+  text-align: center;
+}
+
+// Show.html.erb - event
+
+
+@media (max-width: 420px) {
+  .upper-map {
+    display: none;
+    visibility: hidden;
+  }
+
+  .show-div {
+    height: 80%;
+    img {
+      width: 100%;
+      height: 70%;
+    }
+  }
+
+  .title-size {
+    font-size: 20px;
+  }
+
+}
+
+@media (min-width: 420px) {
+  .upper-map {
+    // display: none;
+    // visibility: hidden;
+    canvas.mapboxgl-canvas {
+      width: 100%;
+
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .qr-checkin {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 

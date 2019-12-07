@@ -9,69 +9,89 @@
 
         <div class="d-flex flex-row show-div">
           <% placeholder_url = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80" %>
-          <%= image_tag @event.cover.presence ? @event.cover : placeholder_url, class: "pic d-inline-flex", alt: "event cover" %>
-          <div style="width: 50vw;">
-              <div class="map" id="map" style="height: 100%;" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+          <%= image_tag @event.cover.presence ? @event.cover : placeholder_url, class: "d-inline-flex", alt: "event cover" %>
+          <div class='upper-map' style="width: 100%; height: 100%">
+            <div class="map" id="map1" style="flex: 0 0 370px; height: 100%; width: 100%" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
           </div>
         </div>
 
-              <div class="categories px-3">
-                <%# if (@event.start_time < DateTime.now) && (@event.end_time > DateTime.now) %>
-                  <%= link_to 'Checkin', new_event_checkin_path(@event) %>
-                <%# end %>
-                <% if @event.user == current_user %>
+
+
+              <!-- <div class="categories px-3"> -->
+                <% if false %>
                   <%= render 'categories' %>
-                <% else %>
+                <% elsif false %>
                   <% @event.categories.each do |category| %>
                     <span class="category-choice" style="background-color: <%= category.color_hex  %>" >
                       <%= category.name %>
                     </span>
                   <% end %>
                 <% end %>
-              </div>
+              <!-- </div> -->
+
         <div class="card-body">
 
-            <div class="card-title d-flex flex-column">
-              <div class="d-flex justify-content-evenly align-items-center">
-                <div class="mb-3 flex-column" style="padding: 5px; margin-right: 30px; margin-left: 5px">
+            <div class="card-title d-flex flex-column border-bottom" style="padding-bottom: 17px">
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="mb-3 flex-column flex-grow-0" style="padding: 5px; margin-right: 30px; margin-left: 5px">
                   <p class='start-time-red-month-show'><%= @event.start_time.strftime('%b').upcase %></p>
                   <h5 class='start-time-day-show'><%= @event.start_time.day %></h5>
                 </div>
-                <h2 class="pb-2 font-weight-bold">
+
+                <div class="flex-column flex-grow-1">
+                <h2 class="font-weight-bold title-size mr-4">
                   <%= @event.title %>
                 </h2>
-
-                <div class="mb-3 flex-column">
-                  <h5 class='start-time-day-show'><%= @event.start_time.strftime('%d') %></h5>
-                  <p class='start-time-red-month'><%= @event.start_time.strftime('%b').upcase %></p>
                 </div>
+
+                <div class="d-flex ml-2 qr-checkin flex-grow-0">
+                  <%# if (@event.start_time < DateTime.now) && (@event.end_time > DateTime.now) %>
+                  <%= image_tag('QR-code.svg', style: 'width: 30px;') %>
+                  <a class= "small text-dark", style= "white-space: nowrap; padding-left: 4px" href="https://qrcodescan.in">Check-in</a>
+                  <%# end %>
+                </div>
+
               </div>
+
               <div class="benefits">
                 <%= render 'benefit_card' %>
               </div>
               <% if @event.user == current_user %>
                 <%= link_to "+ Add a benefit", new_event_benefit_path(@event), class: 'btn btn-dark' %>
               <% end %>
-        </div>
-
-          <i class="far fa-clock"></i>
-          <p class='time-show'><%= @event.start_time.strftime('%H:%M') %>-<%= @event.end_time.strftime('%H:%M') %></p>
-
-          <i class="fas fa-map-marker-alt"></i>
-          <p class="card-address"><%= @event.places.first.name %></p>
-          <p class="card-address"><%= @event.places.first.address %></p>
-          <p><%= @event.places.first.city %></p>
-
-          <%= link_to 'Ticket', @event.ticket_uri, target: "_blank", class: 'btn btn-success' %>
-          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#inviteModal">Share Event</button>
-          <a class="btn btn-success" href="https://qrcodescan.in/">Check-in</a>
+              <button type="button" class="btn btn-block btn-success mt-1" data-toggle="modal" data-target="#inviteModal">Invite a friend</button>
           </div>
 
-          <p>Location: <%= @event.places.first.address %></p>
-
-          <p><%= @event.description %></p>
+        <div class="d-flex flex-row mt-4 text-black-50">
+          <i class="far fa-clock" style="margin-right: 10px; padding-top: 3px"></i>
+          <p class='time-show'><%= @event.start_time.strftime('%I:%M%p') %>-<%= @event.end_time.strftime('%I:%M%p') %></p>
         </div>
-      </div>
+
+        <div class="d-flex text-black-50">
+          <i class="fas fa-map-marker-alt" style="margin-right: 10px; padding-top: 3px"></i>
+          <p class="address-bottom"><%= @event.places.first.name %></p>
+        </div>
+        <p class="address-bottom address-side text-black-50"><%= @event.places.first.address %></p>
+        <p class="address-side text-black-50"><%= @event.places.first.city %></p>
+
+        <div class="d-flex text-black-50 border-bottom" style="padding-bottom: 17px">
+          <% if @event.ticket_uri.present? %>
+            <i class="fas fa-ticket-alt" style="margin-right: 10px; padding-top: 3px"></i>
+            <%= link_to 'Tickets', @event.ticket_uri, target: "_blank", class: 'text-black-50' %>
+          <% end %>
+        </div>
+        </div>
+
+          <!-- <p class="text-black-50 px-3">Description:</p> -->
+
+          <p class="text-dark px-5"><%= @event.description %></p>
+        </div>
+          <div style="width: 100%; padding-top: 10px">
+            <div class="map" id="map2" style="height: 100%; width: 100%;" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+          </div>
+        </div>
+
 
       <%= link_to "Back", events_path, class: "my-4 btn btn-outline-light float-left" %>
       <%= link_to "Event Admin?", event_require_path(@event), class: "my-4 btn btn-outline-light float-right" %>
@@ -106,3 +126,5 @@
     </div>
   </div>
 </div>
+
+

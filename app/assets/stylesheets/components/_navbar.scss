@@ -19,6 +19,8 @@
 }
 
 .nav-item {
+  text-align: right;
+  padding-right: 20px;
   a {
     border-bottom: 3px solid transparent;
     &:hover {
@@ -28,6 +30,7 @@
 }
 
 #navbarDropdown {
+  margin-bottom: 10px;
   // box-shadow: -1px 1px 2px rgba(250, 250, 250, 0.4);
   border: solid 2px rgba(200, 200, 200, .5);
   height: 40px;
@@ -44,4 +47,3 @@
     border-bottom: 3px solid transparent !important;
   }
 }
-
