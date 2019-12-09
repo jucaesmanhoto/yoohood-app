@@ -5,7 +5,12 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    @contact.send_contact_mail(@contact.email)
+    if @contact.save
+      @contact.send_contact_mail(@contact.email)
+      redirect :back
+    else
+      render :new
+    end
   end
 
   private
