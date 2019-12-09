@@ -28,6 +28,8 @@ class TradesController < ApplicationController
     current_user.update(points: new_balance)
     @benefit.update(quantity: @benefit.quantity - @trade.quantity)
     if @trade.save
+      @trade.send_trade_mail_to_event_admin
+      @trade.send_trade_mail_to_benefit_redeemer
       redirect_to trade_path(@trade)
     else
       render :new
@@ -35,21 +37,18 @@ class TradesController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-
   end
 
   def destroy
-
   end
 
   private
 
   def trade_params
-    params.require(:trade).permit(:quantity)
+    params.require(:trade).permit(:quantity, :id)
   end
 
   def set_trade
