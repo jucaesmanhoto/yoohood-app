@@ -34,7 +34,6 @@ class CheckinsController < ApplicationController
   # end
 
   # def update
-  #   # raise
   #   @checkin.update(checkin_params)
   #   redirect_to event_path(@checkin.event)
   # end

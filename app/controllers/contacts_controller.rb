@@ -6,7 +6,6 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
 
-      raise
     if @contact.save
       @contact.send_contact_mail(@contact.email)
       redirect :back
