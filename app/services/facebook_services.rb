@@ -1,7 +1,7 @@
 class FacebookServices
   def initialize(token)
     @access_token = token
-    url = "https://graph.facebook.com/v4.0/me?fields=events.limit(100){cover,description,end_time,event_times,name,place,start_time,ticket_uri,type,admins}&access_token=#{@access_token}"
+    url = "https://graph.facebook.com/v4.0/me?fields=events{cover,description,end_time,event_times,name,place,start_time,ticket_uri,type,admins}&access_token=#{@access_token}"
     serialized = open(url).read
     @json_events = JSON.parse(serialized)['events']['data'].reject { |event| Event.all.include? Event.find_by_fb_event_id(event['id']) }
   end
