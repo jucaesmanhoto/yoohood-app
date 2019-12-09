@@ -8,7 +8,8 @@ class ContactsController < ApplicationController
 
     if @contact.save
       @contact.send_contact_mail(@contact.email)
-      redirect_to :back
+      flash[:notice] = "Thank you for your message."
+      redirect_to root_path
     else
       render :new
     end
