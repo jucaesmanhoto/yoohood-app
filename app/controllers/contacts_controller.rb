@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
 
     if @contact.save
       @contact.send_contact_mail(@contact.email)
-      redirect :back
+      redirect_to :back
     else
       render :new
     end
