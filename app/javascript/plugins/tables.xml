@@ -110,9 +110,9 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="gest_id" null="1" autoincrement="0">
+<row name="guest_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="gests" row="id" />
+<default>NULL</default><relation table="guests" row="id" />
 </row>
 <row name="event_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -190,7 +190,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="867" y="83" name="gests">
+<table x="867" y="83" name="guests">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
