@@ -21,9 +21,9 @@ class InvitesController < ApplicationController
 
   ###########################################################################
   # action created just to test the email front-end
-  # def invitation
-  #   @invite = Invite.all.select { |event| event.status = 'pending'}.sample
-  # end
+  def invitation
+    @invite = Invite.all.select { |event| event.status = 'pending'}.sample
+  end
   ############################################################################
 
   #############################
