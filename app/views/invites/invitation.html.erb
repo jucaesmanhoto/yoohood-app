@@ -15,20 +15,20 @@
               <td bgcolor="#0052F7" align="center" style="padding: 40px 0 30px 0; color: #FFFFFF;">
                 <%= link_to root_url, style: "text-decoration: none; color: #FFFFFF;" do %>
                   <%= image_tag 'logo_yoohood_alta.png', alt: "Yoohood Intelligent Curators", width:"300", style:"display: block; object-fit: cover"%>
-                  <p style="font-family: Helvetica, sans-serif; font-size: 16px;">Yoohood Intelligent Curators</p>
+                  <p style="font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Yoohood Intelligent Curators</p>
                 <% end %>
               </td>
             </tr>
 
             <tr>
-              <td align="center" style="padding: 20px 0 20px 0;">
-                <h4><%= @invite.user.name %> has invited you to:</h4>
+              <td align="center" style="padding: 20px 0 20px 0; background-color: #000000, color: #FFFFFF">
+                <h4 style="font-family: Verdana, Geneva, sans-serif; font-size: 24px;"><%= @invite.user.name %> has invited you to:</h4>
               </td>
             </tr>
 
             <tr>
               <td align="center" style="padding: 10px 0 20px 0">
-                <h2><%= @invite.event.title %></h2>
+                <h2 style="font-family: Verdana, Geneva, sans-serif; font-size: 24px;"><%= @invite.event.title %></h2>
               </td>
             </tr>
 
@@ -40,13 +40,13 @@
 
             <tr >
               <td align="center" style="padding: 36px 0 36px 0;">
-                <%= link_to "More Info", event_url(@invite.event), style: "padding: 16px 24px 16px 24px; background-color: #000000; margin: 10px 0 10px 0; text-decoration: none; color: #FFFFFF;" %>
+                <%= link_to "More Info", event_url(@invite.event), style: "font-family: Verdana, Geneva, sans-serif; padding: 16px 24px 16px 24px; background-color: #000000; margin: 10px 0 10px 0; text-decoration: none; color: #FFFFFF;" %>
               </td>
             </tr>
 
             <tr>
               <td bgcolor="#000000">
-                <p><%= @invite.guest_name %></p>
+                <p style="font-family: Verdana, Geneva, sans-serif;"><%= @invite.guest_name %></p>
               </td>
             </tr>
           </table>
