@@ -6,47 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body style="padding: 0; margin: 0; background-color: #FFFFFF; color: #000000;">
-    <table border="1" cellpadding="0" cellspacing="0" width="100%">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <tr>
         <td>
           <table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="border-collapse: colapse;">
 
             <tr>
-              <td bgcolor="#0052F7" align="center" style="padding: 40px 0 30px 0; color: #FFFFFF;">
+              <td bgcolor="#0052F7" align="center" style="padding: 20px 0 10px 0; color: #FFFFFF;">
                 <%= link_to root_url, style: "text-decoration: none; color: #FFFFFF;" do %>
-                  <%= image_tag 'logo_yoohood_alta.png', alt: "Yoohood Intelligent Curators", width:"300", style:"display: block; object-fit: cover"%>
-                  <p style="font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Yoohood Intelligent Curators</p>
+                  <%= image_tag "https://res.cloudinary.com/djxa4ytky/image/upload/v1575993268/logo_yoohood_alta_sjwigk.png", alt: "Yoohood Intelligent Curators", width:"300", style:"display: block; object-fit: cover"%>
+                  <p style="margin-top: -8px; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Yoohood Intelligent Curators</p>
                 <% end %>
               </td>
             </tr>
 
             <tr>
-              <td align="center" bgcolor="#000000" style="padding: 20px 0 20px 0; color: #FFFFFF">
-                <h4 style="font-family: Verdana, Geneva, sans-serif; font-size: 24px;"><%= @invite.user.name %> has invited you to:</h4>
+              <td align="center" bgcolor="#000000" style="padding: 20px 0 0 0; background-color: #000000, color: #FFFFFF">
+                <h4 style="color: #FFFFFF; font-family: Verdana, Geneva, sans-serif; font-size: 24px;"><%= @invite.user.name %> has invited you to:</h4>
               </td>
             </tr>
 
             <tr>
-              <td align="center" bgcolor="#000000" style="padding: 10px 0 20px 0">
-                <h2 style="font-family: Verdana, Geneva, sans-serif; font-size: 24px;"><%= @invite.event.title %></h2>
+              <td align="center" bgcolor="#000000" style="padding: 0 0 20px 0">
+                <h2 style="color: #FFFFFF; font-family: Verdana, Geneva, sans-serif; font-size: 36px;"><%= @invite.event.title %></h2>
               </td>
             </tr>
 
             <tr>
               <td align="center" bgcolor="#000000">
-                <%= image_tag @invite.event.cover, height: 200, width: 350, style: "border: 1px solid #AAAAAA; object-fit: cover; padding: 5px; background-color: #FFFFFF" %>
+                <%= link_to invite_url(@invite, token: @invite.token) do %>
+                  <%= image_tag @invite.event.cover, height: 200, width: 350, style: "border: 1px solid #AAAAAA; object-fit: cover; padding: 5px; background-color: #FFFFFF" %>
+                <% end %>
               </td>
             </tr>
 
             <tr >
-              <td align="center" bgcolor="#000000" style="padding: 36px 0 36px 0;">
-                <%= link_to "More Info", event_url(@invite.event), style: "border: 1px solid #AAAAAA; font-family: Verdana, Geneva, sans-serif; padding: 16px 24px 16px 24px; background-color: #000000; margin: 10px 0 10px 0; text-decoration: none; color: #FFFFFF;" %>
+              <td align="center" bgcolor="#000000" style="padding: 64px 0 80px 0;">
+                <%= link_to "More Info", invite_url(@invite, token: @invite.token), style: "border: 1px solid #AAAAAA; font-family: Verdana, Geneva, sans-serif; padding: 16px 24px 16px 24px; background-color: #000000; margin: 10px 0 10px 0; text-decoration: none; color: #FFFFFF;" %>
+              </td>
+            </tr>
+
+            <tr >
+              <td align="center" bgcolor="#000000" style="padding: 24px 0 0 0; border-top: 1px solid #303030;">
+                <p style="margin: 0; color: #FFFFFF; font-family: Verdana, Geneva, sans-serif;">follow us on:</p>
               </td>
             </tr>
 
             <tr>
-              <td bgcolor="#000000">
-                <p style="font-family: Verdana, Geneva, sans-serif;"><%= @invite.guest_name %></p>
+              <td bgcolor="#000000" align="center" style="padding: 8px 0 24px 0;">
+                <a href="https://github.com/jucaesmanhoto/yoohood-app" target="_blank" style="text-decoration: none; font-family: Verdana, Geneva, sans-serif; padding: 4px 4px 4px 4px; color: #FFFFFF">GitHub</a>
+                <a href="https://www.instagram.com/yoohood.fun/" target="_blank" style="text-decoration: none; font-family: Verdana, Geneva, sans-serif; padding: 4px 4px 4px 4px; color: #FFFFFF">Instagram</a>
+                <a href="https://www.facebook.com/yoohood/" target="_blank" style="text-decoration: none; font-family: Verdana, Geneva, sans-serif; padding: 4px 4px 4px 4px; color: #FFFFFF">Facebook</i></a>
+                <a href="https://twitter.com/yoohoodco" target="_blank" style="text-decoration: none; font-family: Verdana, Geneva, sans-serif; padding: 4px 4px 4px 4px; color: #FFFFFF">Twitter</a>
+                <!-- <p style="color: #FFFFFF; font-family: Verdana, Geneva, sans-serif;"><%= @invite.guest_name %></p> -->
               </td>
             </tr>
           </table>
