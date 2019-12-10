@@ -2,8 +2,13 @@ class FacebookServices
   def initialize(token)
     @access_token = token
     url = "https://graph.facebook.com/v4.0/me?fields=events.limit(500){cover,description,end_time,event_times,name,place,start_time,ticket_uri,type,admins}&access_token=#{@access_token}"
-    serialized = open(url).read
-    @json_events = JSON.parse(serialized)['events']['data'].reject { |event| Event.all.include? Event.find_by_fb_event_id(event['id']) }
+    raise
+    if open(url).read
+      serialized = open(url).read
+      @json_events = JSON.parse(serialized)['events']['data'].reject { |event| Event.all.include? Event.find_by_fb_event_id(event['id']) }
+    else
+      flash[:alert] = "Invalid Facebook Access Token."
+    end
   end
 
   def pull_fb_events
