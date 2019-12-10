@@ -22,6 +22,7 @@ gem 'geocoder'
 gem 'faker'
 gem 'pg_search', '~> 2.3.0'
 gem 'postmark-rails'
+gem 'sendgrid-ruby'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

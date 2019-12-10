@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post 'fb/pull', to: 'facebook_events#pull_fb_events'
 
   get 'my_events', to: 'events#my_events'
+  get 'invite', to: 'invites#invitation'
   resources :places
   resources :trades, only: %i[index show]
   resources :invites, only: %i[show update]
@@ -24,7 +25,6 @@ Rails.application.routes.draw do
     # post '/require', to: 'events#make_it_mine'
     resources :event_categories, only: %i[create update]
     resources :invites, only: [:create]
-    # post 'guest', to: 'invites#guest'
     resources :benefits, only: %i[show new create update]
     resources :checkins, only: %i[new create]
   end
