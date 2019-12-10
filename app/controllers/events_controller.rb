@@ -27,7 +27,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    # raise
     @invite = Invite.new
     @trade = Trade.new
     @markers = [
@@ -61,7 +60,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    # raise
   end
 
   def edit

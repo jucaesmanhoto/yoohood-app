@@ -26,7 +26,6 @@
               <h4>Invite your friends to cool events and earn many points!</h4>
             </div>
           <% else %>
-          <%# raise %>
             <% current_user.invites.each do |invite| %>
               <div class="card invites-card p-2 pl-4 my-1">
                 <p class="mb-2"><%= invite.guest_name %> accepted an invite to:</p>

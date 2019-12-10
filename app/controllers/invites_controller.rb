@@ -10,7 +10,6 @@ class InvitesController < ApplicationController
     @invite = Invite.new(invite_params)
     @invite.user = current_user
     @invite.event = Event.find(params[:event_id])
-    # raise
     if @invite.save
       @invite.update(token: generate_token)
       @invite.send_invite_mail(@invite.guest_email)
@@ -22,14 +21,13 @@ class InvitesController < ApplicationController
 
   ###########################################################################
   # action created just to test the email front-end
-  # def invitation
-  #   @invite = Invite.all.select { |event| event.status = 'pending'}.sample
-  # end
+  def invitation
+    @invite = Invite.all.select { |event| event.status = 'pending'}.sample
+  end
   ############################################################################
 
   #############################
   # def guest
-  #   raise
   #   @invite = Invite.new(invite_params)
   #   @invite.event = Event.find(params[:event_id])
   #   @invite.send_invite_mail(@invite.guest_email)
