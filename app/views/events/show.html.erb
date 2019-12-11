@@ -64,7 +64,9 @@
             <% end %>
           </div>
         </div>
-        <p class="text-dark px-5"><%= @event.description %></p>
+        <div class="event-description p-2">
+          <p class="text-dark px-5"><%= @event.description %></p>
+        </div>
       </div>
         <div style="width: 100%; padding-top: 10px">
           <div class="map" id="map2" style="height: 100%; width: 100%;" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
