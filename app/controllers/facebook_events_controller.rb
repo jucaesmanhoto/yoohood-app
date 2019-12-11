@@ -4,8 +4,15 @@ require 'open-uri'
 class FacebookEventsController < ApplicationController
   def index
     pulled_events = FacebookServices.new(params[:token]).pull_fb_events
-    @events = pulled_events[0]
-    @adms = pulled_events[1]
+    if pulled_events[2].present?
+      flash[:alert] = "Invalid Facebook Access Token."
+      @events = []
+      @adms = []
+      redirect_to fb_token_path
+    else
+      @events = pulled_events[0]
+      @adms = pulled_events[1]
+    end
   end
 
   def new
