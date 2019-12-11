@@ -6,6 +6,6 @@ class TradeMailer < ApplicationMailer
 
   def benefit_redeemer
     @trade = params[:trade] # Instance variable => available in view
-    mail(to: @trade.benefit.user.email, subject: 'Congratulations! You got a new benefit from Yoohood!')
+    mail(to: @trade.user.email, subject: 'Congratulations! You got a new benefit from Yoohood!')
   end
 end
