@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row justify-content-center">
     <% @event.benefits.each do |benefit| %>
+      <%# next if benefit.quantity.zero? %>
+
       <%= link_to current_user == @event.user ? edit_benefit_path(benefit) : new_benefit_trade_path(benefit), class: "benefit-card card col-lg-4 mx-2 flex-row card-title justify-content-between", current_user == @event.user ? '' : "data-toggle" => "modal", "data-target" => "#benefit-#{benefit.id}-modal" do %>
         <div class="benefit-quantity"><%= benefit.quantity %> ud.</div>
         <div class="benefit-name"><%= benefit.name %></div>
@@ -35,25 +37,27 @@
             </div>
 
             <% if current_user.present? && current_user.points >= benefit.value_in_points %>
-
-              <%= simple_form_for [benefit, @trade] do |f| %>
-                <div class="modal-body">
-                 <!--  Need to put presence true -->
-                 <div class="d-flex justify-content-between">
-                  <p><%= benefit.quantity %></p>
-                  <p><%= benefit.name %></p>
-                  <p><%= benefit.value_in_points %> pts./each</p>
-                 </div>
-                  <%#= f.input :event_id, as: :hidden %>
-                  <%#= f.input :benefit_id,  as: :hidden %>
-                  <% max_reclaim = benefit.quantity >= (current_user.points / benefit.value_in_points) ? (current_user.points / benefit.value_in_points) : benefit.quantity %>
-                  <%= f.input :quantity, as: :select, collection: (1..max_reclaim).to_a, include_blank: false %>
+              <!-- Tells user if befit is not avaiable -->
+              <% if benefit.quantity.zero? || @event.start_time < DateTime.now %>
+                <div class="modal-body p-4">
+                  <h4 class="mb-4">Sorry, this benefit is no longer available. </h4>
                 </div>
-                <div class="modal-footer">
-                  <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-                  <!-- Make button smaller -->
-                  <%= f.submit "Redeem", class: "btn btn-dark align-items-center"%>
-                </div>
+              <!-- Show the trade form if benefit is availabe -->
+              <% else %>
+                <%= simple_form_for [benefit, @trade] do |f| %>
+                  <div class="modal-body">
+                   <div class="d-flex justify-content-between">
+                    <p><%= benefit.quantity %></p>
+                    <p><%= benefit.name %></p>
+                    <p><%= benefit.value_in_points %> pts./each</p>
+                   </div>
+                    <% max_reclaim = benefit.quantity >= (current_user.points / benefit.value_in_points) ? (current_user.points / benefit.value_in_points) : benefit.quantity %>
+                    <%= f.input :quantity, as: :select, collection: (1..max_reclaim).to_a, include_blank: false %>
+                  </div>
+                  <div class="modal-footer">
+                    <%= f.submit "Redeem", class: "btn btn-dark align-items-center"%>
+                  </div>
+                <% end %>
               <% end %>
             <% else %>
               <% if current_user.nil? %>
@@ -61,6 +65,7 @@
                   <h4 class="mb-4">Sorry, you're not logged in. </h4>
                   <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary' %>
                 </div>
+
               <% else %>
                 <div class="modal-body p-4">
                   <h4 class="mb-4">Sorry, you don't have enough points. </h4>

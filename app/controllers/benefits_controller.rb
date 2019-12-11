@@ -2,7 +2,7 @@ class BenefitsController < ApplicationController
   before_action :set_event, only: %i[new create]
   before_action :set_benefit, only: %i[edit update destroy]
   def index
-    @benefits = Benefit.all
+    @benefits = Benefit.all.reject { |benefit| benefit.quantity.zero? }
   end
 
   def new
