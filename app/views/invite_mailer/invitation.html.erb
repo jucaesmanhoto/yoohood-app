@@ -34,7 +34,7 @@
         </tr>
 
 
-        <tr height="145px">
+        <tr height="120px">
           <td cellpadding="0" cellspacing="0" style="display: flex; align-items: start;">
             <h1 style="font-family: Montserrat, Helvetica, sans-serif; font-weight: bolder; font-size: 36px; text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6); margin-left: 35px; margin-top: 8px; padding-right: 80px;"> <%= @invite.event.title %> </h1>
           </td>
@@ -43,13 +43,13 @@
 
         <tr height="100px">
           <td align="center">
-            <%= link_to "More info", invite_url(@invite, token: @invite.token), style:"padding: 10px 24px 10px 24px; background-color: #63c42b; color: #000000; font-family: Montserrat, Helvetica, sans-serif; font-size: 16px; text-decoration: none;" %>
+            <%= link_to "More info", invite_url(@invite, token: @invite.token), style:"padding: 10px 24px 10px 24px; background-color: #63c42b; color: #FFFFFF; font-family: Montserrat, Helvetica, sans-serif; font-size: 16px; text-decoration: none;" %>
           </td>
         </tr>
 
 
         <tr>
-         <td align="center" bgcolor="#000000" style="padding: 15px 0 15px 0; display: flex; align-items: center; justify-content: center;">
+         <td align="center" bgcolor="#000000" style="padding: 15px 0 0 0; display: flex; align-items: center; justify-content: center;">
           <p style="font-family: Montserrat, Helvetica, sans-serif; font-size: 18px; color: #ffffff; font-weight: bold; display: inline-flex; margin-right: 10px; vertical-align: center;">follow us:</p>
           <a href="https://www.twitter.com/yoohoodco" target="_blank"><img src="https://res.cloudinary.com/djxa4ytky/image/upload/v1576096779/twitter-64_on1hpe.png" width="30"></a>
           <a href="https://www.facebook.com/yoohood" target="_blank"><img src="https://res.cloudinary.com/djxa4ytky/image/upload/v1576096779/facebook-64_lzfxun.png" width="30" style="margin: 0px 10px 0px 10px;"></a>
@@ -58,6 +58,11 @@
          </td>
         </tr>
 
+        <tr>
+          <td align="center" bgcolor="#000000">
+          <p style="font-family: Montserrat, Helvetica, sans-serif; font-size: 10px;">This email was sent by one of our users. If you don't know the sender, please report to contactus@yoohood.fun</p>
+          </td>
+        </tr>
 
       </table>
   </body>
