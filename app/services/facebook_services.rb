@@ -18,7 +18,7 @@ class FacebookServices
     @adms = {}
     @places = []
     @json_events.each do |json_event|
-      next unless json_event['place']['location'].present?
+      next unless json_event['place'].present?
       next unless json_event['end_time'].present? && json_event['start_time'].present?
 
       @events << Event.new(

@@ -23,6 +23,7 @@ gem 'faker'
 gem 'pg_search', '~> 2.3.0'
 gem 'postmark-rails'
 gem 'sendgrid-ruby'
+gem 'mailgun-ruby', '~>1.1.6'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
