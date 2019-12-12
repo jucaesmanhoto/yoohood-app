@@ -13,6 +13,7 @@ class InvitesController < ApplicationController
     if @invite.save
       @invite.update(token: generate_token)
       @invite.send_invite_mail(@invite.guest_email)
+      flash[:notice] = "Your invite was sent to #{@invite.guest_email}"
       redirect_to event_path(@invite.event)
     else
       redirect_to event_path(@invite.event), alert: "You've already invited this person."
