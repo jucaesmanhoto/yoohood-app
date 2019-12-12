@@ -20,6 +20,7 @@ class FacebookServices
     @json_events.each do |json_event|
       next unless json_event['place'].present?
       next unless json_event['end_time'].present? && json_event['start_time'].present?
+      next if json_event['end_time'] < DateTime.now
 
       @events << Event.new(
         ticket_uri: json_event['ticket_uri'],
