@@ -3,13 +3,12 @@
     <div class="col-12 col-md-8 index-events-frame">
       <%= render 'shared/event_card_index', events: @events %>
     </div>
-<!-- <<<<<<< HEAD
-    <div class="col-12 col-md-4 map-frame">
-      <div class="map" id="map" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" style="flex: 0 0 370px; height: 100%; width: 100%; position: sticky !important;"></div>
-======= -->
     <div class="col-12 col-md-4">
-      <div class="map" id="map1" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" style="flex: 0 0 370px; height: 80vh; width: 100%; position: sticky !important; margin-left: 20px; margin-top: 45px; margin-bottom: 45px"></div>
-<!-- >>>>>>> master -->
+      <!-- MAPBOX MAP: -->
+      <!-- <div class="map" id="map1" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" style="flex: 0 0 370px; height: 80vh; width: 100%; position: sticky !important; margin-left: 20px; margin-top: 45px; margin-bottom: 45px"></div> -->
+
+      <!-- GOOGLE MAPS MAP: -->
+      <div class="map" id="map1" data-markers="<%= @markers.to_json %>" data></div>
     </div>
   </div>
 </div>

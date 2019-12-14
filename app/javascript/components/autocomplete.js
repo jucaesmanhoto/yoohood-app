@@ -1,16 +1,5 @@
-// import places from 'places.js';
-// const initAutocomplete = () => {
-//   const addressInput = document.getElementById('city_input');
-//   if (addressInput) {
-//     places({ container: addressInput });
-//   }
-// };
-
-// export { initAutocomplete };
-
-
 // app/javascript/components/autocomplete.js
-function initAutocomplete() {
+function autocomplete() {
   document.addEventListener("DOMContentLoaded", function() {
     var flatAddress = document.getElementById('city_input');
 
@@ -25,4 +14,4 @@ function initAutocomplete() {
   });
 }
 
-export { initAutocomplete };
+export { autocomplete };
