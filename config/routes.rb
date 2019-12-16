@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post 'fb/pull', to: 'facebook_events#pull_fb_events'
 
   get 'my_events', to: 'events#my_events'
+  post '/nearby', to: 'events#nearby'
   # get 'invite', to: 'invites#invitation'
   resources :places
   resources :trades, only: %i[index show]

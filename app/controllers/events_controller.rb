@@ -59,6 +59,10 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def nearby
+    raise
+  end
+  
   def create
   end
 
