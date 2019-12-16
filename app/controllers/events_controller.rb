@@ -60,7 +60,19 @@ class EventsController < ApplicationController
   end
 
   def nearby
-    raise
+    lat_lng = params['/nearby']
+    user_position = [lat_lng[:latitude].to_f, lat_lng[:longitude].to_f]
+    updated_events = Event.all.reject { |event| event.end_time < DateTime.now }
+    @nearby_events = updated_events.reject { |event| distance(user_position, [event.places[0].latitude, event.places[0].longitude]) > 50 }
+                                   .sort { |a, b| distance(user_position, [b.places[0].latitude, b.places[0].longitude]) <=> distance(user_position, [a.places[0].latitude, a.places[0].longitude]) }
+    @markers = @nearby_events.map do |event|
+      {
+        lat: event.places.first.latitude,
+        lng: event.places.first.longitude,
+        image_url: helpers.asset_url('yo_pin-01.png'),
+        event_id: event.id
+      }
+    end
   end
   
   def create
@@ -87,6 +99,23 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def distance(loc1, loc2)
+    rad_per_deg = Math::PI/180  # PI / 180
+    rkm = 6371                  # Earth radius in kilometers
+    rm = rkm * 1000             # Radius in meters
+  
+    dlat_rad = (loc2[0]-loc1[0]) * rad_per_deg  # Delta, converted to rad
+    dlon_rad = (loc2[1]-loc1[1]) * rad_per_deg
+  
+    lat1_rad, lon1_rad = loc1.map {|i| i * rad_per_deg }
+    lat2_rad, lon2_rad = loc2.map {|i| i * rad_per_deg }
+  
+    a = Math.sin(dlat_rad/2)**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * Math.sin(dlon_rad/2)**2
+    c = 2 * Math::atan2(Math::sqrt(a), Math::sqrt(1-a))
+  
+    rkm * c # Delta in kilometers
+  end
 
   def set_event
     if params[:event_id].present?

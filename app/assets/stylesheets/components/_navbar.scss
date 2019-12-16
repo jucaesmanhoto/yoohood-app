@@ -27,6 +27,14 @@
       border-bottom: 3px solid #0052F7;
     }
   }
+  input {
+    background-color: #000000;
+    border: none;
+    border-bottom: 3px solid transparent;
+    &:hover {
+      border-bottom: 3px solid #0052F7;
+    }
+  }
 }
 
 #navbarDropdown {
