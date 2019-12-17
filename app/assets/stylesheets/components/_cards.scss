@@ -263,7 +263,10 @@
   text-align: center;
 }
 
-// Show.html.erb - event
+.horizontal-scroll {
+  overflow: auto;
+  white-space: nowrap;
+}
 
 
 @media (max-width: 420px) {
