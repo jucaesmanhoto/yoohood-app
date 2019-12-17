@@ -1,14 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-8 index-events-frame">
-      <%= render 'shared/event_card_index', events: @events %>
+      <% if @events.count.zero? %>
+        <h1>No events to show</h1>
+      <% else %>
+        <%= render 'shared/event_card_index', events: @events %>
+      <% end %>
     </div>
     <div class="col-12 col-md-4">
       <!-- MAPBOX MAP: -->
       <!-- <div class="map" id="map1" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" style="flex: 0 0 370px; height: 80vh; width: 100%; position: sticky !important; margin-left: 20px; margin-top: 45px; margin-bottom: 45px"></div> -->
 
       <!-- GOOGLE MAPS MAP: -->
-      <div class="map" id="map1" data-markers="<%= @markers.to_json %>" data></div>
+      <div id="gmap" class="d-flex justify-content-center align-items-center mb-3" style="height: 80vh; background-color: #0052f7;" data-markers="<%= @markers.to_json %>">
+        Loading the map...
+      </div>
     </div>
   </div>
 </div>

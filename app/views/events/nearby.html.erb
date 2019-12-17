@@ -3,8 +3,12 @@
         <div id="gmap" class="col-12 col-md-6 d-flex justify-content-center align-items-center mb-3" style="height: 80vh; background-color: #0052f7;" data-markers="<%= @markers.to_json %>">
             Loading the map...
         </div>
-        <div class="col-12 col-md-6">
-            <%= render 'shared/event_card_index', events: @nearby_events %>
+        <div class="col-12 col-md-6 nearby-event-index">
+            <% if @nearby_events.count == 0 %>
+                <h2 class="text-center">No events to show.</h2>              
+            <% else %>
+                <%= render 'shared/event_card_index', events: @nearby_events %>
+            <% end %>
         </div>
     </div>
 </div>
