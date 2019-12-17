@@ -232,11 +232,15 @@
 .event-card-header {
   margin: 0;
   margin-bottom: 8px;
+  white-space: normal;
 }
 
 .event-card-event-description {
-  // height: 40%;
-  width: 90%;
+  // width: 90%;
+  // height: 20%;
+  // overflow: scroll;
+  white-space: normal;
+  // flex-wrap: wrap;
   // position: absolute;
   // bottom: 8px;
   // left: 20px;
@@ -263,7 +267,10 @@
   text-align: center;
 }
 
-// Show.html.erb - event
+.horizontal-scroll {
+  overflow: auto;
+  white-space: nowrap;
+}
 
 
 @media (max-width: 420px) {

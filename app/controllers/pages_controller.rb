@@ -6,9 +6,9 @@ class PagesController < ApplicationController
     @events = Event.all.reject { |event| event.end_time.present? && event.end_time <= Time.now.getutc() }
     # @event_near = Event.all.select{ |event| event.places.city ==  }
     @events_recent = @events.sort_by { |event| event.created_at }.reverse.first(8)
-    @events_today = @events.select { |event| Date.parse(event.start_time.to_s) == Date.today }.first(8)
-    @events_coming_up = (@events.select { |event| event.start_time > DateTime.now }.sort_by { |event| event.start_time } - @events_today).first(8)
-    @events_diff = (@events - @events_recent - @events_coming_up).first(12)
+    @events_today = @events.select { |event| Date.parse(event.start_time.to_s) == Date.today }
+    @events_coming_up = (@events.select { |event| event.start_time > DateTime.now }.sort_by { |event| event.start_time } - @events_today).first(16)
+    @events_diff = (@events - @events_recent - @events_coming_up).first(16)
     @city = request.location.city
     @nearby_events = Place.near(@city, 10).map(&:event)
   end
