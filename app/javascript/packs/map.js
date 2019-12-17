@@ -22,7 +22,7 @@ function showPosition(position) {
   
   if (mapElement) { // don't try to build a map if there's no div#map to inject in
     const map = new GMaps({ el: '#gmap', lat: position.coords.latitude, lng: position.coords.longitude });
-    const markers = JSON.parse(mapElement.dataset.markers);
+    const markers = JSON.parse(mapElement.dataset.markers);    
     map.addMarkers(markers);
     if (markers.length === 0) {
       map.setZoom(2);
