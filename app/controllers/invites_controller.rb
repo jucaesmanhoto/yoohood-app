@@ -25,8 +25,8 @@ class InvitesController < ApplicationController
     @invite = Invite.new(user: current_user, event: Event.find(params[:event_id]), token: generate_token)
     if @invite.save
       # debugger
-      Clipboard.copy("https://www.yoohood.fun/invites/#{@invite.id}?token=#{@invite.token}")
-      # puts Clipboard.paste
+      IO.popen("pbcopy", "w") { |pipe| pipe.puts invite_url(@invite, protocol: 'https://', token: @invite.token) }
+      # Clipboard.copy(invite_url(@invite, protocol: 'https://', token: @invite.token))
       flash[:notice] = "Link copied to your clipboard"
     else
       flash[:alert] = "Something went wrong. Try again later."
