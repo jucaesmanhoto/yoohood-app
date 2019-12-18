@@ -23,6 +23,7 @@ class InvitesController < ApplicationController
 
   def generate
     @invite = Invite.new(user: current_user, event: Event.find(params[:event_id]), token: generate_token)
+    debugger
     if @invite.save
       Clipboard.copy(invite_url(@invite, token: @invite.token))
       flash[:notice] = "Link copied to your clipboard"
@@ -30,7 +31,6 @@ class InvitesController < ApplicationController
       flash[:alert] = "Something went wrong. Try again later."
     end
     redirect_to event_path(@invite.event)
-    # raise
   end
   
   ###########################################################################
