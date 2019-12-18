@@ -24,7 +24,8 @@ class InvitesController < ApplicationController
   def generate
     @invite = Invite.new(user: current_user, event: Event.find(params[:event_id]), token: generate_token)
     if @invite.save
-      Clipboard.copy(invite_url(@invite, token: @invite.token))
+      # debugger
+      Clipboard.copy(invite_url(@invite, :protocol => 'https://', token: @invite.token))
       flash[:notice] = "Link copied to your clipboard"
     else
       flash[:alert] = "Something went wrong. Try again later."
