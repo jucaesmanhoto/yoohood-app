@@ -10,6 +10,7 @@ class InvitesController < ApplicationController
     @invite = Invite.new(invite_params)
     @invite.user = current_user
     @invite.event = Event.find(params[:event_id])
+    raise
     if @invite.save
       @invite.update(token: generate_token)
       @invite.send_invite_mail(@invite.guest_email)
@@ -20,11 +21,23 @@ class InvitesController < ApplicationController
     end
   end
 
+  def generate
+    @invite = Invite.new(user: current_user, event: Event.find(params[:event_id]), token: generate_token)
+    if @invite.save
+      Clipboard.copy(invite_url(@invite, token: @invite.token))
+      flash[:notice] = "Link copied to your clipboard"
+    else
+      flash[:alert] = "Something went wrong. Try again later."
+    end
+    redirect_to event_path(@invite.event)
+    # raise
+  end
+  
   ###########################################################################
   # action created just to test the email front-end
-  def invitation
-    @invite = Invite.all.select { |event| event.status = 'pending'}.sample
-  end
+  # def invitation
+    # @invite = Invite.all.select { |event| event.status = 'pending'}.sample
+  # end
   ############################################################################
 
   #############################

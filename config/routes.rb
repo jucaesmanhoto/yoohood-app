@@ -25,7 +25,8 @@ Rails.application.routes.draw do
     # get '/require', to: 'events#ask_for_ownership'
     # post '/require', to: 'events#make_it_mine'
     resources :event_categories, only: %i[create update]
-    resources :invites, only: [:create]
+    resources :invites, only: %i[create]
+    post 'generate_link', to: 'invites#generate'
     resources :benefits, only: %i[show new create update]
     resources :checkins, only: %i[new create]
   end
