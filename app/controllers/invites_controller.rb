@@ -31,7 +31,6 @@ class InvitesController < ApplicationController
       flash[:alert] = "Something went wrong. Try again later."
     end
     redirect_to event_path(@invite.event)
-    # raise
   end
   
   ###########################################################################
