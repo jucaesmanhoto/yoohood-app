@@ -58,6 +58,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    clipboard (1.3.3)
     cloudinary (1.9.1)
       aws_cf_signer
       rest-client
@@ -264,10 +265,12 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   carrierwave (~> 1.2)
+  clipboard
   cloudinary (~> 1.9.1)
   devise
   dotenv-rails
   faker
+  ffi
   font-awesome-sass (~> 5.6.1)
   geocoder
   jbuilder (~> 2.0)
