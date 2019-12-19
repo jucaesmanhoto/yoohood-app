@@ -1,26 +1,4 @@
 en:
-  shared:
-    navbar:
-      nearby: "nearby"
-      my_events: "my events"
-      all_events: "all events"
-      invitations: "invitations"
-      rewards: "rewards"
-      settings: "settings"
-      my_profile: "my profile"
-      log_out: "log out"
-      members: "members"
-
-    footer:
-      follow_us_on: 'follow us on'
-      cookies: "Cookies"
-      help_center: "Help Center"
-      contact_us: "Contact Us"
-      about_us: "About us"
-      legal: "Legal"
-      privacy_police: "Privacy Policy"
-      copyright: "Copyright ©2019 Yoohood."
-
   pages:
     about:
       we_are: "we're"
@@ -52,4 +30,33 @@ en:
       trade_description: "%{quantity}x %{benefit} to:"
       check_ins: "Check-ins"
       earn_points: "Earn points by check in!"
-      
+    
+  shared:
+    navbar:
+      nearby: "nearby"
+      my_events: "my events"
+      all_events: "all events"
+      invitations: "invitations"
+      rewards: "rewards"
+      settings: "settings"
+      my_profile: "my profile"
+      log_out: "log out"
+      members: "members"
+
+    footer:
+      follow_us_on: 'follow us on'
+      cookies: "Cookies"
+      help_center: "Help Center"
+      contact_us: "Contact Us"
+      about_us: "About us"
+      legal: "Legal"
+      privacy_police: "Privacy Policy"
+      copyright: "Copyright ©2019 Yoohood."
+
+  trades:
+    new:
+      send: "Send"
+    show: 
+      balance_msg: "your balance is now: %{points} pts."
+      email_alert_msg: "You will shortly receive an email from:"
+      done: "Done"

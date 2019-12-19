@@ -5,12 +5,12 @@
   </div>
   <div class="card-body">
     <h3><%= @trade.user.name %></h3>
-    <p>your balance is now: <%= @trade.user.points %>pts.</p>
+    <p><%= t('.balance_msg', points: @trade.user.points) %></p>
     <div class="benefit-owner-info mt-3">
-      <p>You will shortly receive an email from:</p>
+      <p><%= t('.email_alert_msg') %></p>
       <h4><%= @trade.benefit.event.user.name %></h4>
       <h5><%= @trade.benefit.event.user.email %></h5>
     </div>
-    <%= link_to "Done", event_path(@trade.benefit.event), class: "btn btn-dark mt-4" %>
+    <%= link_to t('.done'), event_path(@trade.benefit.event), class: "btn btn-dark mt-4" %>
   </div>
 </div>
