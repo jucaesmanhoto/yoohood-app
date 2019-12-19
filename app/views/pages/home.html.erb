@@ -9,22 +9,22 @@
 
         <form class="form-row align-items-center justify-content-center" action="/events">
           <div class="col-sm-3 my-1">
-            <label class="sr-only" for="inlineFormInputGroupEvent">Event</label>
-            <input type="text" class="form-control" type="text" name="title_description" placeholder="event or artist">
+            <label class="sr-only" for="inlineFormInputGroupEvent"><%= t('.event') %></label>
+            <input type="text" class="form-control" type="text" name="title_description" placeholder="<%= t('.event_or_artist')%>">
           </div>
 
           <div class="col-sm-3 my-1 p-1">
-            <label class="sr-only" for="inlineFormInputDate">date</label>
-            <input type="date" class="datepicker form-control" name="date" id="search_date" placeholder='date'>
+            <label class="sr-only" for="inlineFormInputDate"><%= t('.date')%></label>
+            <input type="date" class="datepicker form-control" name="date" id="search_date" placeholder="<%= t('.date')%>">
           </div>
 
           <div class="col-sm-3 my-1 p-1">
-            <label class="sr-only" for="inlineFormInputGroupCity">City</label>
-            <input id="city_input" type="text" class="form-control" type="text" name="city" placeholder="city, zipcode or venue">
+            <label class="sr-only" for="inlineFormInputGroupCity"><%= t('.city') %></label>
+            <input id="city_input" type="text" class="form-control" type="text" name="city" placeholder="<%= t('.city_or_venue')%>">
           </div>
 
           <div class="col-sm-9 my-1 p-1">
-            <input type="submit" class="btn btn-primary btn-block" value="Search">
+            <input type="submit" class="btn btn-primary btn-block" value="<%= t('.search')%>">
           </div>
         </form>
 
@@ -34,7 +34,7 @@
 </div>
 
 <div class="anchor-text d-flex flex-column align-items-center pt-5 mb-2" id="scrollAnchor">
-<a href="" class="pt-2 scroll">Browse events</a>
+<a href="" class="pt-2 scroll"><%= t('.browse_events') %></a>
 <i class="fa fa-angle-down scroll-icon"></i>
 </div>
 
@@ -44,20 +44,20 @@
 <!--</div>-->
 
 <div class="mx-3">
-  <h4 class="subheading my-1 mb-2 text-white">Events today</h4>
+  <h4 class="subheading my-1 mb-2 text-white"><%= t('.events_today') %></h4>
   <%= render 'shared/event_card', events: @events_today %>
 
-  <h4 class="subheading my-1 mb-2 text-white">Coming up</h4>
+  <h4 class="subheading my-1 mb-2 text-white"><%= t('.coming_up') %></h4>
   <%= render 'shared/event_card', events: @events_coming_up %>
 
-  <h4 class="subheading my-1 mb-2 text-white">New events</h4>
+  <h4 class="subheading my-1 mb-2 text-white"><%= t('.new_events') %></h4>
   <%= render 'shared/event_card', events: @events_recent %>
 
-  <h4 class="subheading mt-5 mb-2 text-white">More Events</h4>
+  <h4 class="subheading mt-5 mb-2 text-white"><%= t('.more_events') %></h4>
   <%= render 'shared/event_card', events: @events_diff %>
   <%= link_to events_path do %>
   <div class="d-flex justify-content-center">
-    <button class="btn btn-outline-light deco-none mb-5">See More</button>
+    <button class="btn btn-outline-light deco-none mb-5"><%= t('.see_more') %></button>
   </div>
   <% end %>
 </div>

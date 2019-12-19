@@ -10,7 +10,7 @@ en:
       my_profile: "my profile"
       log_out: "log out"
       members: "members"
-      
+
     footer:
       follow_us_on: 'follow us on'
       cookies: "Cookies"
@@ -22,5 +22,22 @@ en:
       copyright: "Copyright ©2019 Yoohood."
 
   pages:
+    about:
+      we_are: "we're"
+      full_stack_developer: "Full-Stack Developer"
+    contact:
+      contac_us: "Contact Us"
     home:
       banner_title_html: "Find the <span class='text-primary'>perfect</span> event for <span class='text-primary'>you</span>"
+      event: "Event"
+      event_or_artist: "event or artist"
+      date: "date"
+      city: "City"
+      city_or_venue: "city or venue"
+      search: "Search"
+      browse_events: "Browse events"
+      events_today: "Events today"
+      coming_up: "Coming up"
+      new_events: "New events"
+      more_events: "More Events"
+      see_more: "See More"
