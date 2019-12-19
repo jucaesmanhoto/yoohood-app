@@ -1,4 +1,5 @@
 class CheckinsController < ApplicationController
+  before_action :set_locale
   before_action :set_event, only: %i[new create]
   before_action :set_checkin, only: %i[edit update]
 
@@ -38,6 +39,14 @@ class CheckinsController < ApplicationController
   #   redirect_to event_path(@checkin.event)
   # end
 
+  def set_locale
+    I18n.locale = params.fetch(:locale, I18n.default_locale).to_sym
+  end
+
+  def default_url_options
+    { locale: I18n.locale == I18n.default_locale ? nil : I18n.locale }
+  end
+  
   private
 
   def checkin_params
