@@ -1,7 +1,7 @@
 inviteBtn = document.getElementById('invite-with-link-button')
 link = document.getElementById('invite-link');
 
-link.dataset.clipboardText = "<%= invite_url(@invite, protocol: 'https://', token: @invite.token) %>";
+link.dataset.clipboardText = "https://www.yoohood.fun/invites/" + "<%= @invite.id %>" + "?token=" + "<%= @invite.token %>";
 
 link.classList.remove('d-none');
 inviteBtn.remove();
