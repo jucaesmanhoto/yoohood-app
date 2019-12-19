@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :set_locale
   skip_before_action :authenticate_user!, only: %i[home members]
 
   def home
@@ -23,5 +24,13 @@ class PagesController < ApplicationController
   def profile
     # @meta_title = "#{DEFAULT_META["meta_product_name"]} - #{current_user.name.split(' ').first}'s profile"
     @accepted_invites = current_user.invites.select { |invite| invite.status == 'accepted' }
+  end
+
+  def set_locale
+    I18n.locale = params.fetch(:locale, I18n.default_locale).to_sym
+  end
+
+  def default_url_options
+    { locale: I18n.locale == I18n.default_locale ? nil : I18n.locale }
   end
 end

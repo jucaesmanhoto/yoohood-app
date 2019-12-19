@@ -1,0 +1,15 @@
+pt:
+  shared:
+    footer:
+      follow_us_on: 'nos acompanhe'
+      cookies: "Cookies"
+      help_center: "Central de Ajuda"
+      contact_us: "Contato"
+      about_us: "Sobre"
+      legal: "Legal"
+      privacy_police: "Política de Privacidade"
+      copyright: "Yoohood ©2019 - Todos direitos reservados."
+  pages:
+    home:
+      banner_title_html: "Ache o evento <span class='text-primary'>perfeito</span> para <span class='text-primary'>você</span>"
+      
