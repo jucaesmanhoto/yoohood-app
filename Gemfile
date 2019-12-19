@@ -25,7 +25,6 @@ gem 'postmark-rails'
 gem 'sendgrid-ruby'
 gem 'mailgun-ruby', '~>1.1.6'
 gem 'clipboard'
-# gem "ffi", :platforms => [:mswin, :mingw] 
 
 group :development do
   gem 'web-console', '>= 3.3.0'
