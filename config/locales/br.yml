@@ -1,5 +1,16 @@
-pt:
+br:
   shared:
+    navbar:
+      nearby: "ao redor"
+      my_events: "meus eventos"
+      all_events: "todos eventos"
+      invitations: "convites"
+      rewards: "prêmios"
+      settings: "ajustes"
+      my_profile: "meu perfil"
+      log_out: "log out"
+      members: "membros"
+
     footer:
       follow_us_on: 'nos acompanhe'
       cookies: "Cookies"
@@ -9,6 +20,7 @@ pt:
       legal: "Legal"
       privacy_police: "Política de Privacidade"
       copyright: "Yoohood ©2019 - Todos direitos reservados."
+
   pages:
     home:
       banner_title_html: "Ache o evento <span class='text-primary'>perfeito</span> para <span class='text-primary'>você</span>"
