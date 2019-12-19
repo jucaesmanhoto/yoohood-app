@@ -1,4 +1,13 @@
 en:
+  facebook_events:
+    fb_event_card:
+      create_event: "Create Event"
+    index:
+      no_events_available: "No available events"
+    new:
+      enter_token: "Enter a valid access token"
+      submit: "Submit"
+
   invite_mailer:
     invitation:
       title: "You've recieved an Invite from %{user_name}"
