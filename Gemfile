@@ -24,8 +24,8 @@ gem 'pg_search', '~> 2.3.0'
 gem 'postmark-rails'
 gem 'sendgrid-ruby'
 gem 'mailgun-ruby', '~>1.1.6'
-gem 'clipboard'
-gem "ffi", :platforms => [:mswin, :mingw] 
+gem 'clipboard-rails'
+gem 'jquery-turbolinks'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

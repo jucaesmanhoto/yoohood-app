@@ -50,10 +50,19 @@
               <button class="btn btn-block btn-success mt-3" data-toggle="modal" data-target="#inviteModal">invite by mail</button>
             </div>
             <div class="col-6">
-              <%= simple_form_for [@event, @invite], url: event_generate_link_path(@event) do |f|%>
-                <%= f.submit value: 'invite with link', class: "btn btn-block btn-success mt-3" %>
-                <!-- <button type="submit" href="/events/<%= @event.id %>/invites" method="POST" class="col-6 btn btn-block btn-success mt-1">generate a link</button> -->
+              <%= simple_form_for [@event, @invite], url: event_generate_link_path(@event), remote: true do |f|%>
+                <%= f.submit value: 'invite with link', class: "btn btn-block btn-success mt-3", id: 'invite-with-link-button' %>
               <% end %>
+              <!-- Target -->
+              <div id="invite-link" class="btn btn-block btn-success mt-3 d-none text-center" data-clipboard-action="copy" data-clipboard-text='' >
+                <i class="fa fa-clipboard mr-2" aria-hidden="true"></i>
+                copy to clipboard
+              </div>
+
+              <!-- Trigger -->
+              <!-- <button class="btn btn-block btn-success mt-3" data-clipboard-action="copy" data-clipboard-target="#invite-link"> -->
+                  
+              </button>
             </div>
           </div>
           </div>

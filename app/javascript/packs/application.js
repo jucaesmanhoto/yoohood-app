@@ -14,3 +14,8 @@ initMapbox();
 initAutocomplete();
 initScroll();
 initStarRating();
+
+$(document).ready(function(){  
+  var clipboard = new Clipboard('#invite-link');
+  console.log(clipboard);
+});
