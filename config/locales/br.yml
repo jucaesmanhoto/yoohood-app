@@ -1,27 +1,155 @@
 br:
+  benefits:
+    benefits_form:
+      add_a_benefit: "Adicione um Benefício à"
+      benefit: "Benefício"
+      quantity: "Quantidade"
+      value_in_points: "Valor em pontos (múltiplo de 500)"
+      update_benefit: "Atualizar Benefício"
+      delete: "Apagar"
+
+  checkins:
+    new:
+      rate_your_experience: "Avalie sua experiência"
+      send: "Check-in"
+
+  contact_mailer:
+    contact:
+      contact_mail: "E-mail de contato"
+      from: "de: %{mail}"
+      subject: "assunto: %{subject}"
+
+  contacts:
+    new:
+      contact_us: "Contato"
+      name: 'Nome'
+      email: 'Email'
+      subject: 'Assunto'
+      content: 'Mensagem'
+      send: 'Enviar'
+
+  events:
+    benefit_card:
+      balance: "saldo:"
+      points: "pts."
+      unavailable_benefit: "Desculpe, este benefício não está mais disponível."
+      redeem: "Resgatar"
+      not_logged: "Desculpe, você precisa fazer seu login."
+      sign_in: "Sign in"
+      not_enough_points: "Desculpa, você não tem pontos suficientes."
+      invite_friends: "Convide seus amigos para este evento e aumente o seu saldo para poder resgatar este benefício."
+    categories:
+      update: "Atualizar"
+    ask_for_ownership:
+      are_you: "Você é administrador de"
+      y: "Sim"
+      cancel: "Cancelar"
+    facebook_events:
+      no_available_events: "Sem eventos disponíveis."
+      facebook_events: "Events do Facebook"
+    index:
+      loading_map: "Abrindo o mapa..."
+      no_events: "Sem eventos para mostrar"
+    my_events:
+      past_events: "Eventos Antigos"
+    nearby:
+      loading_map: "Abrindo o mapa..."
+      no_events: "Sem eventos para mostrar"
+    show:
+      check_in: "Check-in"
+      add_a_benefit: "+ Adicione um benefício"
+      invite_by_mail: "convite por mail"
+      invite_with_link: "convite com um link"
+      copy_to_clipboard: "copiar"
+      back: "Voltar"
+      event_admin: "É produtor deste evento?"
+      invite_a_friend_to: "Convite um amigo para"
+      name: "NOME"
+      email: "E-MAIL"
+      submit: "Enviar"
+
+  facebook_events:
+    fb_event_card:
+      create_event: "Adicionar Evento"
+    index:
+      no_events_available: "Sem eventos disponíveis."
+    new:
+      enter_token: "Insira um token de acesso válido"
+      submit: "Enviar"
+
+  invite_mailer:
+    invitation:
+      title: "%{user_name} te enviou um convite"
+      cover_alt: "cartaz do evento"
+      has_invited: "%{invite.user_name} convidou você para:"
+      accept: "Aceitar"
+      follow_us: "nos siga em:"
+      footer_warning_1: "Este email foi enviado por um de nossos usuários. Se você não conhece a pessoa que lhe convidou, por favor envie um e-mail para contactus@yoohood.fun"
+      footer_warning_2: "Clicando no botão acima você será direcionado para o Yoohood. Aceitando este convite, %{user_name} receberá 50 pontos." 
+
+  invites:
+    show:
+      has_invited: "te convidou para:"
+      accept: "Aceitar"
+
+  pages:
+    about:
+      we_are: "Nós somos o"
+      full_stack_developer: "Desenvolvedor Full-Stack"
+    contact:
+      contac_us: "Contato"
+    home:
+      banner_title_html: "Ache o evento <span class='text-primary'>perfeito</span> para <span class='text-primary'>você</span>"
+      event: "Event0"
+      event_or_artist: "evento ou artista"
+      date: "data"
+      city: "Cidade"
+      city_or_venue: "cidade ou local"
+      search: "Buscar"
+      browse_events: "Eventos"
+      events_today: "Events Hoje"
+      coming_up: "Chegando"
+      new_events: "Recentes no Yoohood"
+      more_events: "Mais Eventos"
+      see_more: "Veja Mais"
+    profile:
+      your_balance: "Seu saldo"
+      accepted_invites: "Convites aceitos"
+      placeholder_to_no_invites: "Convite seus amigos para eventos incríveis e ganhe muitos pontos!"
+      accepted_to: "%{guest_name} aceitou um convite para:"
+      fifty_points: "50 pontos"
+      redeemed_benefits: "Benefícios resgatados "
+      placeholder_to_no_benefits: "Você ainda não resgatou nenhum benefício."
+      trade_description: "%{quantity}x %{benefit} para:"
+      check_ins: "Check-ins"
+      earn_points: "Ganhe pontos fazendo check in!"
+    
   shared:
     navbar:
-      nearby: "ao redor"
+      nearby: "por perto"
       my_events: "meus eventos"
       all_events: "todos eventos"
       invitations: "convites"
-      rewards: "prêmios"
+      rewards: "resgates"
       settings: "ajustes"
       my_profile: "meu perfil"
       log_out: "log out"
       members: "membros"
 
     footer:
-      follow_us_on: 'nos acompanhe'
+      follow_us_on: 'nos siga em'
       cookies: "Cookies"
       help_center: "Central de Ajuda"
       contact_us: "Contato"
-      about_us: "Sobre"
+      about_us: "Sobre nós"
       legal: "Legal"
-      privacy_police: "Política de Privacidade"
-      copyright: "Yoohood ©2019 - Todos direitos reservados."
+      privacy_police: "Politica de Privacidade"
+      copyright: "©2019 Yoohood - Direitos reservados"
 
-  pages:
-    home:
-      banner_title_html: "Ache o evento <span class='text-primary'>perfeito</span> para <span class='text-primary'>você</span>"
-      
+  trades:
+    new:
+      send: "Enviar"
+    show: 
+      balance_msg: "seu saldo neste momento é: %{points} pts."
+      email_alert_msg: "Você receberá um email de:"
+      done: "Feito!"

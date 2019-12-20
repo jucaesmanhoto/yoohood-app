@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12 col-md-8 index-events-frame">
       <% if @events.count.zero? %>
-        <h1>No events to show</h1>
+        <h1><%= t('.no_events') %></h1>
       <% else %>
         <%= render 'shared/event_card_index', events: @events %>
       <% end %>
@@ -13,7 +13,7 @@
 
       <!-- GOOGLE MAPS MAP: -->
       <div id="gmap" class="d-flex justify-content-center align-items-center mb-3" style="height: 80vh; background-color: #0052f7;" data-markers="<%= @markers.to_json %>">
-        Loading the map...
+        <%= t('.loading_map') %>
       </div>
     </div>
   </div>

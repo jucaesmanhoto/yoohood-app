@@ -2,11 +2,11 @@
   <div class="row justify-content-center">
     <div class="card require-card col-12 col-sm-6 pt-3 px-4">
       <div class="card-title">
-        <p>Are you admin of</p>
+        <p><%= t('.are_you') %></p>
         <h1 class="text-center"><%= @event.title %>?</h1>
         <div class="d-flex justify-content-between mt-4">
-          <%= link_to "Yes", event_require_path(@event), class: 'btn btn-dark', method: 'POST' %>
-          <%= link_to "Cancel", :back, class: 'btn btn-dark' %>
+          <%= link_to t('.y'), event_require_path(@event), class: 'btn btn-dark', method: 'POST' %>
+          <%= link_to t('.cancel'), :back, class: 'btn btn-dark' %>
         </div>
       </div>
     </div>

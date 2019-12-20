@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_locale
   before_action :set_event, only: %i[show edit update ask_for_ownership make_it_mine]
 
   def index
@@ -99,14 +98,6 @@ class EventsController < ApplicationController
   def destroy
   end
 
-  def set_locale
-    I18n.locale = params.fetch(:locale, I18n.default_locale).to_sym
-  end
-
-  def default_url_options
-    { locale: I18n.locale == I18n.default_locale ? nil : I18n.locale }
-  end
-  
   private
 
   def distance(loc1, loc2)

@@ -1,5 +1,4 @@
 class InvitesController < ApplicationController
-  before_action :set_locale
   before_action :set_invite, only: %i[show update]
 
   def generate_token
@@ -67,14 +66,6 @@ class InvitesController < ApplicationController
     @invite.update(status: 'accepted')
     @invite.user.update(points: @invite.user.points + 50)
     redirect_to event_path(@invite.event)
-  end
-
-  def set_locale
-    I18n.locale = params.fetch(:locale, I18n.default_locale).to_sym
-  end
-
-  def default_url_options
-    { locale: I18n.locale == I18n.default_locale ? nil : I18n.locale }
   end
   
   private

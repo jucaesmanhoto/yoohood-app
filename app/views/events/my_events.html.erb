@@ -1,5 +1,5 @@
 <div class="container">
     <%= render 'shared/event_card', events: @events %>
-    <h2>Past Events</h2>
+    <h2><%= t('.past_events') %></h2>
     <%= render 'shared/event_card', events: @past_events %>
 </div>
