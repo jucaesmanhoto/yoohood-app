@@ -10,7 +10,7 @@
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
           <li class="nav-item d-flex justify-content-end">
-            <%= simple_form_for nearby_path, url:'nearby' do |f| %>
+            <%= simple_form_for 'coordinates', url: nearby_path do |f| %>
               <%= f.hidden_field :latitude, id: 'latitude-input' %>
               <%= f.hidden_field :longitude, id: 'longitude-input'%>
               <%= f.submit t('.nearby'), class: "nav-link d-none text-right", id: 'nearby-button' %>

@@ -3,7 +3,7 @@ import { autocomplete } from '../components/autocomplete';
 
 const mapElement = document.getElementById('gmap');
 
-function getLocation() {
+const getLocation = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
@@ -11,8 +11,7 @@ function getLocation() {
   }
 }
 
-function showPosition(position) {
-  console.log('chegou');
+const showPosition = (position) => {
   const latitudeInput = document.getElementById('latitude-input');
   const longitudeInput = document.getElementById('longitude-input');
   document.getElementById('nearby-button').classList.remove('d-none')
@@ -21,6 +20,9 @@ function showPosition(position) {
   console.log(position.coords.latitude, position.coords.longitude);
   
   if (mapElement) { // don't try to build a map if there's no div#map to inject in
+    if (window.location.pathname.split('/').pop() == 'nearby') {
+      document.getElementById('nearby-button').classList.add('d-none')
+    }
     const map = new GMaps({ el: '#gmap', lat: position.coords.latitude, lng: position.coords.longitude });
     const markers = JSON.parse(mapElement.dataset.markers);    
     map.addMarkers(markers);

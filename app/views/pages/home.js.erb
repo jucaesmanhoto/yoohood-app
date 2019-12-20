@@ -1,6 +1,6 @@
-function refreshForm(innerHTML) {
-  const newReviewForm = document.getElementById('near_events');
-  newReviewForm.innerHTML = innerHTML;
+const refreshForm = (innerHTML) => {
+  const nearByForm = document.getElementById('near_events');
+  nearByForm.innerHTML = innerHTML;
 }
 user_long = 0
 user_lat = 0
@@ -8,6 +8,5 @@ navigator.geolocation.getCurrentPosition((position) => {
   user_lat = position.coords.latitude
   user_long = position.coords.longitude
 });
-
 
 refreshForm('<%= j render "shared/event_card", events: @events_near %>');
