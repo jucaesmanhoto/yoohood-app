@@ -116,7 +116,7 @@ en:
       your_balance: "Your balance"
       accepted_invites: "Accepted invites"
       placeholder_to_no_invites: "Invite your friends to cool events and earn many points!"
-      accepted_to: "%{guest_name} accepted an invite to:"
+      accepted_to: "%{guest_name} accepted your invite to:"
       fifty_points: "50 points"
       redeemed_benefits: "Redeemed benefits"
       placeholder_to_no_benefits: "You haven't redeemed any benefits yet."
