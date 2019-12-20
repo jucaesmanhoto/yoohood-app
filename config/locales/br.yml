@@ -116,7 +116,7 @@ br:
       your_balance: "Seu saldo"
       accepted_invites: "Convites aceitos"
       placeholder_to_no_invites: "Convite seus amigos para eventos incríveis e ganhe muitos pontos!"
-      accepted_to: "%{guest_name} aceitou um convite para:"
+      accepted_to: "%{guest_name} aceitou seu convite para:"
       fifty_points: "50 pontos"
       redeemed_benefits: "Benefícios resgatados "
       placeholder_to_no_benefits: "Você ainda não resgatou nenhum benefício."
