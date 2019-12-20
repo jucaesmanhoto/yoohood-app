@@ -64,7 +64,7 @@ class EventsController < ApplicationController
     user_position = [lat_lng[:latitude].to_f, lat_lng[:longitude].to_f]
     updated_events = Event.all.reject { |event| event.end_time < DateTime.now }
     @nearby_events = updated_events.reject { |event| distance(user_position, [event.places[0].latitude, event.places[0].longitude]) > 10 }
-                                   .sort { |a, b| distance(user_position, [b.places[0].latitude, b.places[0].longitude]) <=> distance(user_position, [a.places[0].latitude, a.places[0].longitude]) }
+                                   .sort { |a, b| a.start_time <=> b.start_time }
     @markers = @nearby_events.map do |event|
       {
         lat: event.places.first.latitude,

@@ -28,11 +28,12 @@ const showPosition = (position) => {
     map.addMarkers(markers);
     if (markers.length === 0) {
       map.setZoom(2);
-    } else if (markers.length === 1) {
-      map.setCenter(markers[0].lat, markers[0].lng);
-      map.setZoom(14);
+    // } else if (markers.length === 1) {
+    //   map.setCenter(markers[0].lat, markers[0].lng);
+    //   map.setZoom(14);
     } else {
-      map.fitLatLngBounds(markers);
+      // map.setCenter(position.coords.latitude, position.coords.longitude);
+      map.setZoom(14);
     }
   }
 }
