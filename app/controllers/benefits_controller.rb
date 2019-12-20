@@ -36,7 +36,7 @@ class BenefitsController < ApplicationController
     @benefit.destroy
     redirect_to event_path(@benefit.event)
   end
-
+  
   private
 
   def benefit_params

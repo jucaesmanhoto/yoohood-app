@@ -2,7 +2,7 @@
   <div class="d-flex flex-column justify-content-between" id="columns">
 
     <div class="d-flex flex-column align-items-center" id="footer-social-links">
-      <p>follow us on</p>
+      <p><%= t('.follow_us_on') %></p>
       <div class="row">
       <div class="col-12">
         <a href="https://github.com/jucaesmanhoto/yoohood-app" target="_blank"><i class="fab fa-github p-1"></i></a>
@@ -16,16 +16,16 @@
     <div class="d-flex flex-row align-items-center" id="footer-pages">
       <div class="footer-pages-column text-end" >
         <ul>
-          <a href=""><li>Cookies</li></a>
-          <a href=""><li>Help Center</li></a>
-          <li><%= link_to "Contact Us", new_contact_path %></li>
+          <a href=""><li><%= t('.cookies') %> </li></a>
+          <a href=""><li><%= t('.help_center') %></li></a>
+          <li><%= link_to t('.contact_us'), new_contact_path %></li>
         </ul>
       </div>
       <div class="footer-pages-column text-start">
         <ul>
-          <li><%= link_to "About us", about_path %></li>
-          <a href=""><li>Legal</li></a>
-          <a href=""><li>Privacy Policy</li></a>
+          <li><%= link_to t('.about_us'), about_path %></li>
+          <a href=""><li><%= t('.legal') %></li></a>
+          <a href=""><li><%= t('.privacy_police') %></li></a>
         </ul>
       </div>
     </div>
@@ -33,7 +33,7 @@
   </div>
 
   <div class="footer-copyright row justify-content-center mx-0 my-2">
-    <p>Copyright ©2019 Yoohood.</p>
+    <p><%= t('.copyright') %></p>
   </div>
 
 </div>

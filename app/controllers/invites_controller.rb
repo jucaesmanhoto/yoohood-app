@@ -67,7 +67,7 @@ class InvitesController < ApplicationController
     @invite.user.update(points: @invite.user.points + 50)
     redirect_to event_path(@invite.event)
   end
-
+  
   private
 
   def set_event

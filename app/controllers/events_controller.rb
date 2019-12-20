@@ -60,7 +60,7 @@ class EventsController < ApplicationController
   end
 
   def nearby
-    lat_lng = params['/nearby']
+    lat_lng = params['coordinates']
     user_position = [lat_lng[:latitude].to_f, lat_lng[:longitude].to_f]
     updated_events = Event.all.reject { |event| event.end_time < DateTime.now }
     @nearby_events = updated_events.reject { |event| distance(user_position, [event.places[0].latitude, event.places[0].longitude]) > 50 }

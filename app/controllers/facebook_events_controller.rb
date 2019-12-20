@@ -2,6 +2,7 @@ require 'json'
 require 'open-uri'
 
 class FacebookEventsController < ApplicationController
+
   def index
     pulled_events = FacebookServices.new(params[:token]).pull_fb_events
     if pulled_events[2].present?

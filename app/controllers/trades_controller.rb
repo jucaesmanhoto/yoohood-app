@@ -44,7 +44,7 @@ class TradesController < ApplicationController
 
   def destroy
   end
-
+  
   private
 
   def trade_params

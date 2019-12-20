@@ -12,27 +12,27 @@
 
         </div>
         <div class="d-flex flex-column profile-user-points">
-          <p>Your balance</p>
+          <p><%= t('.your_balance') %></p>
           <h4 class="text-center mt-2"><%= current_user.points %></h4>
         </div>
       </div>
 
       <div class="flex-row row w-100 p-4">
         <div class="col-12 col-sm-4">
-          <h4 class="text-center">Accepted invites</h4>
+          <h4 class="text-center"><%= t('.accepted_invites') %></h4>
           <div class="invites">
           <% if current_user.invites.empty? %>
             <div class="card invites-card p-3 pl-4 my-1">
-              <h4>Invite your friends to cool events and earn many points!</h4>
+              <h4><%= t('.placeholder_to_no_invites') %></h4>
             </div>
           <% else %>
             <% @accepted_invites.each do |invite| %>
               <div class="card invites-card p-2 pl-4 my-1">
-                <p class="mb-2"><%= invite.guest_name %> accepted an invite to:</p>
+                <p class="mb-2"><%= t('.accepted_to', guest_name: invite.guest_name) %></p>
                 <h4><%= invite.event.title %></h4>
                 <!-- <p><%#= invite.created_at.strftime('%H:%M - %a, %d %b %Y') %></p> -->
                 <!-- <p><strong>50</strong> points added to your balance! <%#= %w[🎉🎉 😄🎉 😍🎉].sample %></p> -->
-                <span class="badge badge-primary float-right">50 points</span>
+                <span class="badge badge-primary float-right"><%= t('.fifty_points') %></span>
 
               </div>
             <% end %>
@@ -41,17 +41,17 @@
         </div>
 
         <div class="col-12 col-sm-4">
-          <h4 class="text-center">Redeemed benefits</h4>
+          <h4 class="text-center"><%= t('.redeemed_benefits') %></h4>
           <div class="invites">
           <% if current_user.trades.empty? %>
             <div class="card invites-card p-3 pl-4 my-1">
-              <h4>You haven't redeemed any benefits yet.</h4>
+              <h4><%= t('.placeholder_to_no_benefits') %></h4>
             </div>
           <% else %>
             <% current_user.trades.each do |trade| %>
               <%= link_to trade_path(trade) do %>
                 <div class="card trade-card p-2 pl-4 my-1">
-                  <p class="mb-2"><%= trade.quantity %>x <%= trade.benefit.name %> to:</p>
+                  <p class="mb-2"><%= t('.trade_description', quantity: trade.quantity, benefit: trade.benefit.name) %></p>
                   <h4><%= trade.benefit.event.title %></h4>
                   <!-- p><%#= trade.benefit.event.start_time.strftime('%H:%M - %a, %d %b %Y') %></p> -->
                 </div>
@@ -63,11 +63,11 @@
 
 
         <div class="col-12 col-sm-4">
-          <h4 class="text-center">Check-ins</h4>
+          <h4 class="text-center"><%= t('.check_ins') %></h4>
           <div class="invites">
             <% if current_user.checkins.empty? %>
               <div class="card invites-card p-3 pl-4 my-1">
-                <h4>Earn points by check in!</h4>
+                <h4><%= t('.earn_points') %></h4>
               </div>
             <% else %>
               <% current_user.checkins.each do |checkin| %>
@@ -81,8 +81,6 @@
             <% end %>
           </div>
         </div>
-
-
       </div>
     </div>
   </div>

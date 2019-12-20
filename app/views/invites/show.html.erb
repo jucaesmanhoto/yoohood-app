@@ -5,12 +5,12 @@
     <div class="card invite-card col-12 col-sm-6 p-4">
       <div class="card-title text-center">
         <h2><%= @invite.user.name %></h2>
-        <p>has invited you to:</p>
+        <p><%= t('.has_invited') %></p>
         <h1><%= @event.title %></h1>
         <p><%= @event.start_time.strftime('%d.%m.%Y %H:%M') %></p>
         <p><%= @event.places.present? ? @event.places.first.name : '' %></p>
         <%= simple_form_for @invite do |f| %>
-          <%= f.submit value: 'Accept', class: 'btn btn-outline-dark' %>
+          <%= f.submit value: t('.accept'), class: 'btn btn-outline-dark' %>
         <% end %>
       </div>
     </div>

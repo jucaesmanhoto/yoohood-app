@@ -1,4 +1,5 @@
 class PlacesController < ApplicationController
+
   def index
     @places = Place.geocoded
 
@@ -22,7 +23,7 @@ class PlacesController < ApplicationController
       render :new
     end
   end
-
+  
   private
 
   def place_params

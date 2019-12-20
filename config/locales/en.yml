@@ -1,33 +1,155 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  benefits:
+    benefits_form:
+      add_a_benefit: "Add a Benefit to"
+      benefit: "Benefit"
+      quantity: "Quantity"
+      value_in_points: "Value in points (multiple of 500)"
+      update_benefit: "Update Benefit"
+      delete: "Delete"
+
+  checkins:
+    new:
+      rate_your_experience: "Rate your experience"
+      send: "Send"
+
+  contact_mailer:
+    contact:
+      contact_mail: "Contact Mail"
+      from: "from: %{mail}"
+      subject: "subject: %{subject}"
+
+  contacts:
+    new:
+      contact_us: "Contact Us"
+      name: 'Name'
+      email: 'Email'
+      subject: 'Subject'
+      content: 'Content'
+      send: 'Send'
+
+  events:
+    benefit_card:
+      balance: "balance:"
+      points: "pts."
+      unavailable_benefit: "Sorry, this benefit is no longer available."
+      redeem: "Redeem"
+      not_logged: "Sorry, you're not logged in."
+      sign_in: "Sign in"
+      not_enough_points: "Sorry, you don't have enough points."
+      invite_friends: "Invite your friends to this event and increase your balance before you can redeem this benefit."
+    categories:
+      update: "Update"
+    ask_for_ownership:
+      are_you: "Are you admin of"
+      y: "Yes"
+      cancel: "Cancel"
+    facebook_events:
+      no_available_events: "No available events."
+      facebook_events: "Facebook Events"
+    index:
+      loading_map: "Loading the map..."
+      no_events: "No events to show"
+    my_events:
+      past_events: "Past Events"
+    nearby:
+      loading_map: "Loading the map..."
+      no_events: "No events to show"
+    show:
+      check_in: "Check-in"
+      add_a_benefit: "+ Add a benefit"
+      invite_by_mail: "invite by mail"
+      invite_with_link: "invite with link"
+      copy_to_clipboard: "copy to clipboard"
+      back: "Back"
+      event_admin: "Event Admin?"
+      invite_a_friend_to: "Invite a friend to"
+      name: "NAME"
+      email: "E-MAIL"
+      submit: "Send"
+
+  facebook_events:
+    fb_event_card:
+      create_event: "Create Event"
+    index:
+      no_events_available: "No available events"
+    new:
+      enter_token: "Enter a valid access token"
+      submit: "Submit"
+
+  invite_mailer:
+    invitation:
+      title: "You've recieved an Invite from %{user_name}"
+      cover_alt: "Event image"
+      has_invited: "%{invite.user_name} has invited you to:"
+      accept: "Accept"
+      follow_us: "follow us:"
+      footer_warning_1: "This email was sent by one of our users. If you don't know the sender, please report to contactus@yoohood.fun"
+      footer_warning_2: "By clicking 'more info' button you'll be redirect to Yoohood page. By accepting this invite, %{user_name} will earn 50 points." 
+
+  invites:
+    show:
+      has_invited: "has invited you to:"
+      accept: "Accept"
+
+  pages:
+    about:
+      we_are: "we're"
+      full_stack_developer: "Full-Stack Developer"
+    contact:
+      contac_us: "Contact Us"
+    home:
+      banner_title_html: "Find the <span class='text-primary'>perfect</span> event for <span class='text-primary'>you</span>"
+      event: "Event"
+      event_or_artist: "event or artist"
+      date: "date"
+      city: "City"
+      city_or_venue: "city or venue"
+      search: "Search"
+      browse_events: "Browse events"
+      events_today: "Events today"
+      coming_up: "Coming up"
+      new_events: "New events"
+      more_events: "More Events"
+      see_more: "See More"
+    profile:
+      your_balance: "Your balance"
+      accepted_invites: "Accepted invites"
+      placeholder_to_no_invites: "Invite your friends to cool events and earn many points!"
+      accepted_to: "%{guest_name} accepted an invite to:"
+      fifty_points: "50 points"
+      redeemed_benefits: "Redeemed benefits"
+      placeholder_to_no_benefits: "You haven't redeemed any benefits yet."
+      trade_description: "%{quantity}x %{benefit} to:"
+      check_ins: "Check-ins"
+      earn_points: "Earn points by check in!"
+    
+  shared:
+    navbar:
+      nearby: "nearby"
+      my_events: "my events"
+      all_events: "all events"
+      invitations: "invitations"
+      rewards: "rewards"
+      settings: "settings"
+      my_profile: "my profile"
+      log_out: "log out"
+      members: "members"
+
+    footer:
+      follow_us_on: 'follow us on'
+      cookies: "Cookies"
+      help_center: "Help Center"
+      contact_us: "Contact Us"
+      about_us: "About us"
+      legal: "Legal"
+      privacy_police: "Privacy Policy"
+      copyright: "Copyright ©2019 Yoohood."
+
+  trades:
+    new:
+      send: "Send"
+    show: 
+      balance_msg: "your balance is now: %{points} pts."
+      email_alert_msg: "You will shortly receive an email from:"
+      done: "Done"

@@ -25,13 +25,13 @@
             <div class="d-row border flex-column p-2">
               <% if current_user.present? && current_user.points >= benefit.value_in_points%>
                 <span class="badge badge-primary p-2 float-right">
-                  balance:
-                  <h3 class="mb-0 mt-2"><%= current_user.points %></h3> pts.
+                  <%= t('.balance') %>
+                  <h3 class="mb-0 mt-2"><%= current_user.points %></h3> <%= t('.points') %>
                 </span>
               <% else %>
                 <span class="badge badge-danger p-2 float-right">
-                  balance:
-                  <h3 class="mb-0 mt-2"><%= current_user.present? ? current_user.points : '' %></h3> pts.
+                  <%= t('.balance') %>
+                  <h3 class="mb-0 mt-2"><%= current_user.present? ? current_user.points : '' %></h3> <%= t('.points') %>
                 </span>
               <% end %>
             </div>
@@ -40,7 +40,7 @@
               <!-- Tells user if befit is not avaiable -->
               <% if benefit.quantity.zero? || @event.start_time < DateTime.now %>
                 <div class="modal-body p-4">
-                  <h4 class="mb-4">Sorry, this benefit is no longer available. </h4>
+                  <h4 class="mb-4"><%= t('.unavailable_benefit') %></h4>
                 </div>
               <!-- Show the trade form if benefit is availabe -->
               <% else %>
@@ -55,21 +55,20 @@
                     <%= f.input :quantity, as: :select, collection: (1..max_reclaim).to_a, include_blank: false %>
                   </div>
                   <div class="modal-footer">
-                    <%= f.submit "Redeem", class: "btn btn-dark align-items-center"%>
+                    <%= f.submit t('.redeem'), class: "btn btn-dark align-items-center"%>
                   </div>
                 <% end %>
               <% end %>
             <% else %>
               <% if current_user.nil? %>
                 <div class="modal-body p-4">
-                  <h4 class="mb-4">Sorry, you're not logged in. </h4>
-                  <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary' %>
+                  <h4 class="mb-4"><%= t('.not_logged') %></h4>
+                  <%= link_to t('.sign_in'), new_user_session_path, class: 'btn btn-primary' %>
                 </div>
-
               <% else %>
                 <div class="modal-body p-4">
-                  <h4 class="mb-4">Sorry, you don't have enough points. </h4>
-                  <p>Invite your friends to this event and increase your balance before you can redeem this benefit.</p>
+                  <h4 class="mb-4"><%= t('.not_enough_points') %></h4>
+                  <p><%= t('.invite_friends') %></p>
                 </div>
               <% end %>
             <% end %>

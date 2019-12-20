@@ -24,4 +24,5 @@ class PagesController < ApplicationController
     # @meta_title = "#{DEFAULT_META["meta_product_name"]} - #{current_user.name.split(' ').first}'s profile"
     @accepted_invites = current_user.invites.select { |invite| invite.status == 'accepted' }
   end
+
 end

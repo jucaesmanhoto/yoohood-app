@@ -1,5 +1,6 @@
 class EventCategoriesController < ApplicationController
   before_action :set_event, only: %i[update destroy]
+
   def create
 
   end
@@ -27,7 +28,7 @@ class EventCategoriesController < ApplicationController
         format.js
       end
   end
-
+  
   private
 
   def set_event

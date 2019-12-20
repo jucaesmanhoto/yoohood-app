@@ -1,11 +1,11 @@
 <div class="container">
     <div class="row my-5">
         <div id="gmap" class="col-12 col-md-6 d-flex justify-content-center align-items-center mb-3" style="height: 80vh; background-color: #0052f7;" data-markers="<%= @markers.to_json %>">
-            Loading the map...
+            <%= t('.loading_map') %>
         </div>
         <div class="col-12 col-md-6 nearby-event-index">
             <% if @nearby_events.count == 0 %>
-                <h2 class="text-center">No events to show.</h2>              
+                <h2 class="text-center"><%= t('.no_events') %></h2>              
             <% else %>
                 <%= render 'shared/event_card_index', events: @nearby_events %>
             <% end %>

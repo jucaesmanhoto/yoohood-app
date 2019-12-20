@@ -9,7 +9,7 @@
     <div class="d-flex justify-content-end">
       <%= simple_form_for @event, url: event_event_category_path(@event), remote:true do |f| %>
         <%= f.input :categories, as: :select, collection: Category.all, input_html: { class: 'select-css' } %>
-        <%= f.button :submit, 'Update', class: 'btn btn-primary mb-2' %>
+        <%= f.button :submit, t('.update'), class: 'btn btn-primary mb-2' %>
       <% end %>
     </div>
 </div>

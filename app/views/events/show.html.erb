@@ -35,7 +35,7 @@
               <div class="d-flex ml-2 qr-checkin flex-grow-0">
                 <%# if (@event.start_time < DateTime.now) && (@event.end_time > DateTime.now) %>
                 <%= image_tag('QR-code.svg', style: 'width: 30px;') %>
-                <a class= "small text-dark", style= "white-space: nowrap; padding-left: 4px" href="https://qrcodescan.in">Check-in</a>
+                <a class= "small text-dark", style= "white-space: nowrap; padding-left: 4px" href="https://qrcodescan.in"><%= t('.check_in') %></a>
                 <%# end %>
               </div>
             </div>
@@ -43,20 +43,20 @@
               <%= render 'benefit_card' %>
             </div>
             <% if @event.user == current_user %>
-              <%= link_to "+ Add a benefit", new_event_benefit_path(@event), class: 'btn btn-dark' %>
+              <%= link_to t('.add_a_benefit'), new_event_benefit_path(@event), class: 'btn btn-dark' %>
             <% end %>
             <div class="row justify-content-between">
             <div class="col-6">
-              <button class="btn btn-block btn-success mt-3" data-toggle="modal" data-target="#inviteModal">invite by mail</button>
+              <button class="btn btn-block btn-success mt-3" data-toggle="modal" data-target="#inviteModal"><%= t('.invite_by_mail') %></button>
             </div>
             <div class="col-6">
               <%= simple_form_for [@event, @invite], url: event_generate_link_path(@event), remote: true do |f|%>
-                <%= f.submit value: 'invite with link', class: "btn btn-block btn-success mt-3", id: 'invite-with-link-button' %>
+                <%= f.submit value: t('.invite_with_link'), class: "btn btn-block btn-success mt-3", id: 'invite-with-link-button' %>
               <% end %>
               <!-- Target -->
               <div id="invite-link" class="btn btn-block btn-success mt-3 d-none text-center" data-clipboard-action="copy" data-clipboard-text='' >
                 <i class="fa fa-clipboard mr-2" aria-hidden="true"></i>
-                copy to clipboard
+                <%= t('.copy_to_clipboard') %>
               </div>
 
               <!-- Trigger -->
@@ -92,8 +92,8 @@
         </div>
       </div>
     </div>
-    <%= link_to "Back", events_path, class: "my-4 btn btn-outline-light float-left" %>
-    <%= link_to "Event Admin?", new_contact_path, class: "my-4 btn btn-outline-light float-right" %>
+    <%= link_to t('.back'), events_path, class: "my-4 btn btn-outline-light float-left" %>
+    <%= link_to t('event_admin'), new_contact_path, class: "my-4 btn btn-outline-light float-right" %>
   </div>
 </div>
 
@@ -103,7 +103,7 @@
     <div class="modal-content invite-box">
       <div class="modal-header">
         <div class="d-flex-flex-column">
-          <p class="modal-title text-black">Invite a friend to</p>
+          <p class="modal-title text-black"><%= t('.invite_a_friend_to') %></p>
           <h2 class="modal-title text-align-center text-black"><%= @event.title %></h2>
         </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -112,13 +112,13 @@
       </div>
       <div class="modal-body">
         <!--  Need to put presence true -->
-        <%= f.input :guest_name, label: "NAME", placeholder: "John Doe" %>
-        <%= f.input :guest_email, label: "E-MAIL", placeholder: "johndoe@gmail.com" %>
+        <%= f.input :guest_name, label: t('.name'), placeholder: "John Doe" %>
+        <%= f.input :guest_email, label: t('.email'), placeholder: "johndoe@gmail.com" %>
       </div>
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
         <!-- Make button smaller -->
-        <%= f.submit "Send", class: "btn btn-dark align-items-center"%>
+        <%= f.submit t('.submit'), class: "btn btn-dark align-items-center"%>
       </div>
       <% end %>
     </div>

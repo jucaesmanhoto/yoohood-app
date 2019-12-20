@@ -1,14 +1,14 @@
 <div class="d-flex justify-content-center">
   <div class="card benefit-form-card col-12 col-md-6 p-5">
-    <h6>Add a Benefit to</h6>
+    <h6><%= t('.add_a_benefit') %></h6>
     <h2 class="mb-5"><%= @event.title %></h2>
     <%= simple_form_for [@event, @benefit] do |f| %>
-      <%= f.input :name, label: 'Benefit' %>
-      <%= f.input :quantity %>
-      <%= f.input :value_in_points, label: 'Value in points (multiple of 500)' %>
-      <%= f.button :submit, class: "btn btn-dark float-right" %>
+      <%= f.input :name, label: t('.benefit') %>
+      <%= f.input :quantity, label: t('.quantity') %>
+      <%= f.input :value_in_points, label: t('.value_in_points') %>
+      <%= f.button :submit, class: "btn btn-dark float-right", value: t('.update_benefit') %>
       <% if @benefit.id.present? %>
-        <%= link_to "Delete", benefit_path(@benefit), class: 'btn btn-danger', method: :delete %>
+        <%= link_to t('.delete'), benefit_path(@benefit), class: 'btn btn-danger', method: :delete %>
       <% end %>
     <% end %>
   </div>
