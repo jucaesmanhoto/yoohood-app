@@ -91,6 +91,7 @@ br:
     show:
       has_invited: "te convidou para:"
       accept: "Aceitar"
+      login_to_accept: Seja um Yoder!
 
   pages:
     about:
@@ -134,7 +135,7 @@ br:
       settings: "ajustes"
       my_profile: "meu perfil"
       log_out: "log out"
-      members: "membros"
+      members: "Yoders"
 
     footer:
       follow_us_on: 'nos siga em'

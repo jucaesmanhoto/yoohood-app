@@ -91,6 +91,7 @@ en:
     show:
       has_invited: "has invited you to:"
       accept: "Accept"
+      login_to_accept: Be a Yoder
 
   pages:
     about:
@@ -134,7 +135,7 @@ en:
       settings: "settings"
       my_profile: "my profile"
       log_out: "log out"
-      members: "members"
+      members: "Yoders"
 
     footer:
       follow_us_on: 'follow us on'
