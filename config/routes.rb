@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :places
     resources :trades, only: %i[index show]
     resources :invites, only: %i[show update]
+    get '/invite/:id/:token', to: 'invites#show_if_logged', as: 'logged_invite'
     resources :benefits, only: %i[index edit destroy] do
       resources :trades, only: %i[new create]
     end
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
       # post '/require', to: 'events#make_it_mine'
       resources :event_categories, only: %i[create update]
       resources :invites, only: %i[create]
+      # get 'invites', to: 'invites#create'
       post 'generate_link', to: 'invites#generate'
       resources :benefits, only: %i[show new create update]
       resources :checkins, only: %i[new create]
