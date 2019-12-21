@@ -58,8 +58,8 @@ br:
     show:
       check_in: "Check-in"
       add_a_benefit: "+ Adicione um benefício"
-      invite_by_mail: "convite por mail"
-      invite_with_link: "convite com um link"
+      invite_by_mail: "convide por mail"
+      invite_with_link: "convide com um link"
       copy_to_clipboard: "copiar"
       back: "Voltar"
       event_admin: "É produtor deste evento?"
