@@ -53,14 +53,11 @@
               <%= simple_form_for [@event, @invite], url: event_generate_link_path(@event), remote: true do |f|%>
                 <%= f.submit value: t('.invite_with_link'), class: "btn btn-block btn-success mt-3", id: 'invite-with-link-button' %>
               <% end %>
-              <!-- Target -->
+              
               <div id="invite-link" class="btn btn-block btn-success mt-3 d-none text-center" data-clipboard-action="copy" data-clipboard-text='' >
                 <i class="fa fa-clipboard mr-2" aria-hidden="true"></i>
                 <%= t('.copy_to_clipboard') %>
               </div>
-
-              <!-- Trigger -->
-              <!-- <button class="btn btn-block btn-success mt-3" data-clipboard-action="copy" data-clipboard-target="#invite-link"> -->
                   
               </button>
             </div>
