@@ -7,7 +7,7 @@ link.classList.remove('d-none');
 inviteBtn.remove();
 
 link.addEventListener('click', e => {
-    link.innerHTML = 'Copied!'
+    link.innerHTML = "<%= t('.copied') %>"
     link.classList.remove('btn-success');
     link.classList.add('btn-primary');
 })

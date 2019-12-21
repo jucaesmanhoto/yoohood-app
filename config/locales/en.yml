@@ -92,6 +92,8 @@ en:
       has_invited: "has invited you to:"
       accept: "Accept"
       login_to_accept: Be a Yoder
+    generate:
+      copied: Copied!
 
   pages:
     about:

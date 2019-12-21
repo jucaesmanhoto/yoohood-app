@@ -92,7 +92,9 @@ br:
       has_invited: "te convidou para:"
       accept: "Aceitar"
       login_to_accept: Seja um Yoder!
-
+    generate:
+      copied: Copiado!
+    
   pages:
     about:
       we_are: "Nós somos o"
