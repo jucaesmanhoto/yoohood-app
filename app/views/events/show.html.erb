@@ -50,14 +50,22 @@
               <button class="btn btn-block btn-success mt-3" data-toggle="modal" data-target="#inviteModal"><%= t('.invite_by_mail') %></button>
             </div>
             <div class="col-12 col-md-6">
-              <%= simple_form_for [@event, @invite], url: event_generate_link_path(@event), remote: true do |f|%>
-                <%= f.submit value: t('.invite_with_link'), class: "btn btn-block btn-success mt-3", id: 'invite-with-link-button' %>
+              <% if current_user.present?%>
+
+                <%= simple_form_for [@event, @invite], url: event_generate_link_path(@event), remote: true do |f|%>
+                  <%= f.submit value: t('.invite_with_link'), class: "btn btn-block btn-success mt-3", id: 'invite-with-link-button' %>
+                <% end %>
+                
+                <div id="invite-link" class="btn btn-block btn-success mt-3 d-none text-center" data-clipboard-action="copy" data-clipboard-text='' >
+                  <i class="fa fa-clipboard mr-2" aria-hidden="true"></i>
+                  <%= t('.copy_to_clipboard') %>
+                </div>
+
+              <% else %>
+
+                <%= link_to t('.become_a_yoder'), members_path, class: "btn btn-block btn-primary mt-3" %>
+
               <% end %>
-              
-              <div id="invite-link" class="btn btn-block btn-success mt-3 d-none text-center" data-clipboard-action="copy" data-clipboard-text='' >
-                <i class="fa fa-clipboard mr-2" aria-hidden="true"></i>
-                <%= t('.copy_to_clipboard') %>
-              </div>
                   
               </button>
             </div>

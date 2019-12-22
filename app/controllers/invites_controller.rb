@@ -31,8 +31,9 @@ class InvitesController < ApplicationController
     else
       redirect_to event_path(@invite.event)
     end
+    generate_if_logged
   end
-  
+
   ###########################################################################
   # action created just to test the email front-end
   # def invitation
@@ -60,9 +61,6 @@ class InvitesController < ApplicationController
 
   def show_if_logged
     @event = @invite.event
-    # redirect_to root_path, alert: 'Invalid invite.' unless @invite.token == params[:token]
-    # redirect_to root_path, alert: 'You cannot accept your own invite.' if @invite.user == current_user
-    # redirect_to root_path, alert: 'Invite already accepted.' if @invite.status == 'accepted'
     redirect_to invite_path(@invite, token: params[:token])
   end
 
