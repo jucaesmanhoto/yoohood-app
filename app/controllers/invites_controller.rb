@@ -31,7 +31,6 @@ class InvitesController < ApplicationController
     else
       redirect_to event_path(@invite.event)
     end
-    generate_if_logged
   end
 
   ###########################################################################
