@@ -1,10 +1,8 @@
 en:
-  meta_product_name: "Yoohood"
-  meta_title: "Yoohood Intelligent Curators - Find a prefect event for you."
-  meta_description: "Earn points inviting your friends to cool events, then change your points for incredible benefits."
-  meta_image: "cover.png" # should exist in `app/assets/images/`
-  twitter_account: "@yoohoodco"   # required for Twitter Cards
-  fb_id: "453057622213119"
+  layouts:
+    application:
+      meta_title: "Yoohood Intelligent Curators - Find a prefect event for you."
+      meta_description: "Earn points inviting your friends to cool events, then change your points for incredible benefits."
 
   benefits:
     benefits_form:
@@ -63,6 +61,7 @@ en:
       loading_map: "Loading the map..."
       no_events: "No events to show"
     show:
+      is_on: is on
       check_in: "Check-in"
       add_a_benefit: "+ Add a benefit"
       invite_by_mail: "invite by mail"
