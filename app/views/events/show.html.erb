@@ -2,7 +2,7 @@
 <% content_for :meta_image, @event.cover %>
 <div class="container padding-top-page-content">
   <div class=" d-flex flex-column align-items-center">
-    <div class="card-event col-md-10">
+    <div class="card-event col-md-12">
       <div class="card-info-show">
         <div class="d-flex flex-row show-div">
           <% placeholder_url = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80" %>
@@ -33,10 +33,10 @@
                 </h2>
               </div>
               <div class="d-flex ml-2 qr-checkin flex-grow-0">
-                <%# if (@event.start_time < DateTime.now) && (@event.end_time > DateTime.now) %>
-                <%= image_tag('QR-code.svg', style: 'width: 30px;') %>
-                <a class= "small text-dark", style= "white-space: nowrap; padding-left: 4px" href="https://qrcodescan.in"><%= t('.check_in') %></a>
-                <%# end %>
+                <% if (@event.start_time < DateTime.now) && (@event.end_time > DateTime.now) %>
+                  <%= image_tag('QR-code.svg', style: 'width: 30px;') %>
+                  <a class= "small text-dark", style= "white-space: nowrap; padding-left: 4px" href="https://qrcodescan.in"><%= t('.check_in') %></a>
+                <% end %>
               </div>
             </div>
             <div class="benefits">
@@ -46,12 +46,11 @@
               <%= link_to t('.add_a_benefit'), new_event_benefit_path(@event), class: 'btn btn-dark' %>
             <% end %>
             <div class="row justify-content-between">
-            <div class="col-12 col-md-6">
-              <button class="btn btn-block btn-success mt-3" data-toggle="modal" data-target="#inviteModal"><%= t('.invite_by_mail') %></button>
-            </div>
-            <div class="col-12 col-md-6">
               <% if current_user.present?%>
-
+                <div class="col-12 col-md-6">
+                  <button class="btn btn-block btn-success mt-3" data-toggle="modal" data-target="#inviteModal"><%= t('.invite_by_mail') %></button>
+                </div>
+                <div class="col-12 col-md-6">
                 <%= simple_form_for [@event, @invite], url: event_generate_link_path(@event), remote: true do |f|%>
                   <%= f.submit value: t('.invite_with_link'), class: "btn btn-block btn-success mt-3", id: 'invite-with-link-button' %>
                 <% end %>
@@ -60,16 +59,13 @@
                   <i class="fa fa-clipboard mr-2" aria-hidden="true"></i>
                   <%= t('.copy_to_clipboard') %>
                 </div>
+              </div>
 
               <% else %>
-
-                <%= link_to t('.become_a_yoder'), members_path, class: "btn btn-block btn-primary mt-3" %>
-
+                <div class="col-12">
+                  <%= link_to t('.become_a_yoder'), members_path, class: "btn btn-block btn-primary mt-3" %>
+                </div>
               <% end %>
-                  
-              </button>
-            </div>
-          </div>
           </div>
           <div class="d-flex flex-row mt-4 text-black-50">
             <i class="far fa-clock" style="margin-right: 10px; padding-top: 3px"></i>
