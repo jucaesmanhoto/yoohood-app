@@ -96,6 +96,7 @@ en:
 
   invites:
     show:
+      is_on: is on
       has_invited: "has invited you to:"
       accept: "Accept"
       login_to_accept: Be a Yoder

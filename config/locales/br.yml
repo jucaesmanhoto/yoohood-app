@@ -96,6 +96,7 @@ br:
 
   invites:
     show:
+      is_on: is on
       has_invited: "te convidou para:"
       accept: "Aceitar"
       login_to_accept: Seja um Yoder!

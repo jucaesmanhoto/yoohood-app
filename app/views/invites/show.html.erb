@@ -1,4 +1,4 @@
-<% content_for :meta_title, "#{@invite.event.title} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_title, "#{@invite.event.title} #{t('.is_on')} #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_image, @invite.event.cover %>
 <div class="container my-5">
   <div class="row justify-content-center">
