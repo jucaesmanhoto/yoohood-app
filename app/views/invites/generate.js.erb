@@ -1,7 +1,7 @@
 inviteBtn = document.getElementById('invite-with-link-button')
 link = document.getElementById('invite-link');
-
-link.dataset.clipboardText = window.location.href + "?token=" + "<%= @invite.token %>";
+console.log("<%= @invite.id %>")
+link.dataset.clipboardText = window.location.origin + "/invites/" + "<%= @invite.id %>" + "?token=" + "<%= @invite.token %>";
 
 link.classList.remove('d-none');
 inviteBtn.remove();
