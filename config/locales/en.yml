@@ -1,9 +1,4 @@
 en:
-  layouts:
-    application:
-      meta_title: "Yoohood Intelligent Curators - Find a prefect event for you."
-      meta_description: "Earn points inviting your friends to cool events, then change your points for incredible benefits."
-
   benefits:
     benefits_form:
       add_a_benefit: "Add a Benefit to"
@@ -62,6 +57,7 @@ en:
       no_events: "No events to show"
     show:
       is_on: is on
+      meta_description: "Earn points inviting your friends to cool events, then change your points for incredible benefits."
       check_in: "Check-in"
       add_a_benefit: "+ Add a benefit"
       invite_by_mail: "invite by mail"
@@ -96,7 +92,8 @@ en:
 
   invites:
     show:
-      is_on: is on
+      is_on: "is on"
+      meta_description: "Earn points inviting your friends to cool events, then change your points for incredible benefits."
       has_invited: "has invited you to:"
       accept: "Accept"
       login_to_accept: Be a Yoder
@@ -110,6 +107,8 @@ en:
     contact:
       contac_us: "Contact Us"
     home:
+      meta_title: "Yoohood Intelligent Curators - Find a prefect event for you."
+      meta_description: "Earn points inviting your friends to cool events, then change your points for incredible benefits."
       banner_title_html: "Find the <span class='text-primary'>perfect</span> event for <span class='text-primary'>you</span>"
       event: "Event"
       event_or_artist: "event or artist"

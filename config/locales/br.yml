@@ -1,9 +1,4 @@
 br:
-  layouts:
-    application:
-      meta_title: "Yoohood Intelligent Curators - Ache o evento perfeito para você."
-      meta_description: "Acumule pontos convidando seus amigos para eventos incríveis, depois troque seus pontos por benefícios fantásticos."
-
   benefits:
     benefits_form:
       add_a_benefit: "Adicione um Benefício à"
@@ -61,7 +56,8 @@ br:
       loading_map: "Abrindo o mapa..."
       no_events: "Sem eventos para mostrar"
     show:
-      is_on: está no
+      is_on: "está no"
+      meta_description: "Convide seus amigos para eventos incríveis para ganhar pontos, depois troque seus pontos por prêmios fantásticos."
       check_in: "Check-in"
       add_a_benefit: "+ Adicione um benefício"
       invite_by_mail: "convide por mail"
@@ -97,6 +93,7 @@ br:
   invites:
     show:
       is_on: is on
+      meta_description: "Convide seus amigos para eventos incríveis para ganhar pontos, depois troque seus pontos por prêmios fantásticos."
       has_invited: "te convidou para:"
       accept: "Aceitar"
       login_to_accept: Seja um Yoder!
@@ -110,6 +107,8 @@ br:
     contact:
       contac_us: "Contato"
     home:
+      meta_title: "Yoohood Intelligent Curators - Find a prefect event for you."
+      meta_description: "Convide seus amigos para eventos incríveis para ganhar pontos, depois troque seus pontos por prêmios fantásticos."
       banner_title_html: "Ache o evento <span class='text-primary'>perfeito</span> para <span class='text-primary'>você</span>"
       event: "Event0"
       event_or_artist: "evento ou artista"
