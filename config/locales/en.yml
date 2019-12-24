@@ -1,165 +1,172 @@
 en:
+  activerecord:
+    models:
+      benefit: Benefit
+      checkin: Check-in
+    attributes:
+      benefit:
+        name: Benefit
+        quantity: Quantity
+        value_in_points: Value in points (multiple of 500)  
+
   benefits:
     benefits_form:
-      add_a_benefit: "Add a Benefit to"
-      benefit: "Benefit"
-      quantity: "Quantity"
-      value_in_points: "Value in points (multiple of 500)"
-      update_benefit: "Update Benefit"
-      delete: "Delete"
+      add_a_benefit: Add a Benefit to
+      update_benefit: Update Benefit
+      delete: Delete
 
   checkins:
     new:
-      rate_your_experience: "Rate your experience"
-      send: "Send"
+      rate_your_experience: Rate your experience
+      send: Send
 
   contact_mailer:
     contact:
-      contact_mail: "Contact Mail"
+      contact_mail: Contact Mail
       from: "from: %{mail}"
       subject: "subject: %{subject}"
 
   contacts:
     new:
-      contact_us: "Contact Us"
-      name: 'Name'
-      email: 'Email'
-      subject: 'Subject'
-      content: 'Content'
-      send: 'Send'
+      contact_us: Contact Us
+      name: Name
+      email: Email
+      subject: Subject
+      content: Content
+      send: Send
 
   events:
     benefit_card:
       balance: "balance:"
-      points: "pts."
-      unavailable_benefit: "Sorry, this benefit is no longer available."
-      redeem: "Redeem"
-      not_logged: "Sorry, you're not logged in."
-      sign_in: "Sign in"
-      not_enough_points: "Sorry, you don't have enough points."
-      invite_friends: "Invite your friends to this event and increase your balance before you can redeem this benefit."
+      points: pts.
+      unavailable_benefit: Sorry, this benefit is no longer available.
+      redeem: Redeem
+      not_logged: Sorry, you're not logged in.
+      sign_in: Sign in
+      not_enough_points: Sorry, you don't have enough points.
+      invite_friends: Invite your friends to this event and increase your balance before you can redeem this benefit.
     categories:
-      update: "Update"
+      update: Update
     ask_for_ownership:
-      are_you: "Are you admin of"
-      y: "Yes"
-      cancel: "Cancel"
+      are_you: Are you admin of
+      y: Yes
+      cancel: Cancel
     facebook_events:
-      no_available_events: "No available events."
-      facebook_events: "Facebook Events"
+      no_available_events: No available events.
+      facebook_events: Facebook Events
     index:
-      loading_map: "Loading the map..."
-      no_events: "No events to show"
+      loading_map: Loading the map...
+      no_events: No events to show
     my_events:
-      past_events: "Past Events"
+      past_events: Past Events
     nearby:
-      loading_map: "Loading the map..."
-      no_events: "No events to show"
+      loading_map: Loading the map...
+      no_events: No events to show
     show:
       is_on: is on
-      meta_description: "Earn points inviting your friends to cool events, then change your points for incredible benefits."
-      check_in: "Check-in"
-      add_a_benefit: "+ Add a benefit"
-      invite_by_mail: "invite by mail"
-      invite_with_link: "invite with link"
-      copy_to_clipboard: "copy to clipboard"
-      become_a_yoder: "Login to invite your friends and earn points!"
-      back: "Back"
-      event_admin: "Event Admin?"
-      invite_a_friend_to: "Invite a friend to"
-      name: "NAME"
-      email: "E-MAIL"
-      submit: "Send"
+      meta_description: Earn points inviting your friends to cool events, then change your points for incredible benefits.
+      check_in: Check-in
+      add_a_benefit: + Add a benefit
+      invite_by_mail: invite by mail
+      invite_with_link: invite with link
+      copy_to_clipboard: copy to clipboard
+      become_a_yoder: Login to invite your friends and earn points!
+      back: Back
+      event_admin: Event Admin?
+      invite_a_friend_to: Invite a friend to
+      name: NAME
+      email: E-MAIL
+      submit: Send
 
   facebook_events:
     fb_event_card:
-      create_event: "Create Event"
+      create_event: Create Event
     index:
-      no_events_available: "No available events"
+      no_events_available: No available events
     new:
-      enter_token: "Enter a valid access token"
-      submit: "Submit"
+      enter_token: Enter a valid access token
+      submit: Submit
 
   invite_mailer:
     invitation:
       title: "You've recieved an Invite from %{user_name}"
-      cover_alt: "Event image"
+      cover_alt: Event image
       has_invited: "%{invite.user_name} has invited you to:"
-      accept: "Accept"
+      accept: Accept
       follow_us: "follow us:"
-      footer_warning_1: "This email was sent by one of our users. If you don't know the sender, please report to contactus@yoohood.fun"
-      footer_warning_2: "By clicking 'more info' button you'll be redirect to Yoohood page. By accepting this invite, %{user_name} will earn 50 points." 
+      footer_warning_1: This email was sent by one of our users. If you don't know the sender, please report to contactus@yoohood.fun
+      footer_warning_2: By clicking 'more info' button you'll be redirect to Yoohood page. By accepting this invite, %{user_name} will earn 50 points. 
 
   invites:
     show:
-      is_on: "is on"
-      meta_description: "Earn points inviting your friends to cool events, then change your points for incredible benefits."
+      is_on: is on
+      meta_description: Earn points inviting your friends to cool events, then change your points for incredible benefits.
       has_invited: "has invited you to:"
-      accept: "Accept"
-      login_to_accept: Be a Yoder
+      accept: Accept
+      login_to_accept: Entre para aceitar o convite
     generate:
       copied: Copied!
 
   pages:
     about:
-      we_are: "we're"
-      full_stack_developer: "Full-Stack Developer"
+      we_are: we're
+      full_stack_developer: Full-Stack Developer
     contact:
-      contac_us: "Contact Us"
+      contac_us: Contact Us
     home:
-      meta_title: "Yoohood Intelligent Curators - Find a prefect event for you."
-      meta_description: "Earn points inviting your friends to cool events, then change your points for incredible benefits."
-      banner_title_html: "Find the <span class='text-primary'>perfect</span> event for <span class='text-primary'>you</span>"
-      event: "Event"
-      event_or_artist: "event or artist"
-      date: "date"
-      city: "City"
-      city_or_venue: "city or venue"
-      search: "Search"
-      browse_events: "Browse events"
-      events_today: "Events today"
-      coming_up: "Coming up"
-      new_events: "New events"
-      more_events: "More Events"
-      see_more: "See More"
+      meta_title: Yoohood Intelligent Curators - Find a prefect event for you.
+      meta_description: Earn points inviting your friends to cool events, then change your points for incredible benefits.
+      banner_title_html: Find the <span class='text-primary'>perfect</span> event for <span class='text-primary'>you</span>
+      event: Event
+      event_or_artist: event or artist
+      date: date
+      city: City
+      city_or_venue: city or venue
+      search: Search
+      browse_events: Browse events
+      events_today: Events today
+      coming_up: Coming up
+      new_events: New events
+      more_events: More Events
+      see_more: See More
     profile:
-      your_balance: "Your balance"
-      accepted_invites: "Accepted invites"
-      placeholder_to_no_invites: "Invite your friends to cool events and earn many points!"
+      your_balance: Your balance
+      accepted_invites: Accepted invites
+      placeholder_to_no_invites: Invite your friends to cool events and earn many points!
       accepted_to: "%{guest_name} accepted your invite to:"
-      fifty_points: "50 points"
-      redeemed_benefits: "Redeemed benefits"
-      placeholder_to_no_benefits: "You haven't redeemed any benefits yet."
+      fifty_points: 50 points
+      redeemed_benefits: Redeemed benefits
+      placeholder_to_no_benefits: You haven't redeemed any benefits yet.
       trade_description: "%{quantity}x %{benefit} to:"
-      check_ins: "Check-ins"
-      earn_points: "Earn points by check in!"
+      check_ins: Check-ins
+      earn_points: Earn points by check in!
     
   shared:
     navbar:
-      nearby: "nearby"
-      my_events: "my events"
-      all_events: "all events"
-      invitations: "invitations"
-      rewards: "rewards"
-      settings: "settings"
-      my_profile: "my profile"
-      log_out: "log out"
-      members: "Yoders"
+      nearby: nearby
+      my_events: my events
+      all_events: all events
+      invitations: invitations
+      rewards: rewards
+      settings: settings
+      my_profile: my profile
+      log_out: log out
+      members: Yoders
 
     footer:
-      follow_us_on: 'follow us on'
-      cookies: "Cookies"
-      help_center: "Help Center"
-      contact_us: "Contact Us"
-      about_us: "About us"
-      legal: "Legal"
-      privacy_police: "Privacy Policy"
-      copyright: "Copyright ©2019 Yoohood."
+      follow_us_on: follow us on
+      cookies: Cookies
+      help_center: Help Center
+      contact_us: Contact Us
+      about_us: About us
+      legal: Legal
+      privacy_police: Privacy Policy
+      copyright: Copyright ©2019 Yoohood.
 
   trades:
     new:
-      send: "Send"
+      send: Send
     show: 
       balance_msg: "your balance is now: %{points} pts."
       email_alert_msg: "You will shortly receive an email from:"
-      done: "Done"
+      done: Done

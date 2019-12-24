@@ -3,9 +3,9 @@
     <h6><%= t('.add_a_benefit') %></h6>
     <h2 class="mb-5"><%= @event.title %></h2>
     <%= simple_form_for [@event, @benefit] do |f| %>
-      <%= f.input :name, label: t('.benefit') %>
-      <%= f.input :quantity, label: t('.quantity') %>
-      <%= f.input :value_in_points, label: t('.value_in_points') %>
+      <%= f.input :name %>
+      <%= f.input :quantity %>
+      <%= f.input :value_in_points %>
       <%= f.button :submit, class: "btn btn-dark float-right", value: t('.update_benefit') %>
       <% if @benefit.id.present? %>
         <%= link_to t('.delete'), benefit_path(@benefit), class: 'btn btn-danger', method: :delete %>

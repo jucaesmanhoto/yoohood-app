@@ -4,6 +4,4 @@ class Checkin < ApplicationRecord
 
   validates :user, uniqueness: { scope: :event,
                                  message: "Invalid checkin." }
-  # validates :review, length: { minimum: 10,
-  #   too_short: "%{count} characters is the minimum allowed" }
 end

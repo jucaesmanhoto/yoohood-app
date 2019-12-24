@@ -1,165 +1,174 @@
 br:
+  activerecord:
+    models:
+      benefit: Benefício
+    attributes:
+      benefit:
+        name: Benefício
+        quantity: Quantidade
+        value_in_points: Valor em pontos (múltiplo de 500)
+
   benefits:
     benefits_form:
-      add_a_benefit: "Adicione um Benefício à"
-      benefit: "Benefício"
-      quantity: "Quantidade"
-      value_in_points: "Valor em pontos (múltiplo de 500)"
-      update_benefit: "Atualizar Benefício"
-      delete: "Apagar"
+      add_a_benefit: Adicione um Benefício à
+      benefit: Benefício
+      quantity: Quantidade
+      value_in_points: Valor em pontos (múltiplo de 500)
+      update_benefit: Atualizar Benefício
+      delete: Apagar
 
   checkins:
     new:
-      rate_your_experience: "Avalie sua experiência"
-      send: "Check-in"
+      rate_your_experience: Avalie sua experiência
+      send: Check-in
 
   contact_mailer:
     contact:
-      contact_mail: "E-mail de contato"
+      contact_mail: E-mail de contato
       from: "de: %{mail}"
       subject: "assunto: %{subject}"
 
   contacts:
     new:
-      contact_us: "Contato"
-      name: 'Nome'
-      email: 'Email'
-      subject: 'Assunto'
-      content: 'Mensagem'
-      send: 'Enviar'
+      contact_us: Contato
+      name: Nome
+      email: Email
+      subject: Assunto
+      content: Mensagem
+      send: Enviar
 
   events:
     benefit_card:
       balance: "saldo:"
-      points: "pts."
-      unavailable_benefit: "Desculpe, este benefício não está mais disponível."
-      redeem: "Resgatar"
-      not_logged: "Desculpe, você precisa fazer seu login."
-      sign_in: "Sign in"
-      not_enough_points: "Desculpa, você não tem pontos suficientes."
-      invite_friends: "Convide seus amigos para este evento e aumente o seu saldo para poder resgatar este benefício."
+      points: pts.
+      unavailable_benefit: Desculpe, este benefício não está mais disponível.
+      redeem: Resgatar
+      not_logged: Desculpe, você precisa fazer seu login.
+      sign_in: Sign in
+      not_enough_points: Desculpa, você não tem pontos suficientes.
+      invite_friends: Convide seus amigos para este evento e aumente o seu saldo para poder resgatar este benefício.
     categories:
-      update: "Atualizar"
+      update: Atualizar
     ask_for_ownership:
-      are_you: "Você é administrador de"
-      y: "Sim"
-      cancel: "Cancelar"
+      are_you: Você é administrador de
+      y: Sim
+      cancel: Cancelar
     facebook_events:
-      no_available_events: "Sem eventos disponíveis."
-      facebook_events: "Events do Facebook"
+      no_available_events: Sem eventos disponíveis.
+      facebook_events: Events do Facebook
     index:
-      loading_map: "Abrindo o mapa..."
-      no_events: "Sem eventos para mostrar"
+      loading_map: Abrindo o mapa...
+      no_events: Sem eventos para mostrar
     my_events:
-      past_events: "Eventos Antigos"
+      past_events: Eventos Antigos
     nearby:
-      loading_map: "Abrindo o mapa..."
-      no_events: "Sem eventos para mostrar"
+      loading_map: Abrindo o mapa...
+      no_events: Sem eventos para mostrar
     show:
-      is_on: "está no"
-      meta_description: "Convide seus amigos para eventos incríveis para ganhar pontos, depois troque seus pontos por prêmios fantásticos."
-      check_in: "Check-in"
-      add_a_benefit: "+ Adicione um benefício"
-      invite_by_mail: "convide por mail"
-      invite_with_link: "convide com um link"
-      copy_to_clipboard: "copiar"
-      become_a_yoder: "Entre para convidar seus amigos e ganhar pontos!"
-      back: "Voltar"
-      event_admin: "É produtor deste evento?"
-      invite_a_friend_to: "Convite um amigo para"
-      name: "NOME"
-      email: "E-MAIL"
-      submit: "Enviar"
+      is_on: está no
+      meta_description: Convide seus amigos para eventos incríveis para ganhar pontos, depois troque seus pontos por prêmios fantásticos.
+      check_in: Check-in
+      add_a_benefit: + Adicione um benefício
+      invite_by_mail: convide por mail
+      invite_with_link: convide com um link
+      copy_to_clipboard: copiar
+      become_a_yoder: Entre para convidar seus amigos e ganhar pontos!
+      back: Voltar
+      event_admin: É produtor deste evento?
+      invite_a_friend_to: Convite um amigo para
+      name: NOME
+      email: E-MAIL
+      submit: Enviar
 
   facebook_events:
     fb_event_card:
-      create_event: "Adicionar Evento"
+      create_event: Adicionar Evento
     index:
-      no_events_available: "Sem eventos disponíveis."
+      no_events_available: Sem eventos disponíveis.
     new:
-      enter_token: "Insira um token de acesso válido"
-      submit: "Enviar"
+      enter_token: Insira um token de acesso válido
+      submit: Enviar
 
   invite_mailer:
     invitation:
       title: "%{user_name} te enviou um convite"
-      cover_alt: "cartaz do evento"
+      cover_alt: cartaz do evento
       has_invited: "%{invite.user_name} convidou você para:"
-      accept: "Aceitar"
+      accept: Aceitar
       follow_us: "nos siga em:"
-      footer_warning_1: "Este email foi enviado por um de nossos usuários. Se você não conhece a pessoa que lhe convidou, por favor envie um e-mail para contactus@yoohood.fun"
-      footer_warning_2: "Clicando no botão acima você será direcionado para o Yoohood. Aceitando este convite, %{user_name} receberá 50 pontos." 
+      footer_warning_1: Este email foi enviado por um de nossos usuários. Se você não conhece a pessoa que lhe convidou, por favor envie um e-mail para contactus@yoohood.fun
+      footer_warning_2: Clicando no botão acima você será direcionado para o Yoohood. Aceitando este convite, %{user_name} receberá 50 pontos. 
 
   invites:
     show:
       is_on: is on
-      meta_description: "Convide seus amigos para eventos incríveis para ganhar pontos, depois troque seus pontos por prêmios fantásticos."
+      meta_description: Convide seus amigos para eventos incríveis para ganhar pontos, depois troque seus pontos por prêmios fantásticos.
       has_invited: "te convidou para:"
-      accept: "Aceitar"
-      login_to_accept: Seja um Yoder!
+      accept: Aceitar
+      login_to_accept: Entre para aceitar o convite!
     generate:
       copied: Copiado!
     
   pages:
     about:
-      we_are: "Nós somos o"
-      full_stack_developer: "Desenvolvedor Full-Stack"
+      we_are: Nós somos o
+      full_stack_developer: Desenvolvedor Full-Stack
     contact:
-      contac_us: "Contato"
+      contac_us: Contato
     home:
-      meta_title: "Yoohood Intelligent Curators - Find a prefect event for you."
-      meta_description: "Convide seus amigos para eventos incríveis para ganhar pontos, depois troque seus pontos por prêmios fantásticos."
-      banner_title_html: "Ache o evento <span class='text-primary'>perfeito</span> para <span class='text-primary'>você</span>"
-      event: "Event0"
-      event_or_artist: "evento ou artista"
-      date: "data"
-      city: "Cidade"
-      city_or_venue: "cidade ou local"
-      search: "Buscar"
-      browse_events: "Eventos"
-      events_today: "Eventos Hoje"
-      coming_up: "Chegando"
-      new_events: "Recentes no Yoohood"
-      more_events: "Mais Eventos"
-      see_more: "Veja Mais"
+      meta_title: Yoohood Intelligent Curators - Find a prefect event for you.
+      meta_description: Convide seus amigos para eventos incríveis para ganhar pontos, depois troque seus pontos por prêmios fantásticos.
+      banner_title_html: Ache o evento <span class='text-primary'>perfeito</span> para <span class='text-primary'>você</span>
+      event: Event0
+      event_or_artist: evento ou artista
+      date: data
+      city: Cidade
+      city_or_venue: cidade ou local
+      search: Buscar
+      browse_events: Eventos
+      events_today: Eventos Hoje
+      coming_up: Chegando
+      new_events: Recentes no Yoohood
+      more_events: Mais Eventos
+      see_more: Veja Mais
     profile:
-      your_balance: "Seu saldo"
-      accepted_invites: "Convites aceitos"
-      placeholder_to_no_invites: "Convite seus amigos para eventos incríveis e ganhe muitos pontos!"
+      your_balance: Seu saldo
+      accepted_invites: Convites aceitos
+      placeholder_to_no_invites: Convite seus amigos para eventos incríveis e ganhe muitos pontos!
       accepted_to: "%{guest_name} aceitou seu convite para:"
-      fifty_points: "50 pontos"
-      redeemed_benefits: "Benefícios resgatados "
-      placeholder_to_no_benefits: "Você ainda não resgatou nenhum benefício."
+      fifty_points: 50 pontos
+      redeemed_benefits: Benefícios resgatados 
+      placeholder_to_no_benefits: Você ainda não resgatou nenhum benefício.
       trade_description: "%{quantity}x %{benefit} para:"
-      check_ins: "Check-ins"
-      earn_points: "Ganhe pontos fazendo check in!"
+      check_ins: Check-ins
+      earn_points: Ganhe pontos fazendo check in!
     
   shared:
     navbar:
-      nearby: "por perto"
-      my_events: "meus eventos"
-      all_events: "todos eventos"
-      invitations: "convites"
-      rewards: "resgates"
-      settings: "ajustes"
-      my_profile: "meu perfil"
-      log_out: "log out"
-      members: "Yoders"
+      nearby: por perto
+      my_events: meus eventos
+      all_events: todos eventos
+      invitations: convites
+      rewards: resgates
+      settings: ajustes
+      my_profile: meu perfil
+      log_out: log out
+      members: Yoders
 
     footer:
-      follow_us_on: 'nos siga em'
-      cookies: "Cookies"
-      help_center: "Central de Ajuda"
-      contact_us: "Contato"
-      about_us: "Sobre nós"
-      legal: "Legal"
-      privacy_police: "Politica de Privacidade"
-      copyright: "©2019 Yoohood - Direitos reservados"
+      follow_us_on: nos siga em
+      cookies: Cookies
+      help_center: Central de Ajuda
+      contact_us: Contato
+      about_us: Sobre nós
+      legal: Legal
+      privacy_police: Politica de Privacidade
+      copyright: ©2019 Yoohood - Direitos reservados
 
   trades:
     new:
-      send: "Enviar"
+      send: Enviar
     show: 
       balance_msg: "seu saldo neste momento é: %{points} pts."
       email_alert_msg: "Você receberá um email de:"
-      done: "Feito!"
+      done: Feito!
