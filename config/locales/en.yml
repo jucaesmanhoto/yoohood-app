@@ -22,7 +22,6 @@ en:
         guest_name: Guest Name
         guest_email: Guest email
       
-
   benefits:
     benefits_form:
       add_a_benefit: Add a Benefit to
@@ -84,8 +83,6 @@ en:
       back: Back
       event_admin: Event Admin?
       invite_a_friend_to: Invite a friend to
-      name: NAME
-      email: E-MAIL
       submit: Send
 
   facebook_events:

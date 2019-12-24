@@ -22,13 +22,9 @@ br:
         guest_name: Nome do convidado
         guest_email: E-mail do convidado
       
-
   benefits:
     benefits_form:
       add_a_benefit: Adicione um Benefício à
-      benefit: Benefício
-      quantity: Quantidade
-      value_in_points: Valor em pontos (múltiplo de 500)
       update_benefit: Atualizar Benefício
       delete: Apagar
 
@@ -87,8 +83,6 @@ br:
       back: Voltar
       event_admin: É produtor deste evento?
       invite_a_friend_to: Convite um amigo para
-      name: NOME
-      email: E-MAIL
       submit: Enviar
 
   facebook_events:
