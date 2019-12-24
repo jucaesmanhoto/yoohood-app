@@ -2,11 +2,26 @@ br:
   activerecord:
     models:
       benefit: Benefício
+      checkin: Check-in
+      contact: Contato
+      invite: Convite
     attributes:
       benefit:
         name: Benefício
         quantity: Quantidade
         value_in_points: Valor em pontos (múltiplo de 500)
+      checkin:
+        rating: Avalie a sua experiência
+        review: Deixe um comentário
+      contact:
+        name: Name
+        email: E-mail
+        subject: Assunto
+        content: Content 
+      invite:
+        guest_name: Nome do convidado
+        guest_email: E-mail do convidado
+      
 
   benefits:
     benefits_form:
@@ -31,10 +46,6 @@ br:
   contacts:
     new:
       contact_us: Contato
-      name: Nome
-      email: Email
-      subject: Assunto
-      content: Mensagem
       send: Enviar
 
   events:

@@ -3,11 +3,25 @@ en:
     models:
       benefit: Benefit
       checkin: Check-in
+      contact: Contato
+      invite: Invite
     attributes:
       benefit:
         name: Benefit
         quantity: Quantity
-        value_in_points: Value in points (multiple of 500)  
+        value_in_points: Value in points (multiple of 500
+      checkin:
+        rating: Rate your experience
+        review: Review
+      contact:
+        name: Name
+        email: E-mail
+        subject: Subject
+        content: Content
+      invite:
+        guest_name: Guest Name
+        guest_email: Guest email
+      
 
   benefits:
     benefits_form:
@@ -29,10 +43,6 @@ en:
   contacts:
     new:
       contact_us: Contact Us
-      name: Name
-      email: Email
-      subject: Subject
-      content: Content
       send: Send
 
   events:

@@ -7,10 +7,10 @@
         </div>
         <div class="card-body">
           <%= simple_form_for @contact do |f| %>
-            <%= f.input :name, label: t('.name') %>
-            <%= f.input :email, label: t('.email') %>
-            <%= f.input :subject, label: t('.subject') %>
-            <%= f.input :content, label: t('.content') %>
+            <%= f.input :name %>
+            <%= f.input :email %>
+            <%= f.input :subject %>
+            <%= f.input :content %>
             <%= f.submit value: t('.send'), class: 'btn btn-dark float-right' %>
           <% end %>
         </div>

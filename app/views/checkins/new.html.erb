@@ -4,7 +4,7 @@
     <%= image_tag @event.cover, class: 'checkin-event-cover', alt: 'event cover' %>
     <%= simple_form_for [@event, @checkin] do |f| %>
       <div class="mt-3">
-        <%= f.input :rating, collection: (1..5).to_a, label: t('.rate_your_experience') %>
+        <%= f.input :rating, collection: (1..5).to_a %>
       </div>
       <%= f.input :review %>
       <%= f.button :submit, value: t('.send'), class: "btn btn-dark float-right" %>
