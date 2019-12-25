@@ -69,7 +69,7 @@ class InvitesController < ApplicationController
       return
     end
     @invite.update(status: 'accepted', guest_name: current_user.name, guest_email: current_user.email)
-    @invite.user.update(points: @invite.user.points + 50)
+    @invite.user.update(points: @invite.user.points + 15)
     redirect_to event_path(@invite.event)
   end
   

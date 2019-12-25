@@ -102,7 +102,7 @@ en:
       accept: Accept
       follow_us: "follow us:"
       footer_warning_1: This email was sent by one of our users. If you don't know the sender, please report to contactus@yoohood.fun
-      footer_warning_2: By clicking 'more info' button you'll be redirect to Yoohood page. By accepting this invite, %{user_name} will earn 50 points. 
+      footer_warning_2: By clicking 'more info' button you'll be redirect to Yoohood page. By accepting this invite, %{user_name} will earn 15 points. 
 
   invites:
     show:
@@ -141,7 +141,7 @@ en:
       accepted_invites: Accepted invites
       placeholder_to_no_invites: Invite your friends to cool events and earn many points!
       accepted_to: "%{guest_name} accepted your invite to:"
-      fifty_points: 50 points
+      fifteen_points: 15 points
       redeemed_benefits: Redeemed benefits
       placeholder_to_no_benefits: You haven't redeemed any benefits yet.
       trade_description: "%{quantity}x %{benefit} to:"

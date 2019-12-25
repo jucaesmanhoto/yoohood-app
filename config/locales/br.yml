@@ -102,7 +102,7 @@ br:
       accept: Aceitar
       follow_us: "nos siga em:"
       footer_warning_1: Este email foi enviado por um de nossos usuários. Se você não conhece a pessoa que lhe convidou, por favor envie um e-mail para contactus@yoohood.fun
-      footer_warning_2: Clicando no botão acima você será direcionado para o Yoohood. Aceitando este convite, %{user_name} receberá 50 pontos. 
+      footer_warning_2: Clicando no botão acima você será direcionado para o Yoohood. Aceitando este convite, %{user_name} receberá 15 pontos. 
 
   invites:
     show:
@@ -141,7 +141,7 @@ br:
       accepted_invites: Convites aceitos
       placeholder_to_no_invites: Convite seus amigos para eventos incríveis e ganhe muitos pontos!
       accepted_to: "%{guest_name} aceitou seu convite para:"
-      fifty_points: 50 pontos
+      fifteen_points: 15 pontos
       redeemed_benefits: Benefícios resgatados 
       placeholder_to_no_benefits: Você ainda não resgatou nenhum benefício.
       trade_description: "%{quantity}x %{benefit} para:"
