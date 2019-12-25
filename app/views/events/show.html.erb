@@ -1,9 +1,9 @@
 <% content_for :meta_title, "#{@event.title} #{t('.is_on')} #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, t('.meta_description') %>
 <% content_for :meta_image, @event.cover %>
-<div class="container padding-top-page-content">
-  <div class=" d-flex flex-column align-items-center">
-    <div class="card-event col-md-12">
+<div class="padding-top-page-content">
+  <div class="d-flex flex-column align-items-center">
+    <div class="card-event">
       <div class="card-info-show">
         <div class="d-flex flex-row show-div">
           <% placeholder_url = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80" %>
@@ -93,9 +93,9 @@
           <div class="map" id="map2" style="height: 100%; width: 100%;" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
         </div>
       </div>
+      <%= link_to t('.back'), events_path, class: "ml-3 my-4 btn btn-outline-light float-left" %>
+      <%= link_to t('.event_admin'), new_contact_path, class: "mr-3 my-4 btn btn-outline-light float-right" %>
     </div>
-    <%= link_to t('.back'), events_path, class: "my-4 btn btn-outline-light float-left" %>
-    <%= link_to t('event_admin'), new_contact_path, class: "my-4 btn btn-outline-light float-right" %>
   </div>
 </div>
 

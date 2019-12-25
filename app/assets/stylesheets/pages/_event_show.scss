@@ -2,3 +2,14 @@
   height: 25vh;
   overflow: scroll;
 }
+
+.padding-top-page-content {
+  padding: 0;
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .padding-top-page-content {
+    padding: 0 10vw;
+  }
+}

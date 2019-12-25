@@ -81,7 +81,7 @@ br:
       copy_to_clipboard: copiar
       become_a_yoder: Entre para convidar seus amigos e ganhar pontos!
       back: Voltar
-      event_admin: É produtor deste evento?
+      event_admin: Produzindo este evento?
       invite_a_friend_to: Convite um amigo para
       submit: Enviar
 
