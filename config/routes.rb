@@ -37,4 +37,10 @@ Rails.application.routes.draw do
     resources :contacts, only: %i[new create]
     resources :event_categories, only: :destroy
   end
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :events , only: [ :index ]
+    end
+  end
 end
