@@ -20,4 +20,9 @@ $(document).ready(function(){
   console.log(clipboard);
 });
 
-setTimeout(() => { window.scrollTo(0, 1) }, 100);
+window.addEventListener("load",function() {
+  setTimeout(function(){
+      // This hides the address bar:
+      window.scrollTo(0, 1);
+  }, 0);
+});
