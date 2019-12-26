@@ -19,3 +19,5 @@ $(document).ready(function(){
   var clipboard = new Clipboard('#invite-link');
   console.log(clipboard);
 });
+
+setTimeout(() => { window.scrollTo(0, 1) }, 100);
