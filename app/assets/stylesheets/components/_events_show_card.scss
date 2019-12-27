@@ -1,3 +1,92 @@
+/////////////////////////////////
+////////////////CARD IN SHOW PAGE
+/////////////////////////////////
+
+#cover-and-map {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  img {
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+  }
+}
+
+#gmap-show {
+  height: 25vh;
+  width: 100%;
+}
+
+#show-map {
+    position: absolute;
+    color: black;
+    right: 2vw;
+    bottom: 2vw;
+    font-size: 20px;
+    border: 1px solid black;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 1px 1px 8px rgba(20, 20, 20, 0.3);
+    padding: 6px;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+}
+
+#hide-map {
+  position: absolute;
+  display: none;
+  color: black;
+  right: 2vw;
+  bottom: 18vh;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 8px;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  align-items: center;
+  z-index: 200;
+}
+
+.card-info-show {
+  overflow: hidden;
+  background: white;
+  border-radius: 0;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  #show-map {
+    display: none;
+  }
+
+  #cover-and-map {
+    flex-direction: row;
+    img {
+      width: 70%;
+      height: 40vh;
+    }
+  }
+
+  #gmap-show {
+    height: 40vh;
+  }
+
+  .card-info-show {
+    border-radius: 10px;
+  }
+}
+
+
+////////////////////////////////////////
+/////////////////review all that follows
+////////////////////////////////////////
+
 .card-trip {
   overflow: hidden;
   background-color: white;
@@ -74,8 +163,6 @@
     font-size: 14px;
   }
 }
-// SHOW PAGE
-
 .ticket-option {
   background-color: white;
 }
@@ -122,17 +209,6 @@
   text-align: center
 }
 
-.card-info-show {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 4px;
-  img {
-    width: 70%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
 
 .address-bottom {
   margin-bottom: 0;
@@ -199,13 +275,13 @@
   height: 220px;
 }
 
-.card-event {
+.card-event-show {
   justify-content: center;
 }
 
-.mapboxgl-canvas {
-  position: inherit !important;
-}
+// .mapboxgl-canvas {
+//   position: inherit !important;
+// }
 
 .invite-box {
   border-radius: 20px;
@@ -288,37 +364,23 @@
 
 
 @media (max-width: 420px) {
-  .upper-map {
-    display: none;
-    visibility: hidden;
-  }
+  // .upper-map {
+  //   display: none;
+  //   visibility: hidden;
+  // }
 
-  .show-div {
-    height: 80%;
-    img {
-      width: 100%;
-      height: 70%;
-    }
-  }
+  // .show-div {
+  //   height: 80%;
+  //   img {
+  //     width: 100%;
+  //     height: 70%;
+  //   }
+  // }
 
   .title-size {
     font-size: 20px;
   }
 
-}
-
-@media (min-width: 420px) {
-  .upper-map {
-    // display: none;
-    // visibility: hidden;
-    canvas.mapboxgl-canvas {
-      width: 100%;
-
-    }
-  }
-}
-
-@media (max-width: 420px) {
   .qr-checkin {
     flex-direction: column;
     align-items: center;
@@ -326,3 +388,12 @@
 }
 
 
+@media (min-width: 420px) {
+  .upper-map {
+    // display: none;
+    // visibility: hidden;
+    canvas.mapboxgl-canvas {
+      width: 100%;
+    }
+  }
+}

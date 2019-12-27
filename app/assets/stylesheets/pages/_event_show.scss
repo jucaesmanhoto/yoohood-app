@@ -1,15 +1,30 @@
+.show-div {
+  flex-direction: column;
+  height: 80%;
+  img {
+    width: 100vw;
+    height: 30vh;
+  }
+}
+
 .event-description {
   height: 25vh;
   overflow: scroll;
 }
 
-.padding-top-page-content {
-  padding: 0;
+// Small devices (landscape phones, 320px and up)
+@media (min-width: 320px) {
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  .padding-top-page-content {
-    padding: 0 10vw;
+  .event-show-page {
+    padding: 0 5vw;
+  }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .event-show-page {
+    padding: 5vh 10vw 0 10vw;
   }
 }

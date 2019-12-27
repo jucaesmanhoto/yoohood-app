@@ -8,14 +8,14 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+        <li class="nav-item d-flex justify-content-end">
+          <%= simple_form_for 'coordinates', url: nearby_path do |f| %>
+            <%= f.hidden_field :latitude, id: 'latitude-input' %>
+            <%= f.hidden_field :longitude, id: 'longitude-input'%>
+            <%= f.submit t('.nearby'), class: "nav-link d-none text-right", id: 'nearby-button' %>
+          <% end %>
+        </li>
         <% if user_signed_in? %>
-          <li class="nav-item d-flex justify-content-end">
-            <%= simple_form_for 'coordinates', url: nearby_path do |f| %>
-              <%= f.hidden_field :latitude, id: 'latitude-input' %>
-              <%= f.hidden_field :longitude, id: 'longitude-input'%>
-              <%= f.submit t('.nearby'), class: "nav-link d-none text-right", id: 'nearby-button' %>
-            <% end %>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="/my_events"><%= t('.my_events') %></a>
           </li>
