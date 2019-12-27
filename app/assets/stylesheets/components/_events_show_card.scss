@@ -49,8 +49,13 @@
   align-items: center;
   z-index: 200;
 }
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
+  #show-map {
+    display: none;
+  }
+
   #cover-and-map {
     flex-direction: row;
     img {
