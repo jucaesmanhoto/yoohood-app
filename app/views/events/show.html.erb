@@ -22,7 +22,7 @@
         <% end %>
       <% end %>
       <div class="card-body">
-        <div class="card-title d-flex flex-column border-bottom" style="padding-bottom: 17px">
+        <div class="card-title d-flex flex-column">
           <div class="d-flex justify-content-between align-items-center">
             <div class="mb-3 flex-column flex-grow-0" style="padding: 5px; margin-right: 30px; margin-left: 5px">
               <p class='start-time-red-month-show'><%= @event.start_time.strftime('%b').upcase %></p>
@@ -68,9 +68,12 @@
               </div>
             <% end %>
         </div>
-        <div class="d-flex flex-row mt-4 text-black-50">
+        <div class="d-flex flex-row my-4 text-black-50 align-items-center">
           <i class="far fa-clock" style="margin-right: 10px; padding-top: 3px"></i>
-          <p class='time-show'><%= @event.start_time.strftime('%I:%M%p') %>-<%= @event.end_time.strftime('%I:%M%p') %></p>
+          <div class="flex-column">
+            <p class='time-show'>from: <%= @event.start_time.strftime("%b %-d - %I:%M %p") %></p>
+            <p class='time-show'>to: <%= @event.end_time.strftime("%b %-d - %I:%M %p") %></p>
+          </div>
         </div>
         <div class="d-flex text-black-50">
           <i class="fas fa-map-marker-alt" style="margin-right: 10px; padding-top: 3px"></i>
@@ -78,15 +81,16 @@
         </div>
         <p class="address-bottom address-side text-black-50"><%= @event.places.first.address %></p>
         <p class="address-side text-black-50"><%= @event.places.first.city %></p>
-        <div class="d-flex text-black-50 border-bottom" style="padding-bottom: 17px">
+        <div class="d-flex text-black-50">
           <% if @event.ticket_uri.present? %>
             <i class="fas fa-ticket-alt" style="margin-right: 10px; padding-top: 3px"></i>
             <%= link_to 'Tickets', @event.ticket_uri, target: "_blank", class: 'text-black-50' %>
           <% end %>
         </div>
       </div>
+      <div class="divider mb-3" style="height: 3px; width: 100%; background-color: #000;"></div>
       <div class="event-description p-2">
-        <p class="text-dark px-5"><%= @event.description %></p>
+        <p class="text-dark"><%= @event.description %></p>
       </div>
     <%= link_to t('.back'), events_path, class: "ml-3 my-4 btn btn-outline-dark float-left" %>
     <%= link_to t('.event_admin'), new_contact_path, class: "mr-3 my-4 btn btn-outline-dark float-right" %>

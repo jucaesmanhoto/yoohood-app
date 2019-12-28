@@ -6,7 +6,7 @@
       <%= link_to event do %>
           <div class="city-tag d-flex align-items-center">
             <i class="fas fa-map-marker-alt mr-2"></i>
-            <%= event.places[0].city %>
+            <%= event.places[0].city %> / <%= event.places[0].state %>
           </div>
         <div class="card-size card-trip">
           <% placeholder_url = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80" %>
