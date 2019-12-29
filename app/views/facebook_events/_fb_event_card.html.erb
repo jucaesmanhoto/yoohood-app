@@ -11,21 +11,20 @@
         <%= f.input :fb_event_id, as: :hidden %>
         <%= f.input :ticket_uri, as: :hidden %>
         <%= hidden_field_tag 'admins', adms[event.adm_token].to_json %>
-        <%= f.simple_fields_for :places do |nf| %>
-          <%= nf.input :name %>
-          <%= nf.input :address %>
-          <%= nf.input :city %>
-          <%= nf.input :state %>
-          <%= nf.input :country %>
-          <%= nf.input :latitude %>
-          <%= nf.input :longitude %>
-        <% end %>
-
-        <%= link_to event do %>
-          <div class="card-trip">
-            <div class="flex-row d-flex m-4 justify-content-center">
+        
+          <div class="card-trip card-fb-event">
+            <div class="flex-column d-flex m-4 justify-content-center">
               <!-- <%= link_to "remove", class: 'mr-5 btn btn-danger' %> -->
-              <%= f.submit value: t('.create_event'), class: 'btn btn-primary', remote: true %>
+              <%= f.simple_fields_for :places do |nf| %>
+                <%= nf.input :name %>
+                <%= nf.input :address %>
+                <%= nf.input :city %>
+                <%= nf.input :state %>
+                <%= nf.input :country %>
+                <%= nf.input :latitude %>
+                <%= nf.input :longitude %>
+              <% end %>
+              <%= f.submit value: t('.create_event'), class: 'btn btn-primary mt-2', remote: true %>
             </div>
             <% placeholder_url = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=2467&q=80" %>
             <%= image_tag event.cover.presence ? event.cover : placeholder_url %>
@@ -56,7 +55,6 @@
             </div>
           </div>
         <% end %>
-      <% end %>
     </div>
   <% end %>
 </div>
