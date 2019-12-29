@@ -71,8 +71,8 @@
         <div class="d-flex flex-row my-4 text-black-50 align-items-center">
           <i class="far fa-clock" style="margin-right: 10px; padding-top: 3px"></i>
           <div class="flex-column">
-            <p class='time-show'>from: <%= @event.start_time.strftime("%b %-d - %I:%M %p") %></p>
-            <p class='time-show'>to: <%= @event.end_time.strftime("%b %-d - %I:%M %p") %></p>
+            <p class='time-show'><%= t('.start') %><%= l(@event.start_time, format: :event_show_card) %></p>
+            <p class='time-show'><%= t('.end') %><%= l(@event.end_time, format: :event_show_card) %></p>
           </div>
         </div>
         <div class="d-flex text-black-50">

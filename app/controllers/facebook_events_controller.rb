@@ -21,6 +21,7 @@ class FacebookEventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    raise
     @event.fb_event_id = params[:event][:fb_event_id]
     @event.user = current_user
     # @place = Place.new(

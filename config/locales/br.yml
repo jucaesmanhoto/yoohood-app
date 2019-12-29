@@ -1,4 +1,34 @@
 br:
+  date:
+    abbr_day_names:
+      -
+      - Seg
+      - Ter
+      - Qua
+      - Qui
+      - Sex
+      - Sáb
+      - Dom
+    abbr_month_names:
+      -
+      - Jan
+      - Fev
+      - Mar
+      - Abr
+      - Mai
+      - Jun
+      - Jul
+      - Ago
+      - Set
+      - Out
+      - nov
+      - Dez
+  time:
+    am: AM
+    pm: PM
+    formats:
+      event_show_card: "%d %b - %I:%M %p"
+      checkin_format: '%H:%M - %a, %d %b %Y'
   activerecord:
     models:
       benefit: Benefício
@@ -80,6 +110,8 @@ br:
       invite_with_link: convide com um link
       copy_to_clipboard: copiar
       become_a_yoder: Entre para convidar seus amigos e ganhar pontos!
+      start: "Início: "
+      end: "Fim: "
       back: Voltar
       event_admin: Produzindo este evento?
       invite_a_friend_to: Convite um amigo para
