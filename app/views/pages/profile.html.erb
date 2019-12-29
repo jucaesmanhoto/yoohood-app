@@ -75,7 +75,7 @@
                     <h4 class="mb-2 mt-1"><%= checkin.event.title %></h4>
                     <p><%=checkin.review%></p>
                     <p> <%= "⭐" * checkin.rating%> </p>
-                    <p class="pt-2"><%= checkin.created_at.strftime('%H:%M - %a, %d %b %Y') %></p>
+                    <p class="pt-2"><%= l(checkin.created_at, format: :checkin_format) %></p>
                   </div>
               <% end %>
             <% end %>

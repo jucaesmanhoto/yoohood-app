@@ -12,13 +12,13 @@
         <%= f.input :ticket_uri, as: :hidden %>
         <%= hidden_field_tag 'admins', adms[event.adm_token].to_json %>
         <%= f.simple_fields_for :places do |nf| %>
-          <%= nf.input :name, as: :hidden %>
-          <%= nf.input :address, as: :hidden %>
-          <%= nf.input :city, as: :hidden %>
-          <%= nf.input :state, as: :hidden %>
-          <%= nf.input :country, as: :hidden %>
-          <%= nf.input :latitude, as: :hidden %>
-          <%= nf.input :longitude, as: :hidden %>
+          <%= nf.input :name %>
+          <%= nf.input :address %>
+          <%= nf.input :city %>
+          <%= nf.input :state %>
+          <%= nf.input :country %>
+          <%= nf.input :latitude %>
+          <%= nf.input :longitude %>
         <% end %>
 
         <%= link_to event do %>
