@@ -130,7 +130,7 @@ br:
     invitation:
       title: "%{user_name} te enviou um convite"
       cover_alt: cartaz do evento
-      has_invited: "%{invite.user_name} convidou você para:"
+      has_invited: "%{user_name} convidou você para:"
       accept: Aceitar
       follow_us: "nos siga em:"
       footer_warning_1: Este email foi enviado por um de nossos usuários. Se você não conhece a pessoa que lhe convidou, por favor envie um e-mail para contactus@yoohood.fun
