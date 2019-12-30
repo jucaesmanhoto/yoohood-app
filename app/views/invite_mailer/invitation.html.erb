@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title><%= t('.title', user_name:@invite.user.name) %></title>
+    <title><%= I18n.translate("invite_mailer.invitation.title", user_name:@invite.user.name) %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body style="padding: 0; margin: 0; background-color: #FFFFFF; color: #ffffff;">
@@ -21,14 +21,14 @@
 
         <tr>
          <td cellpadding="0" cellspacing="0" align="center">
-          <%= image_tag @invite.event.cover, alt: t('.cover_alt'), width:"100%", height:"300", style:"object-fit: cover;" %>
+          <%= image_tag @invite.event.cover, alt: I18n.translate("invite_mailer.invitation.cover_alt"), width:"100%", height:"300", style:"object-fit: cover;" %>
          </td>
         </tr>
 
         <tr>
           <td cellpadding="0" cellspacing="0">
             <p style="color: #FFFFFF; font-family: Montserrat, Helvetica, sans-serif; font-weight: 400; font-size: 16px; line-height: 1.3em; margin-top: 35px; margin-left: 35px; margin-bottom: 0;">
-              <%= t('.has_invited') %>
+              <%= I18n.translate("invite_mailer.invitation.has_invited", user_name: @invite.user.name) %>
             </p>
           </td>
         </tr>
@@ -43,13 +43,13 @@
 
         <tr height="100px">
           <td align="center">
-            <%= link_to t('.accept'), invite_url(@invite, token: @invite.token), style:"padding: 10px 24px 10px 24px; background-color: #63c42b; color: #FFFFFF; font-family: Montserrat, Helvetica, sans-serif; font-size: 16px; text-decoration: none;" %>
+            <%= link_to I18n.translate("invite_mailer.invitation.accept"), invite_url(id: @invite.id, token: @invite.token), style:"padding: 10px 24px 10px 24px; background-color: #63c42b; color: #FFFFFF; font-family: Montserrat, Helvetica, sans-serif; font-size: 16px; text-decoration: none;" %>
           </td>
         </tr>
 
         <tr height="20px" bgcolor="#000000">
           <td align="center">
-            <p style="font-family: Montserrat, Helvetica, sans-serif; font-size: 14px; color: #FFFFFF; font-weight: normal; margin: 0; padding-top: 16px;"><%= t('.follow_us') %></p>
+            <p style="font-family: Montserrat, Helvetica, sans-serif; font-size: 14px; color: #FFFFFF; font-weight: normal; margin: 0; padding-top: 16px;"><%= I18n.translate('invite_mailer.invitation.follow_us') %></p>
           </td>
         </tr>
 
@@ -64,8 +64,8 @@
 
         <tr>
           <td align="center" bgcolor="#000000" style="padding: 0 16px 0 16px">
-            <p style="color: #FFFFFF; font-family: Montserrat, Helvetica, sans-serif; font-size: 10px;"><%= t('.footer_warning_1') %></p>
-            <p style="color: #FFFFFF; font-family: Montserrat, Helvetica, sans-serif; font-size: 10px;"><%= t('.footer_warning_1', user_name: @invite.user.name) %></p>
+            <p style="color: #FFFFFF; font-family: Montserrat, Helvetica, sans-serif; font-size: 10px;"><%= I18n.translate('invite_mailer.invitation.footer_warning_1') %></p>
+            <p style="color: #FFFFFF; font-family: Montserrat, Helvetica, sans-serif; font-size: 10px;"><%= I18n.translate('invite_mailer.invitation.footer_warning_2', user_name: @invite.user.name) %></p>
           </td>
         </tr>
 

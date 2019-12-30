@@ -130,11 +130,11 @@ en:
     invitation:
       title: "You've recieved an Invite from %{user_name}"
       cover_alt: Event image
-      has_invited: "%{invite.user_name} has invited you to:"
+      has_invited: "%{user_name} has invited you to:"
       accept: Accept
       follow_us: "follow us:"
       footer_warning_1: This email was sent by one of our users. If you don't know the sender, please report to contactus@yoohood.fun
-      footer_warning_2: By clicking 'more info' button you'll be redirect to Yoohood page. By accepting this invite, %{user_name} will earn 15 points. 
+      footer_warning_2: By clicking 'Accept' button you'll be redirect to Yoohood page. By accepting this invite, %{user_name} will earn 15 points. 
 
   invites:
     show:
