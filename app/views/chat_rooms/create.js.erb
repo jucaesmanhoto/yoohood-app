@@ -1,0 +1,9 @@
+if (<% @message.errors.any? %>) {
+
+} else {
+  const messageContainer = document.querySelector('.messages');
+  messageContainer.insertAdjacentHTML('beforeend', '<%= j render 'message', message: @message %>');
+  const input = document.querySelector('#message_content');
+  input.value ='';
+  input.blur();
+}
