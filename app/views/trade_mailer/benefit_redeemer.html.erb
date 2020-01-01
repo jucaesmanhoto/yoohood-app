@@ -2,4 +2,5 @@
 <h2>You have requested</h2>
 <h4><%= @trade.quantity %>x <%= @trade.benefit.name %></h4>
 to: <h3><%= @trade.benefit.event.title %></h3>
+<%= link_to "Contact the event producer", chat_room_url(@trade.chat_room, locale: I18n.locale ) %>
 <p>You're allways welcome to <%= link_to 'Yoohood', root_url %></p>

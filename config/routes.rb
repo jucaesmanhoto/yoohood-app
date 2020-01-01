@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => "/cable"
 
-  scope '(:locale)', locale: /br/ do
+  scope '(:locale)', locale: /en|br/ do
     root to: 'pages#home'
     get '/members', to: 'pages#members'
     get '/profile', to: 'pages#profile'

@@ -3,7 +3,7 @@
     <div class="col-md-8">
       <div class="chat-header">
         <h4>#<%= @chat_room.name %></h4>
-        <p>You're chatting with: <strong style="font-size: 24px"><%= current_user == @chat_room.trade.benefit.event.user ? @chat_room.trade.user.name : @chat_room.trade.benefit.event.user.name %></strong></p></div>
+        <p>You're chatting with: <strong style="font-size: 24px"><%= current_user == @trade.benefit.event.user ? @trade.user.name : @trade.benefit.event.user.name %></strong></p></div>
       <div class="messages">
         <% @chat_room.messages.each do |message| %>
           <%= render 'messages/message', message: message, user_is_messages_author: message.user == current_user %>

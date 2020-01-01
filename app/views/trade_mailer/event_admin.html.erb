@@ -4,5 +4,7 @@
 to: <h3><%= @trade.benefit.event.title %></h3>
 Please, send instructions to:
 <h2><%= @trade.user.email %></h2>
-As soon as possible
+<p>Or use our exclusive chat room:</p>
+<%= link_to "Contact #{@trade.user.name}", chat_room_url(@trade.chat_room, locale: I18n.locale ) %>
+<p>As soon as possible</p>
 <p>Thank you for believe in <%= link_to 'Yoohood', root_url %></p>

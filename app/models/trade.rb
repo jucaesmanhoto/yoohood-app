@@ -1,6 +1,7 @@
 class Trade < ApplicationRecord
   belongs_to :user
   belongs_to :benefit
+  has_one :chat_room
 
   validates :quantity,
             presence: true,
