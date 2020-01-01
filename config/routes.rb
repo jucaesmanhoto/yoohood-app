@@ -21,9 +21,6 @@ Rails.application.routes.draw do
     resources :benefits, only: %i[index edit destroy] do
       resources :trades, only: %i[new create]
     end
-    resources :chat_rooms, only: %i[show] do
-      resources :messages, only: %i[create]
-    end
     resources :contacts, only: %i[new create]
     resources :events do
       # get '/require', to: 'events#ask_for_ownership'
@@ -39,6 +36,9 @@ Rails.application.routes.draw do
     resources :invites, only: %i[show update]
     resources :places
     resources :trades, only: %i[index show]
+    resources :chat_rooms, only: %i[show] do
+      resources :messages, only: %i[create]
+    end
   end
 
   namespace :api, defaults: { format: :json } do

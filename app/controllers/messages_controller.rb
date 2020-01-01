@@ -11,14 +11,13 @@ class MessagesController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { render "chat_rooms/show" }
+        format.html { render 'chat_rooms/show' }
         format.js
       end
     end
   end
 
   private
-
   def message_params
     params.require(:message).permit(:content)
   end

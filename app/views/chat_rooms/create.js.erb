@@ -2,7 +2,7 @@ if (<% @message.errors.any? %>) {
 
 } else {
   const messageContainer = document.querySelector('.messages');
-  messageContainer.insertAdjacentHTML('beforeend', '<%= j render 'message', message: @message %>');
+  messageContainer.insertAdjacentHTML('beforeend', '<%= j render 'message', message: @message, user_is_messages_author: true %>');
   const input = document.querySelector('#message_content');
   input.value ='';
   input.blur();
