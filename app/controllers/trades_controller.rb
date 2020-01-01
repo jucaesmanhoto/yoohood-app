@@ -28,6 +28,7 @@ class TradesController < ApplicationController
     current_user.update(points: new_balance)
     @benefit.update(quantity: @benefit.quantity - @trade.quantity)
     if @trade.save
+      @chat_room = ChatRoom.create(name: "#{@trade.benefit.name} - #{@trade.benefit.event.title}", trade: @trade)
       @trade.send_trade_mail_to_event_admin
       @trade.send_trade_mail_to_benefit_redeemer
       redirect_to trade_path(@trade)
@@ -44,7 +45,7 @@ class TradesController < ApplicationController
 
   def destroy
   end
-  
+
   private
 
   def trade_params

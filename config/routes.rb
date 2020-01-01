@@ -17,13 +17,11 @@ Rails.application.routes.draw do
     get 'my_events', to: 'events#my_events'
     post 'nearby', to: 'events#nearby'
     # get 'invite', to: 'invites#invitation'
-    resources :places
-    resources :trades, only: %i[index show]
-    resources :invites, only: %i[show update]
     get '/invite/:id/:token', to: 'invites#show_if_logged', as: 'logged_invite'
     resources :benefits, only: %i[index edit destroy] do
       resources :trades, only: %i[new create]
     end
+    resources :contacts, only: %i[new create]
     resources :events do
       # get '/require', to: 'events#ask_for_ownership'
       # post '/require', to: 'events#make_it_mine'
@@ -34,8 +32,13 @@ Rails.application.routes.draw do
       resources :benefits, only: %i[show new create update]
       resources :checkins, only: %i[new create]
     end
-    resources :contacts, only: %i[new create]
     resources :event_categories, only: :destroy
+    resources :invites, only: %i[show update]
+    resources :places
+    resources :trades, only: %i[index show]
+    resources :chat_rooms, only: %i[show] do
+      resources :messages, only: %i[create]
+    end
   end
 
   namespace :api, defaults: { format: :json } do

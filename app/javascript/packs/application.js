@@ -8,14 +8,16 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import "../components/category_checkboxes";
 import { initScroll } from "../components/scroll_to_anchor";
 import { initStarRating } from '../plugins/init_star_rating';
+// import { scrollLastMessageIntoView } from '../components/scroll_to_last_message';
 
 previewImageOnFileSelect();
 // initMapbox();
 initAutocomplete();
 initScroll();
 initStarRating();
+// scrollLastMessageIntoView();
 
-$(document).ready(function(){  
+$(document).ready(function(){
   var clipboard = new Clipboard('#invite-link');
 });
 

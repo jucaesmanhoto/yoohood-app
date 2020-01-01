@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_12_211409) do
+ActiveRecord::Schema.define(version: 2019_12_31_005546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,12 @@ ActiveRecord::Schema.define(version: 2019_12_12_211409) do
     t.string "color_hex"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "chat_rooms", force: :cascade do |t|
+    t.string "name"
+    t.bigint "trade_id"
+    t.index ["trade_id"], name: "index_chat_rooms_on_trade_id"
   end
 
   create_table "checkins", force: :cascade do |t|
@@ -101,6 +107,16 @@ ActiveRecord::Schema.define(version: 2019_12_12_211409) do
     t.index ["user_id"], name: "index_invites_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "chat_room_id"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_room_id"], name: "index_messages_on_chat_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -151,6 +167,7 @@ ActiveRecord::Schema.define(version: 2019_12_12_211409) do
   end
 
   add_foreign_key "benefits", "events"
+  add_foreign_key "chat_rooms", "trades"
   add_foreign_key "checkins", "events"
   add_foreign_key "checkins", "users"
   add_foreign_key "event_categories", "categories"
@@ -160,6 +177,8 @@ ActiveRecord::Schema.define(version: 2019_12_12_211409) do
   add_foreign_key "events", "users"
   add_foreign_key "invites", "events"
   add_foreign_key "invites", "users"
+  add_foreign_key "messages", "chat_rooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "places", "events"
   add_foreign_key "trades", "benefits"
   add_foreign_key "trades", "users"

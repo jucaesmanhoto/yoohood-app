@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :trades
   has_many :benefits, through: :trades
   has_many :checkins
+  has_many :messages, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]

@@ -1,0 +1,6 @@
+<div class="message <%= user_is_messages_author ? "right" : "" %>">
+  <%#= image_tag message.user.photo, class: 'avatar' %>
+  <% placeholder = message.user.facebook_picture_url ? message.user.facebook_picture_url : "https://www.wittenberg.edu/sites/default/files/2018-10/nouser_0.jpg" %>
+  <%= image_tag message.user.photo.url ? message.user.photo.url : placeholder , class: "avatar" %>
+  <div class="message-content"><%= message.content %></div>
+</div>
