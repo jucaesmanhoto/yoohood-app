@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users,
              controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
+  mount ActionCable.server => "/cable"
+
   scope '(:locale)', locale: /br/ do
     root to: 'pages#home'
     get '/members', to: 'pages#members'
