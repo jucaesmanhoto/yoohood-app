@@ -201,7 +201,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="201" y="413" name="trades">
+<table x="57" y="439" name="trades">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
