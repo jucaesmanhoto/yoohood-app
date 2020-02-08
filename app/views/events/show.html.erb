@@ -2,7 +2,7 @@
 <% content_for :meta_description, t('.meta_description') %>
 <% content_for :meta_image, @event.cover %>
 
-<div class="event-show-page">
+<div class="event-show-page container">
   <div class="card-event-show">
     <div class="card-info-show">
       <div id="cover-and-map">
@@ -13,13 +13,13 @@
         <div id="gmap-show" class="gmap d-none d-md-inline-flex" data-markers="<%= @markers.to_json %>"></div>
       </div>
       <% if false %>
-        <%= render 'categories' %>
+      <%= render 'categories' %>
       <% elsif false %>
-        <% @event.categories.each do |category| %>
-          <span class="category-choice" style="background-color: <%= category.color_hex  %>" >
-            <%= category.name %>
-          </span>
-        <% end %>
+      <% @event.categories.each do |category| %>
+      <span class="category-choice" style="background-color: <%= category.color_hex  %>">
+        <%= category.name %>
+      </span>
+      <% end %>
       <% end %>
       <div class="card-body">
         <div class="card-title d-flex flex-column">
@@ -35,8 +35,9 @@
             </div>
             <div class="d-flex ml-2 qr-checkin flex-grow-0">
               <% if (@event.start_time < DateTime.now) && (@event.end_time > DateTime.now) %>
-                <%= image_tag('QR-code.svg', style: 'width: 30px;') %>
-                <a class= "small text-dark", style= "white-space: nowrap; padding-left: 4px" href="https://qrcodescan.in"><%= t('.check_in') %></a>
+              <%= image_tag('QR-code.svg', style: 'width: 30px;') %>
+              <a class="small text-dark" , style="white-space: nowrap; padding-left: 4px"
+                href="https://qrcodescan.in"><%= t('.check_in') %></a>
               <% end %>
             </div>
           </div>
@@ -44,86 +45,86 @@
             <%= render 'benefit_card' %>
           </div>
           <% if @event.user == current_user %>
-            <%= link_to t('.add_a_benefit'), new_event_benefit_path(@event), class: 'btn btn-dark' %>
+          <%= link_to t('.add_a_benefit'), new_event_benefit_path(@event), class: 'btn btn-dark' %>
           <% end %>
           <div class="row justify-content-between">
             <% if current_user.present?%>
-              <div class="col-12 col-md-6">
-                <button class="btn btn-block btn-success mt-3" data-toggle="modal" data-target="#inviteModal"><%= t('.invite_by_mail') %></button>
-              </div>
-              <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6">
+              <button class="btn btn-block btn-success mt-3" data-toggle="modal"
+                data-target="#inviteModal"><%= t('.invite_by_mail') %></button>
+            </div>
+            <div class="col-12 col-md-6">
               <%= simple_form_for [@event, @invite], url: event_generate_link_path(@event), remote: true do |f|%>
-                <%= f.submit value: t('.invite_with_link'), class: "btn btn-block btn-success mt-3", id: 'invite-with-link-button' %>
+              <%= f.submit value: t('.invite_with_link'), class: "btn btn-block btn-success mt-3", id: 'invite-with-link-button' %>
               <% end %>
-              
-              <div id="invite-link" class="btn btn-block btn-success mt-3 d-none text-center" data-clipboard-action="copy" data-clipboard-text='' >
+
+              <div id="invite-link" class="btn btn-block btn-success mt-3 d-none text-center"
+                data-clipboard-action="copy" data-clipboard-text=''>
                 <i class="fa fa-clipboard mr-2" aria-hidden="true"></i>
                 <%= t('.copy_to_clipboard') %>
               </div>
             </div>
 
             <% else %>
-              <div class="col-12">
-                <%= link_to t('.become_a_yoder'), members_path, class: "btn btn-block btn-primary mt-3" %>
-              </div>
+            <div class="col-12">
+              <%= link_to t('.become_a_yoder'), members_path, class: "btn btn-block btn-primary mt-3" %>
+            </div>
             <% end %>
-        </div>
-        <div class="d-flex flex-row my-4 text-black-50 align-items-center">
-          <i class="far fa-clock" style="margin-right: 10px; padding-top: 3px"></i>
-          <div class="flex-column">
-            <p class='time-show'><%= t('.start') %><%= l(@event.start_time, format: :event_show_card) %></p>
-            <p class='time-show'><%= t('.end') %><%= l(@event.end_time, format: :event_show_card) %></p>
           </div>
-        </div>
-        <div class="d-flex text-black-50">
-          <i class="fas fa-map-marker-alt" style="margin-right: 10px; padding-top: 3px"></i>
-          <p class="address-bottom"><%= @event.places.first.name %></p>
-        </div>
-        <p class="address-bottom address-side text-black-50"><%= @event.places.first.address %></p>
-        <p class="address-side text-black-50"><%= @event.places.first.city %></p>
-        <div class="d-flex text-black-50">
-          <% if @event.ticket_uri.present? %>
+          <div class="d-flex flex-row my-4 text-black-50 align-items-center">
+            <i class="far fa-clock" style="margin-right: 10px; padding-top: 3px"></i>
+            <div class="flex-column">
+              <p class='time-show'><%= t('.start') %><%= l(@event.start_time, format: :event_show_card) %></p>
+              <p class='time-show'><%= t('.end') %><%= l(@event.end_time, format: :event_show_card) %></p>
+            </div>
+          </div>
+          <div class="d-flex text-black-50">
+            <i class="fas fa-map-marker-alt" style="margin-right: 10px; padding-top: 3px"></i>
+            <p class="address-bottom"><%= @event.places.first.name %></p>
+          </div>
+          <p class="address-bottom address-side text-black-50"><%= @event.places.first.address %></p>
+          <p class="address-side text-black-50"><%= @event.places.first.city %></p>
+          <div class="d-flex text-black-50">
+            <% if @event.ticket_uri.present? %>
             <i class="fas fa-ticket-alt" style="margin-right: 10px; padding-top: 3px"></i>
             <%= link_to 'Tickets', @event.ticket_uri, target: "_blank", class: 'text-black-50' %>
+            <% end %>
+          </div>
+        </div>
+        <div class="divider mb-3" style="height: 3px; width: 100%; background-color: #000;"></div>
+        <div class="event-description p-2">
+          <p class="text-dark"><%= @event.description %></p>
+        </div>
+        <%= link_to t('.back'), events_path, class: "ml-3 my-4 btn btn-outline-dark float-left" %>
+        <%= link_to t('.event_admin'), new_contact_path, class: "mr-3 my-4 btn btn-outline-dark float-right" %>
+      </div>
+    </div>
+
+    <!-- INVITE MODAL -->
+    <div class="modal" tabindex="-1" role="dialog" id="inviteModal">
+      <div class="modal-dialog" role="document">
+        <%= simple_form_for @invite, url: event_invites_path(@event), method: :post do |f| %>
+        <div class="modal-content invite-box">
+          <div class="modal-header">
+            <div class="d-flex-flex-column">
+              <p class="modal-title text-black"><%= t('.invite_a_friend_to') %></p>
+              <h2 class="modal-title text-align-center text-black"><%= @event.title %></h2>
+            </div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!--  Need to put presence true -->
+            <%= f.input :guest_name, placeholder: "John Doe" %>
+            <%= f.input :guest_email, placeholder: "johndoe@gmail.com" %>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+            <!-- Make button smaller -->
+            <%= f.submit t('.submit'), class: "btn btn-dark align-items-center"%>
+          </div>
           <% end %>
         </div>
       </div>
-      <div class="divider mb-3" style="height: 3px; width: 100%; background-color: #000;"></div>
-      <div class="event-description p-2">
-        <p class="text-dark"><%= @event.description %></p>
-      </div>
-    <%= link_to t('.back'), events_path, class: "ml-3 my-4 btn btn-outline-dark float-left" %>
-    <%= link_to t('.event_admin'), new_contact_path, class: "mr-3 my-4 btn btn-outline-dark float-right" %>
-  </div>
-</div>
-
-<!-- INVITE MODAL -->
-<div class="modal" tabindex="-1" role="dialog" id="inviteModal">
-  <div class="modal-dialog" role="document">
-    <%= simple_form_for @invite, url: event_invites_path(@event), method: :post do |f| %>
-    <div class="modal-content invite-box">
-      <div class="modal-header">
-        <div class="d-flex-flex-column">
-          <p class="modal-title text-black"><%= t('.invite_a_friend_to') %></p>
-          <h2 class="modal-title text-align-center text-black"><%= @event.title %></h2>
-        </div>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!--  Need to put presence true -->
-        <%= f.input :guest_name, placeholder: "John Doe" %>
-        <%= f.input :guest_email, placeholder: "johndoe@gmail.com" %>
-      </div>
-      <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-        <!-- Make button smaller -->
-        <%= f.submit t('.submit'), class: "btn btn-dark align-items-center"%>
-      </div>
-      <% end %>
     </div>
-  </div>
-</div>
-
-

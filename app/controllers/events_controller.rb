@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index show nearby]
   before_action :set_event, only: %i[show edit update ask_for_ownership make_it_mine]
 
   def index
@@ -14,8 +14,8 @@ class EventsController < ApplicationController
       events_by_date = []
     end
     @events = (events_by_city + events_by_title + events_by_date).uniq
-    # @events = Event.all if @events.count.zero?
-    @events = @events.reject { |event| event.end_time <= Time.now.getutc }.sort { |a, b| a.start_time <=> b.start_time}
+    @events = Event.all if @events.count.zero?
+    @events = @events.reject { |event| event.end_time <= Time.now.getutc }.sort { |a, b| a.start_time <=> b.start_time }
     @markers = @events.map do |event|
       {
         lat: event.places.first.latitude,
@@ -74,7 +74,7 @@ class EventsController < ApplicationController
       }
     end
   end
-  
+
   def create
   end
 
@@ -101,19 +101,19 @@ class EventsController < ApplicationController
   private
 
   def distance(loc1, loc2)
-    rad_per_deg = Math::PI/180  # PI / 180
+    rad_per_deg = Math::PI / 180 # PI / 180
     rkm = 6371                  # Earth radius in kilometers
     rm = rkm * 1000             # Radius in meters
-  
-    dlat_rad = (loc2[0]-loc1[0]) * rad_per_deg  # Delta, converted to rad
-    dlon_rad = (loc2[1]-loc1[1]) * rad_per_deg
-  
-    lat1_rad, lon1_rad = loc1.map {|i| i * rad_per_deg }
-    lat2_rad, lon2_rad = loc2.map {|i| i * rad_per_deg }
-  
-    a = Math.sin(dlat_rad/2)**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * Math.sin(dlon_rad/2)**2
-    c = 2 * Math::atan2(Math::sqrt(a), Math::sqrt(1-a))
-  
+
+    dlat_rad = (loc2[0] - loc1[0]) * rad_per_deg # Delta, converted to rad
+    dlon_rad = (loc2[1] - loc1[1]) * rad_per_deg
+
+    lat1_rad, lon1_rad = loc1.map { |i| i * rad_per_deg }
+    lat2_rad, lon2_rad = loc2.map { |i| i * rad_per_deg }
+
+    a = Math.sin(dlat_rad / 2)**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * Math.sin(dlon_rad / 2)**2
+    c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+
     rkm * c # Delta in kilometers
   end
 

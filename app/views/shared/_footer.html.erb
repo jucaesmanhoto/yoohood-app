@@ -12,18 +12,26 @@
     </div>
 
     <div class="d-flex flex-row align-items-center" id="footer-pages">
-      <div class="footer-pages-column text-end" >
+      <div class="footer-pages-column text-end">
         <ul>
-          <a href=""><li><%= t('.cookies') %> </li></a>
-          <a href=""><li><%= t('.help_center') %></li></a>
+          <a href="">
+            <li><%= link_to t('.cookies'), new_contact_path %> </li>
+          </a>
+          <a href="">
+            <li><%= link_to t('.help_center'), new_contact_path %></li>
+          </a>
           <li><%= link_to t('.contact_us'), new_contact_path %></li>
         </ul>
       </div>
       <div class="footer-pages-column text-start">
         <ul>
           <li><%= link_to t('.about_us'), about_path %></li>
-          <a href=""><li><%= t('.legal') %></li></a>
-          <a href=""><li><%= t('.privacy_police') %></li></a>
+          <a href="">
+            <li><%= link_to t('.legal'), new_contact_path %></li>
+          </a>
+          <a href="">
+            <li><%= link_to t('.privacy_police'), new_contact_path %></li>
+          </a>
         </ul>
       </div>
     </div>
